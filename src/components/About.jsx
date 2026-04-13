@@ -65,7 +65,7 @@ const About = () => {
           <div className="relative z-10 w-full max-w-[400px] h-full rounded-2xl md:rounded-[2rem] overflow-hidden shadow-[0_25px_60px_-15px_rgba(120,53,15,0.3)] ring-1 ring-amber-600/10 group-hover/image:ring-amber-600/30 transition-all duration-700">
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/30 via-transparent to-transparent z-10 pointer-events-none"></div>
             <img 
-              src="/images/katharina_portrait.png" 
+              src="/images/katharina_portrait1.png" 
               alt="Katharina von Bilderling — Systemic Guide and Founder" 
               loading="lazy"
               decoding="async"
