@@ -13,9 +13,18 @@ const Navbar = () => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
-    return () => { document.body.style.overflow = 'unset'; };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.body.style.overflow = '';
+    };
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
@@ -61,7 +70,7 @@ const Navbar = () => {
     <>
       {/* Wrapper — always fixed, always centered, handles the width morph */}
       <div 
-        className="fixed top-0 left-0 w-full z-50 flex justify-center pointer-events-none"
+        className="fixed top-0 left-0 w-full z-[70] flex justify-center pointer-events-none"
         style={{ padding: pill ? '14px 16px 0' : '0' , transition: 'padding 0.8s cubic-bezier(0.22, 1, 0.36, 1)' }}
       >
         <nav
@@ -132,12 +141,16 @@ const Navbar = () => {
             {/* Language Toggle */}
             <button 
               onClick={toggleLang}
-              className="text-[11px] tracking-[0.12em] font-medium uppercase flex items-center gap-1"
+              className={`px-3 py-1.5 rounded-full border transition-all duration-500 flex items-center gap-1.5 ${
+                pill 
+                  ? 'bg-amber-900/5 border-amber-900/10 backdrop-blur-md' 
+                  : 'bg-stone-100/40 border-stone-200/50 backdrop-blur-sm'
+              }`}
               aria-label="Toggle language"
             >
-              <span className={`transition-colors duration-300 ${lang === 'DE' ? 'text-brand-gold font-semibold' : 'text-stone-400'}`}>DE</span>
-              <span className="text-stone-200">|</span>
-              <span className={`transition-colors duration-300 ${lang === 'EN' ? 'text-brand-gold font-semibold' : 'text-stone-400'}`}>EN</span>
+              <span className={`text-[10px] tracking-[0.1em] font-bold transition-colors duration-300 ${lang === 'DE' ? 'text-brand-gold' : 'text-stone-400'}`}>DE</span>
+              <span className="w-[1px] h-2.5 bg-stone-300/60"></span>
+              <span className={`text-[10px] tracking-[0.1em] font-bold transition-colors duration-300 ${lang === 'EN' ? 'text-brand-gold' : 'text-stone-400'}`}>EN</span>
             </button>
 
             {/* CTA Button */}
@@ -163,12 +176,12 @@ const Navbar = () => {
             {/* Mobile Hamburger */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative z-[60] w-9 h-9 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+              className="lg:hidden relative z-[60] w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
               aria-label="Toggle navigation menu"
             >
-              <span className={`block w-5 h-[1.5px] bg-stone-800 transition-all duration-300 origin-center ${isMobileMenuOpen ? 'rotate-45 translate-y-[4.5px]' : ''}`}></span>
-              <span className={`block w-5 h-[1.5px] bg-stone-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100'}`}></span>
-              <span className={`block w-5 h-[1.5px] bg-stone-800 transition-all duration-300 origin-center ${isMobileMenuOpen ? '-rotate-45 -translate-y-[4.5px]' : ''}`}></span>
+              <span className={`block w-6 h-[1.5px] bg-stone-800 transition-all duration-300 origin-center ${isMobileMenuOpen ? 'rotate-45 translate-y-[7.5px]' : ''}`}></span>
+              <span className={`block w-6 h-[1.5px] bg-stone-800 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100'}`}></span>
+              <span className={`block w-6 h-[1.5px] bg-stone-800 transition-all duration-300 origin-center ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7.5px]' : ''}`}></span>
             </button>
           </div>
 
@@ -176,8 +189,11 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 top-0 bg-white/98 backdrop-blur-xl z-[55] lg:hidden flex flex-col items-center justify-center transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-        <div className="flex flex-col items-center justify-center w-full space-y-8 pb-12">
+      <div 
+        className={`fixed inset-0 top-0 bg-white/98 backdrop-blur-xl z-[55] lg:hidden flex flex-col items-center justify-center transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        <div className="flex flex-col items-center justify-center w-full space-y-8 pb-12" onClick={(e) => e.stopPropagation()}>
           {navLinks.map((link, index) => (
             <Link
               key={link.id}
@@ -191,23 +207,29 @@ const Navbar = () => {
           ))}
           
           <div className={`flex items-center gap-3 mt-4 transition-all duration-500 delay-[240ms] ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <button onClick={() => setLang('DE')} className={`text-sm tracking-brand-wide font-medium transition-colors ${lang === 'DE' ? 'text-brand-gold' : 'text-stone-400 hover:text-stone-600'}`}>DE</button>
+            <button 
+              onClick={() => setLang('DE')} 
+              className={`px-4 py-2 rounded-full border transition-all ${lang === 'DE' ? 'bg-brand-gold/10 border-brand-gold text-brand-gold font-bold' : 'border-stone-200 text-stone-400 hover:text-stone-600'}`}
+            >
+              DE
+            </button>
             <span className="text-stone-300">|</span>
-            <button onClick={() => setLang('EN')} className={`text-sm tracking-brand-wide font-medium transition-colors ${lang === 'EN' ? 'text-brand-gold' : 'text-stone-400 hover:text-stone-600'}`}>EN</button>
+            <button 
+              onClick={() => setLang('EN')} 
+              className={`px-4 py-2 rounded-full border transition-all ${lang === 'EN' ? 'bg-brand-gold/10 border-brand-gold text-brand-gold font-bold' : 'border-stone-200 text-stone-400 hover:text-stone-600'}`}
+            >
+              EN
+            </button>
           </div>
 
           <div className={`mt-8 transition-all duration-500 delay-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-             <a 
-               href="#choose-your-entry"
-               onClick={(e) => {
-                 e.preventDefault();
-                 setIsMobileMenuOpen(false);
-                 setTimeout(() => { document.getElementById('choose-your-entry')?.scrollIntoView({ behavior: 'smooth' }); }, 300);
-               }}
-               className="px-8 py-4 border border-brand-gold/30 text-brand-gold uppercase tracking-brand-wide text-xs font-semibold rounded-full hover:bg-amber-50 transition-colors inline-block"
+             <Link 
+               to="/connection"
+               onClick={() => setIsMobileMenuOpen(false)}
+               className="px-10 py-5 bg-brand-gold text-white uppercase tracking-brand-wide text-xs font-bold rounded-full shadow-lg shadow-brand-gold/20 hover:scale-105 transition-transform inline-block"
              >
                The Connection
-             </a>
+             </Link>
           </div>
         </div>
       </div>
