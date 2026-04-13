@@ -1,48 +1,147 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import DustMotes from './DustMotes';
 
 const Footer = () => {
+  const [lang, setLang] = useState('EN');
+
   return (
-    <footer className="bg-stone-50 py-16 md:py-24 px-6 relative border-t border-stone-200/50">
+    <footer className="bg-brand-cream text-stone-600 relative overflow-hidden font-sans border-t border-stone-200/50">
       
-      {/* Decorative top accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-stone-50 via-amber-600/30 to-stone-50"></div>
-
-      <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-        <p className="text-amber-700/80 text-sm uppercase tracking-[0.3em] font-semibold mb-6">
-          The Final Call
-        </p>
-
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 mb-6 md:mb-8 tracking-wide leading-tight group">
-          Ready to <span className="text-amber-700 italic font-light block mt-2 animated-underline w-max mx-auto">Listen?</span>
-        </h2>
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+        {/* Subtle Dust Motes for brand continuity */}
+        <div className="absolute inset-0 opacity-[0.35]">
+          <DustMotes />
+        </div>
         
-        <p className="text-stone-600 font-light tracking-wide leading-relaxed text-sm md:text-base max-w-md mb-16">
-          Join the communion. Receive gentle guidance, reflections, and invitations to upcoming spaces.
-        </p>
+        {/* Optimized Glows — Warm amber accents on light canvas */}
+        <div 
+          className="absolute top-0 right-0 w-[600px] h-[600px] -translate-y-1/2 translate-x-1/2"
+          style={{ background: 'radial-gradient(circle, rgba(180, 83, 9, 0.06) 0%, rgba(180, 83, 9, 0) 70%)' }}
+        ></div>
+        <div 
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] translate-y-1/2 -translate-x-1/2"
+          style={{ background: 'radial-gradient(circle, rgba(180, 83, 9, 0.04) 0%, rgba(180, 83, 9, 0) 70%)' }}
+        ></div>
+      </div>
 
-        {/* Form container */}
-        <form className="w-full max-w-sm relative mb-24 group" onSubmit={(e) => e.preventDefault()}>
-          <input 
-            type="email" 
-            placeholder="Your gentle email address" 
-            className="w-full bg-transparent border-b border-stone-300/80 pb-3 outline-none text-stone-800 font-light tracking-wide placeholder:text-stone-400 focus:border-amber-600/50 transition-colors"
-          />
-          <button type="submit" className="absolute right-0 bottom-3 text-amber-700/80 uppercase text-xs tracking-[0.2em] font-semibold hover:text-amber-800 transition-colors">
-            Join
-          </button>
-        </form>
 
-        {/* Bottom copyright & links */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center text-stone-500 text-[10px] md:text-xs uppercase tracking-[0.2em] border-t border-stone-200/50 pt-10 gap-8 md:gap-0">
-          <div>© {new Date().getFullYear()} Katharina von Bilderling</div>
+      {/* ─── Main Content ─── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-20 pb-12">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
           
-          <div className="flex gap-10">
-            <a href="#" className="hover:text-amber-700/80 transition-colors">Instagram</a>
-            <a href="#" className="hover:text-amber-700/80 transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-amber-700/80 transition-colors">Contact</a>
+          {/* Identity Column */}
+          <div className="md:col-span-5 lg:col-span-6">
+            <div className="mb-10">
+              <h3 className="font-serif text-3xl md:text-4xl text-brand-stone mb-4 tracking-tight">
+                Katharina <br />
+                <span className="text-brand-gold">von Bilderling</span>
+              </h3>
+              <div className="w-12 h-[1px] bg-brand-gold/40 mb-8"></div>
+              <p className="text-stone-500 font-light text-base leading-relaxed tracking-wide max-w-md">
+                Guiding systemic transformation from the core outward. Facilitating an awakening calling for those ready to live their true purpose.
+              </p>
+            </div>
+            
+            {/* Social Link */}
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 text-stone-400 hover:text-brand-gold transition-colors duration-500"
+            >
+              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold">LinkedIn Profile</span>
+              <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover:border-brand-gold transition-colors duration-500">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </div>
+            </a>
+          </div>
+
+          {/* Links Grid */}
+          <div className="md:col-span-7 lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-10">
+            
+            {/* Nav */}
+            <div>
+              <h4 className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-8">Navigation</h4>
+              <ul className="space-y-4">
+                {[
+                  { name: 'Home', path: '/' },
+                  { name: 'The Journey', path: '/journey' },
+                  { name: 'The Communion', path: '/#voices-of-change' },
+                  { name: 'The Connection', path: '/connection' }
+                ].map((link, i) => (
+                  <li key={i}>
+                    <Link 
+                      to={link.path}
+                      className="text-stone-500 hover:text-brand-stone text-sm font-light tracking-wide transition-all duration-300 hover:translate-x-1 inline-block"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Access */}
+            <div>
+              <h4 className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-8">The Access</h4>
+              <ul className="space-y-4">
+                {[
+                  { name: 'Inquiry', path: '/#choose-your-entry' },
+                  { name: 'Entry Points', path: '/#choose-your-entry' },
+                  { name: 'Methodology', path: '/#philosophy' }
+                ].map((link, i) => (
+                  <li key={i}>
+                    <Link 
+                      to={link.path}
+                      className="text-stone-500 hover:text-brand-stone text-sm font-light tracking-wide transition-all duration-300 hover:translate-x-1 inline-block"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div className="col-span-2 sm:col-span-1">
+              <h4 className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-8">Legal</h4>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-stone-500 hover:text-brand-stone text-sm font-light transition-all duration-300 inline-block hover:translate-x-1">Impressum</a></li>
+                <li><a href="#" className="text-stone-500 hover:text-brand-stone text-sm font-light transition-all duration-300 inline-block hover:translate-x-1">Datenschutz</a></li>
+              </ul>
+            </div>
+
           </div>
         </div>
+
+        {/* ─── Bottom Stripe ─── */}
+        <div className="pt-10 border-t border-stone-200/80 flex flex-col md:flex-row justify-between items-center gap-8 text-stone-400 text-[10px] uppercase tracking-[0.2em]">
+          
+          <div className="flex items-center gap-2 flex-wrap justify-center font-medium">
+            <span>© {new Date().getFullYear()} Katharina von Bilderling</span>
+            <span className="text-stone-200">|</span>
+            <span>Design by <a href="https://zecore.co" target="_blank" rel="noopener noreferrer" className="text-brand-gold/60 hover:text-brand-gold transition-colors">Zecore</a></span>
+          </div>
+          
+          {/* Language Control */}
+          <div className="flex items-center bg-stone-100 rounded-full p-1 border border-stone-200/50">
+            <button 
+              onClick={() => setLang('DE')}
+              className={`px-4 py-1.5 rounded-full transition-all duration-500 text-[10px] ${lang === 'DE' ? 'bg-white text-brand-gold font-bold shadow-md shadow-stone-200/50' : 'text-stone-400 hover:text-stone-600'}`}
+            >DE</button>
+            <button 
+              onClick={() => setLang('EN')}
+              className={`px-4 py-1.5 rounded-full transition-all duration-500 text-[10px] ${lang === 'EN' ? 'bg-white text-brand-gold font-bold shadow-md shadow-stone-200/50' : 'text-stone-400 hover:text-stone-600'}`}
+            >EN</button>
+          </div>
+
+        </div>
+
       </div>
+
     </footer>
   );
 };
