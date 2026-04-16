@@ -25,7 +25,7 @@ const Hero = ({ isAppLoaded }) => {
   const marqueeWords = ['Commitment', 'Communication', 'Communion', 'Systemic Wisdom', 'Inner Order', 'Life Potential'];
 
   return (
-    <section id="the-calling" className="h-screen sticky top-0 flex items-center justify-center text-center bg-brand-cream px-6 pt-20 overflow-hidden z-0">
+    <section id="the-calling" className="min-h-[100svh] relative flex items-center justify-center text-center bg-brand-cream px-4 sm:px-6 pt-32 pb-40 overflow-x-hidden z-0">
       
       {/* Background Visuals */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">

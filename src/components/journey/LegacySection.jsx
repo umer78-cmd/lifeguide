@@ -29,6 +29,8 @@ const LegacySection = () => {
         <img 
           src="/images/systemic_order_abstract_1776084826206.png" 
           alt="" 
+          loading="lazy"
+          decoding="async"
           className="absolute right-0 top-0 w-1/2 h-full object-cover opacity-[0.03] mix-blend-multiply"
         />
       </div>

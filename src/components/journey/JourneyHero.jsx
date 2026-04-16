@@ -14,7 +14,7 @@ const JourneyHero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen bg-brand-cream overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col bg-brand-cream overflow-hidden">
       
       {/* Immersive Background Textures */}
       <div className="absolute inset-0 z-0">
@@ -56,7 +56,7 @@ const JourneyHero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-brand-cream via-transparent to-brand-cream"></div>
       </div>
 
-      <div className="relative h-full w-full flex items-center justify-center overflow-hidden">
+      <div className="relative flex-1 w-full flex items-center justify-center overflow-hidden">
         
         {/* Large Year Background Typography */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

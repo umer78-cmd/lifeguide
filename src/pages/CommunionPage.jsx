@@ -156,7 +156,7 @@ const CommunionPage = () => {
       {/* 4. Why Guidance? (Science of Energy) */}
       <section className="py-32 md:py-52 bg-white relative overflow-hidden">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none">
-          <img src="/images/energy_logic.png" alt="Energy flow" className="w-full h-full object-cover" />
+          <img src="/images/energy_logic.png" alt="Energy flow" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-20">

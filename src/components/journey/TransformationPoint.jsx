@@ -24,6 +24,8 @@ const TransformationPoint = () => {
           <img 
             src="/images/katharina_dignity_warm_1776083737023.png" 
             alt="The Transformation"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           {/* Subtle Radiant Overlays - Optimized */}
