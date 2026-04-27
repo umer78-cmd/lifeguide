@@ -128,7 +128,7 @@ export default function ConnectionPage() {
             transition={{ delay: 1.0, duration: 1.4 }}
             className="max-w-2xl mx-auto text-stone-500 text-lg md:text-xl font-light leading-relaxed tracking-wide mb-6"
           >
-            "This is not a booking link. It is a discernment process — for both of us."
+            "This is not a method or a tool. It is direct access to an inner realm — a discernment process for both of us."
           </motion.p>
 
           <motion.p
@@ -137,7 +137,7 @@ export default function ConnectionPage() {
             transition={{ delay: 1.3, duration: 1.2 }}
             className="max-w-xl mx-auto text-stone-400 text-base font-light leading-relaxed mb-16"
           >
-            Three honest questions. Then, if the resonance is clear, the calendar opens.
+            A space to perceive the work without distraction. Three honest questions. Then, if the resonance is clear, the calendar opens.
           </motion.p>
 
           <motion.div
@@ -392,15 +392,10 @@ export default function ConnectionPage() {
               </h2>
               <div className="space-y-8 max-w-xl">
                 <p className="text-stone-600 text-xl font-light leading-relaxed">
-                  A calendar link is open to anyone.{' '}
-                  <span className="text-brand-gold font-medium">
-                    This space is not.
-                  </span>
+                  The purpose of this inquiry is <span className="text-brand-gold font-medium">collaboration.</span>
                 </p>
                 <p className="text-stone-500 text-lg font-light leading-relaxed">
-                  The three questions are not a filter of worth — they are an
-                  invitation to begin arriving. The act of honest reflection before
-                  we meet sets the foundation for everything that follows.
+                  The "Guidance Path" only exists through this partnership. The three questions are an invitation to begin arriving—ensuring that this work remains individual, non-standardized, and focused on your unique systemic potential.
                 </p>
               </div>
 
@@ -421,22 +416,10 @@ export default function ConnectionPage() {
               </div>
             </motion.div>
 
-            {/* Abstract Orb Visual */}
-            <div className="relative aspect-square max-w-md mx-auto lg:ml-auto">
-              <div className="absolute inset-0 border border-stone-200 rounded-full animate-pulse-slow" />
-              <div
-                className="absolute inset-8 border border-brand-gold/20 rounded-full animate-pulse-slow"
-                style={{ animationDelay: '1s' }}
-              />
-              <div
-                className="absolute inset-16 border border-stone-100 rounded-full animate-pulse-slow"
-                style={{ animationDelay: '2s' }}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 bg-brand-gold/10 backdrop-blur-3xl rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 bg-brand-gold rounded-full shadow-[0_0_30px_#b45309]" />
-                </div>
-              </div>
+            {/* Clean, Reduced Environment */}
+            <div className="relative aspect-square max-w-md mx-auto lg:ml-auto flex items-center justify-center">
+              <div className="absolute inset-0 border border-stone-100 rounded-full" />
+              <div className="w-1 h-1 bg-brand-gold/40 rounded-full" />
             </div>
           </div>
         </section>
@@ -465,18 +448,18 @@ export default function ConnectionPage() {
               {[
                 {
                   num: '01',
-                  title: 'Your Application Is Received',
-                  body: 'Your three reflections are read with full attention — not skimmed. This is the beginning of presence.',
+                  title: 'Presence Initialized',
+                  body: 'Your three reflections are read with full attention. This is the moment where the collaboration begins.',
                 },
                 {
                   num: '02',
-                  title: 'A Time Is Chosen',
-                  body: 'You select a moment in the calendar. Not a slot — a moment of genuine meeting.',
+                  title: 'A Time Selected',
+                  body: 'You select a moment in the calendar. Not a slot — a moment of genuine, unhurried meeting.',
                 },
                 {
                   num: '03',
-                  title: 'We Begin, Together',
-                  body: 'The first session is an unhurried conversation. No agenda. Only the truth of where you are.',
+                  title: 'An Impulse Set',
+                  body: 'The first meeting is a systemic calibration. No discovery call agenda—only an impulse being set for your potential.',
                 },
               ].map((item, i) => (
                 <motion.div

@@ -109,13 +109,13 @@ const JourneyHero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-8 block">The Awakening</span>
+                  <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-8 block">The Entry</span>
                   <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-wide">
-                    The Mentor: <br />
-                    <BrushHighlight className="italic text-brand-gold">Life Potential.</BrushHighlight>
+                    The Guidance Path: <br />
+                    <BrushHighlight className="italic text-brand-gold">Reorganizing from Within.</BrushHighlight>
                   </h1>
                   <p className="text-stone-500 font-light text-base md:text-lg leading-relaxed tracking-wide max-w-xl mx-auto">
-                    A calling to move from understandable systems to the silent organizing principle of home.
+                    A space where life begins to reorganize from within. Not a sales pitch, but an entry into a profound shift of potential.
                   </p>
                 </motion.div>
               )}

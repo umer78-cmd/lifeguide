@@ -92,7 +92,7 @@ const TransformationPoint = () => {
               className="text-stone-600 font-light text-lg md:text-xl leading-relaxed max-w-2xl mx-auto tracking-wide"
               style={{ willChange: 'transform, opacity' }}
             >
-              Transformation expanded the frame. Beyond the science of systems, I found the "soul" of order. Not just as a theory, but as a lived, unhurried truth that grounds everything I do.
+              This work is not coaching, therapy, or consulting. It is a precise architectural shift that begins where energy is bound—helping you move beyond just "functioning" into the unhurried truth of your potential.
             </motion.p>
           </div>
         </motion.div>

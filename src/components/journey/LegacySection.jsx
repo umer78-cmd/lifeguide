@@ -7,7 +7,7 @@ const LegacySection = () => {
     {
       year: '2003',
       title: 'Scientific Foundation',
-      desc: 'Deep investigation into systemic structures and biological interconnectedness. The first architectural maps of human order were drawn here.'
+      desc: 'As a scientist at her core, Katharina began with a deep investigation into systemic structures. Life-changing experiences led to the precise realization that order is biological, architectural, and foundational.'
     },
     {
       year: '2015',
@@ -101,12 +101,12 @@ const LegacySection = () => {
             <div className="relative z-10 text-center">
               <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-brand-gold mb-12 block">The Scientist Edge</span>
               <h3 className="text-3xl md:text-5xl font-serif text-brand-stone mb-10 leading-tight">
-                The Interconnected <br />
+                Human = <br />
                 <span className="italic">System.</span>
               </h3>
               
               <p className="text-stone-600 font-light text-lg md:text-xl leading-relaxed tracking-wide mb-14 max-w-2xl mx-auto">
-                "Human systems are dynamic networks of information, biology, and intention. My methodology treats the person, the family, and the organization as a singular, vibrating system that seeks its own point of balance."
+                "There is no separation. The human is the system. My methodology treats the person, the family, and the organization as a singular, interconnected network that seeking its own precise point of balance."
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center">

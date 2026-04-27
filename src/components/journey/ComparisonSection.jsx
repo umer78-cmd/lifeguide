@@ -16,26 +16,26 @@ const ComparisonSection = () => {
     restDelta: 0.001
   });
 
-  const comparisonData = [
+  const evolutionStages = [
     {
-      label: 'The Focus',
-      old: 'Symptom-focused investigation',
-      new: 'Inner Order & Architecture'
+      label: 'Inner Order',
+      tagline: 'Internal Architecture',
+      description: 'The process of internal reorganization where systems align with their true source.'
     },
     {
-      label: 'The Origin',
-      old: 'Outside solutions & advice',
-      new: 'Systemic Center of Potential'
+      label: 'Systemic Creator',
+      tagline: 'Active Architecture',
+      description: 'Recognizing that the human is a system, and every action is a creation within that system.'
     },
     {
-      label: 'The Goal',
-      old: 'Constant adaptation to issues',
-      new: 'Lived Life Potential'
+      label: 'Lived Life Potential',
+      tagline: 'Ultimate Emergence',
+      description: 'Where the work transcends theory and becomes a lived, unhurried reality.'
     },
     {
-      label: 'The View',
-      old: 'Isolated symptoms & issues',
-      new: 'The Human as a Whole System'
+      label: 'The Three Comms',
+      tagline: 'Core Elements',
+      description: 'Commitment, Communication, and Communion—the pillars that have emerged to the surface.'
     }
   ];
 
@@ -114,62 +114,37 @@ const ComparisonSection = () => {
             </svg>
           </div>
 
-          {/* Tiered Vertical Experience */}
-          <div className="space-y-48 md:space-y-64 relative z-10">
-            {comparisonData.map((item, i) => (
+          {/* Vertical Evolution Experience */}
+          <div className="space-y-32 md:space-y-48 relative z-10">
+            {evolutionStages.map((item, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-20%" }}
-                className="relative"
-                style={{ willChange: 'opacity' }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                className="relative max-w-2xl mx-auto"
+                style={{ willChange: 'transform, opacity' }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+                {/* Floating Point indicator on path (Desktop) */}
+                <div className="absolute top-1/2 -left-24 w-1.5 h-1.5 rounded-full bg-brand-gold/40 hidden md:block -translate-y-1/2">
+                   <motion.div 
+                     initial={{ scale: 0 }}
+                     whileInView={{ scale: 1 }}
+                     viewport={{ once: true }}
+                     className="w-full h-full bg-brand-gold/60 rounded-full"
+                   />
+                </div>
+
+                <div className="bg-white/90 border border-stone-100 p-12 md:p-16 rounded-[3rem] relative overflow-hidden group text-center shadow-[0_20px_50px_-20px_rgba(28,25,23,0.05)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/[0.03] to-transparent pointer-events-none"></div>
                   
-                  {/* Left: Conventional */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 0.4, x: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center md:text-right group"
-                    style={{ willChange: 'transform, opacity' }}
-                  >
-                    <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-stone-300 mb-6 block">Conventional</span>
-                    <p className="text-xl md:text-2xl font-serif text-stone-400 italic font-light group-hover:text-stone-500 transition-all duration-700">
-                      {item.old}
-                    </p>
-                  </motion.div>
-
-                  {/* Right: commIN */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="relative"
-                    style={{ willChange: 'transform, opacity' }}
-                  >
-                    {/* Floating Point indicator on path (Desktop) */}
-                    <div className="absolute top-1/2 -left-32 w-2 h-2 rounded-full border border-brand-gold/40 hidden md:block -translate-y-1/2">
-                       <motion.div 
-                         initial={{ scale: 0 }}
-                         whileInView={{ scale: 1 }}
-                         viewport={{ once: true }}
-                         className="w-full h-full bg-brand-gold/20 rounded-full"
-                         style={{ willChange: 'transform' }}
-                       />
-                    </div>
-
-                    <div className="bg-white/95 border border-stone-200 shadow-[0_20px_60px_-15px_rgba(28,25,23,0.08)] p-10 md:p-12 rounded-[2.5rem] relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent pointer-events-none"></div>
-                      
-                      <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-brand-gold mb-6 block">{item.label}</span>
-                      <p className="text-2xl md:text-3xl lg:text-4xl font-serif text-brand-stone leading-tight">
-                        {item.new}
-                      </p>
-                    </div>
-                  </motion.div>
-
+                  <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-brand-gold mb-8 block opacity-80">{item.tagline}</span>
+                  <h3 className="text-3xl md:text-5xl font-serif text-brand-stone mb-8 leading-tight tracking-wide">
+                    {item.label}
+                  </h3>
+                  <p className="text-stone-500 font-light text-lg md:text-xl leading-relaxed tracking-wide">
+                    {item.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

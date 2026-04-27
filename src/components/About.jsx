@@ -76,53 +76,50 @@ const About = () => {
 
         {/* Right - Text */}
         <div className="flex flex-col text-left">
-          <p className="text-brand-gold/80 text-sm uppercase tracking-brand-wide mb-6 font-semibold">
-            The Expert
+          <p className="text-brand-gold/80 text-sm uppercase tracking-brand-wide mb-10 font-semibold">
+            Understanding the Core
           </p>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight mb-8 group">
-            23 Years of <BrushHighlight className="italic text-brand-gold block mt-2">Systemic Wisdom</BrushHighlight>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight mb-12">
+            The Logic of <br /><span className="italic text-brand-gold">Inner Reorganization</span>
           </h2>
           
-          <div className="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide">
-            <p className="text-brand-stone font-serif italic text-lg md:text-xl leading-relaxed tracking-wider border-l-2 border-brand-gold/30 pl-6">
-              "Starting as a scientist, I searched for clarity and structure. I discovered that humans are not symptoms to be fixed, but interconnected systems to be reordered."
+          <div className="space-y-10 text-stone-600 font-light leading-relaxed text-base md:text-lg tracking-wide">
+            <p>
+              Most people function remarkably well despite significant inner imbalances. They adapt, compensate, and continue—often for years—while sensing that something is no longer aligned.
+            </p>
+            <p>
+              Common approaches focus on these external symptoms, attempting to fix what is visible on the surface. But true change requires a different starting point.
+            </p>
+            <p className="text-brand-stone font-serif italic text-xl md:text-2xl leading-relaxed tracking-wider border-l-2 border-brand-gold/30 pl-8 my-12">
+              "My work begins within, where energy is bound in systemic imbalances. We don't fix symptoms; we restore the flow."
+            </p>
+            <p>
+              Life potential is a bidirectional flow. When the inner architecture is clear, energy moves freely, allowing life to reorganize itself from the core outward.
             </p>
           </div>
           
-          {/* Animated Stats */}
-          <div className="mt-12 flex items-center space-x-6">
-            <div className="flex flex-col" ref={years.ref}>
-              <span className="text-3xl font-serif text-brand-gold tabular-nums">
-                {years.count}<span className="text-brand-gold/80">+</span>
-              </span>
-              <span className="text-xs uppercase tracking-[0.2em] text-stone-500 mt-2 font-medium">Years of Practice</span>
+          {/* Subtle Authority Integration */}
+          <div className="mt-20 pt-10 border-t border-stone-200/80 flex flex-col md:flex-row md:items-center gap-8 opacity-60">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-2 font-bold">Foundation</p>
+              <p className="text-stone-600 text-sm font-light">23 Years of Systemic Practice</p>
             </div>
-            <div className="w-[1px] h-12 bg-stone-300"></div>
-            <div className="flex flex-col" ref={founded.ref}>
-              <span className="text-3xl font-serif text-brand-gold tabular-nums">
-                {founded.count}
-              </span>
-              <span className="text-xs uppercase tracking-[0.2em] text-stone-500 mt-2 font-medium">Year Founded</span>
+            <div className="hidden md:block w-12 h-[1px] bg-stone-300"></div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-2 font-bold">The Expert</p>
+              <p className="text-brand-gold font-serif text-lg italic">Katharina von Bilderling</p>
             </div>
-          </div>
-
-          {/* Founder's Note */}
-          <div className="mt-12 pt-8 border-t border-stone-200/80">
-            <p className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-3 font-medium">Founder's Note</p>
-            <p className="text-brand-gold/80 font-serif text-xl md:text-2xl italic tracking-wide">
-              Katharina von Bilderling
-            </p>
           </div>
 
           {/* Journey CTA */}
-          <div className="mt-10">
+          <div className="mt-16">
             <Link
               to="/journey"
               id="journey-cta-about"
-              className="group inline-flex items-center gap-4 px-8 py-3.5 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[10px] tracking-[0.3em] font-bold transition-all duration-500 hover:shadow-[0_8px_30px_rgba(180,83,9,0.22)]"
+              className="group inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[10px] tracking-[0.3em] font-bold transition-all duration-500"
             >
-              Know More About My Journey
+              The Full Journey
               <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/50">
                 <svg className="w-2 h-2 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -39,7 +39,7 @@ const VoicesOfChange = () => {
             {/* Testimonial text */}
             <div className="text-stone-700 font-light leading-relaxed text-sm md:text-base tracking-wide space-y-4">
               <p>
-                I'd already worked with several therapists and consultants in the field of life energy, but I'd never experienced anything like Katharina von Bilderling's LifeGuide guidance.
+                I'd already worked with several therapists and practitioners in the field of life energy, but I'd never experienced anything like Katharina von Bilderling's LifeGuide guidance.
               </p>
               <p>
                 Such profound and mindful work, and somehow it all makes perfect sense when you understand the connections that explain why certain life issues are the way they are.

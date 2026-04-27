@@ -128,11 +128,11 @@ const CommunionPage = () => {
                 "A direct, intensive path that unfolds through personal guidance. Exactly where something has fallen out of balance, we begin the reordering."
               </p>
 
-              <div className="space-y-10 mb-16 flex-grow">
+              <div className="space-y-10 mb-12 flex-grow">
                 {[
-                  { title: "Direct Recalibration", subtitle: "Release of bound energy." },
-                  { title: "Systemic Center Work", subtitle: "Restoring the inner order." },
-                  { title: "Personalized Pace", subtitle: "Your unique systemic flow." }
+                  { title: "Foundation — 3 Sessions", subtitle: "Entry and first movement." },
+                  { title: "Stabilization — 5 Sessions", subtitle: "Clarification and integration." },
+                  { title: "Deep Work — 8 Sessions", subtitle: "Depth and reorganization." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 items-start">
                     <span className="text-brand-gold/40 font-serif text-2xl mt-1">0{i+1}</span>
@@ -144,8 +144,12 @@ const CommunionPage = () => {
                 ))}
               </div>
 
+              <p className="text-stone-400 text-sm italic mb-10 font-light leading-relaxed">
+                "The depth of the process is not defined by time—but by how far you are ready to go."
+              </p>
+
               <button className="w-full py-5 border border-brand-gold text-brand-gold uppercase text-xs tracking-brand-wide font-bold rounded-full hover:bg-brand-gold hover:text-white transition-all duration-500">
-                Apply for Mentorship
+                Apply for Guidance
               </button>
             </motion.div>
 
@@ -155,8 +159,9 @@ const CommunionPage = () => {
 
       {/* 4. Why Guidance? (Science of Energy) */}
       <section className="py-32 md:py-52 bg-white relative overflow-hidden">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none">
-          <img src="/images/energy_logic.png" alt="Energy flow" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+        {/* Visuals reduced to pure abstraction */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(#b45309_1px,transparent_1px)] [background-size:40px_40px]"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
@@ -172,10 +177,10 @@ const CommunionPage = () => {
             </h2>
             <div className="space-y-8 max-w-xl">
               <p className="text-stone-600 text-xl font-light leading-relaxed">
-                Many approaches fix symptoms. We <span className="text-brand-gold font-medium">release bound energy.</span>
+                Many approaches solve problems. We operate at the <span className="text-brand-gold font-medium">level where problems originate.</span>
               </p>
               <p className="text-stone-500 text-lg font-light leading-relaxed">
-                By working at the inner center—the life potential—stability is maintained naturally, not through pressure. Our method reorders the systemic foundation so your life power can flow freely again.
+                This is not a method, but a direct access to an inner realm. By working at the systemic foundation, we release bound energy so your life power can reorganize itself naturally.
               </p>
             </div>
             
@@ -192,16 +197,11 @@ const CommunionPage = () => {
             </div>
           </motion.div>
 
-          {/* Abstract Visual Placeholder / Grid */}
-          <div className="relative aspect-square max-w-md mx-auto lg:ml-auto">
-             <div className="absolute inset-0 border border-stone-200 rounded-full animate-pulse-slow"></div>
-             <div className="absolute inset-8 border border-brand-gold/20 rounded-full animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-             <div className="absolute inset-16 border border-stone-100 rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 bg-brand-gold/10 backdrop-blur-3xl rounded-full flex items-center justify-center">
-                   <div className="w-4 h-4 bg-brand-gold rounded-full shadow-[0_0_30px_#b45309]"></div>
-                </div>
-             </div>
+          {/* Reduced Architectural Visual */}
+          <div className="relative aspect-square max-w-md mx-auto lg:ml-auto flex items-center justify-center">
+             <div className="absolute inset-0 border border-stone-100 rounded-full"></div>
+             <div className="absolute inset-16 border border-stone-50 rounded-full"></div>
+             <div className="w-1.5 h-1.5 bg-brand-gold rounded-full shadow-[0_0_20px_#b45309]"></div>
           </div>
         </div>
       </section>
@@ -214,20 +214,24 @@ const CommunionPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
              <div className="p-10 bg-white border border-stone-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-500">
                 <h3 className="text-xl font-serif mb-4">Self-Directed</h3>
-                <p className="text-stone-500 mb-8 text-sm">Access the group space immediately.</p>
+                <p className="text-stone-500 mb-8 text-sm italic">"I build my own foundation."</p>
                 <button className="w-full py-4 text-brand-stone border border-brand-stone uppercase text-xs tracking-brand-wide font-bold rounded-full hover:bg-brand-stone hover:text-white transition-all">
-                  Join Now
+                  Join the space
                 </button>
              </div>
              
              <div className="p-10 bg-white border border-brand-gold/30 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-500">
                 <h3 className="text-xl font-serif mb-4">Direct Guidance</h3>
-                <p className="text-stone-500 mb-8 text-sm">Customized Scope & Personal Mentorship.</p>
+                <p className="text-stone-500 mb-8 text-sm italic">"I activate the collaboration."</p>
                 <button className="w-full py-4 bg-brand-gold text-white uppercase text-xs tracking-brand-wide font-bold rounded-full hover:bg-amber-700 transition-all shadow-lg">
-                  Book Assessment
+                  Begin the Inquiry
                 </button>
              </div>
           </div>
+          
+          <p className="text-stone-500 font-light text-sm max-w-xl mx-auto mb-16 leading-relaxed">
+            This work is entirely individual and not standardized. Every path is a unique recalibration of your systemic potential.
+          </p>
           
           <div className="pt-10 border-t border-stone-200">
             <p className="text-stone-400 text-xs uppercase tracking-[0.2em]">

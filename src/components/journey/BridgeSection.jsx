@@ -67,7 +67,7 @@ const BridgeSection = () => {
             }}
             className="group relative inline-flex items-center gap-8 px-16 py-8 bg-brand-stone text-white uppercase text-[10px] tracking-[0.4em] font-bold rounded-full overflow-hidden transition-all duration-700 hover:shadow-[0_30px_100px_rgba(180,83,9,0.3)]"
           >
-            <span className="relative z-10 transition-colors duration-500 group-hover:text-brand-stone">Explore the Communion</span>
+            <span className="relative z-10 transition-colors duration-500 group-hover:text-brand-stone">Begin the Process</span>
             <div className="w-10 h-[1px] bg-brand-gold group-hover:bg-brand-stone transition-all duration-500 relative z-10"></div>
             
             {/* Liquid Fill Hover Effect */}

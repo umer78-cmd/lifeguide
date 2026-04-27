@@ -28,7 +28,16 @@ const Footer = () => {
 
 
       {/* ─── Main Content ─── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-20 pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-24 pb-12">
+        
+        {/* Powerful Closing Statement */}
+        <div className="text-center mb-24 md:mb-32">
+          <p className="text-brand-stone font-serif text-2xl md:text-4xl italic tracking-wider leading-relaxed max-w-4xl mx-auto">
+            "Nothing is forced. Nothing is rushed. <br className="hidden md:block" />
+            The process follows you—not a schedule."
+          </p>
+          <div className="w-24 h-[1px] bg-brand-gold/20 mx-auto mt-12"></div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
           
@@ -41,7 +50,7 @@ const Footer = () => {
               </h3>
               <div className="w-12 h-[1px] bg-brand-gold/40 mb-8"></div>
               <p className="text-stone-500 font-light text-base leading-relaxed tracking-wide max-w-md">
-                Guiding systemic transformation from the core outward. Facilitating an awakening calling for those ready to live their true purpose.
+                Guiding systemic transformation from the core outward. Facilitating a Guidance Path for those ready to live their true purpose.
               </p>
             </div>
             
