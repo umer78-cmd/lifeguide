@@ -115,16 +115,29 @@ const DustMotes = () => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!animationFrameId) animate();
+        } else {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      },
+      { threshold: 0.1 }
+    );
+
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove);
     
     resize();
-    animate();
+    observer.observe(canvas);
 
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
     };
   }, []);
 

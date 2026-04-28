@@ -130,7 +130,7 @@
 
   .animate-float-slow {
     animation: float-slow 10s ease-in-out infinite;
-    will-change: transform;
+    will-change: transform, opacity;
   }
 
   .animate-float-slow-static {

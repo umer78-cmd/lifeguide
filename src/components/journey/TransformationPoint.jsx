@@ -22,11 +22,11 @@ const TransformationPoint = () => {
           className="absolute inset-0 w-full h-full"
         >
           <img 
-            src="/images/katharina_dignity_warm_1776083737023.png" 
+            src="/images/katharina_portrait1.png" 
             alt="The Transformation"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-60"
           />
           {/* Subtle Radiant Overlays - Optimized */}
           <div className="absolute inset-0 bg-brand-cream/10"></div>

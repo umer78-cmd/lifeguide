@@ -27,11 +27,11 @@ const LegacySection = () => {
       {/* Background Atmosphere */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-40">
         <img 
-          src="/images/systemic_order_abstract_1776084826206.png" 
+          src="/images/roots.png" 
           alt="" 
           loading="lazy"
           decoding="async"
-          className="absolute right-0 top-0 w-1/2 h-full object-cover opacity-[0.03] mix-blend-multiply"
+          className="absolute right-0 top-0 w-1/2 h-full object-cover opacity-[0.1] mix-blend-multiply"
         />
       </div>
 

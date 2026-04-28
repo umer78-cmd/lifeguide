@@ -83,8 +83,8 @@ const Navbar = () => {
             background: pill 
               ? 'linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(252,251,249,0.88))' 
               : 'transparent',
-            backdropFilter: pill ? 'blur(16px) saturate(1.6)' : 'none',
-            WebkitBackdropFilter: pill ? 'blur(16px) saturate(1.6)' : 'none',
+            backdropFilter: pill ? 'blur(12px) saturate(1.4)' : 'none',
+            WebkitBackdropFilter: pill ? 'blur(12px) saturate(1.4)' : 'none',
             borderRadius: pill ? '9999px' : '0',
             boxShadow: pill 
               ? '0 10px 40px -10px rgba(120,53,15,0.12), 0 2px 4px rgba(0,0,0,0.02), inset 0 1px 0 rgba(255,255,255,0.6)' 
@@ -98,13 +98,17 @@ const Navbar = () => {
           <Link 
             to="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="font-serif tracking-wide cursor-pointer flex-shrink-0 text-brand-stone hover:text-brand-gold"
-            style={{
-              fontSize: pill ? '1.15rem' : '1.4rem',
-              transition: 'font-size 0.8s cubic-bezier(0.22, 1, 0.36, 1)',
-            }}
+            className="flex-shrink-0"
           >
-            comm<span className="text-brand-gold">IN</span>
+            <img 
+              src="/logo/header.png" 
+              alt="Logo" 
+              className="w-auto"
+              style={{
+                height: pill ? '32px' : '42px',
+                transition: 'height 0.8s cubic-bezier(0.22, 1, 0.36, 1)',
+              }}
+            />
           </Link>
           
           {/* Center Nav Links (Desktop) */}
@@ -190,7 +194,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 top-0 bg-white/98 backdrop-blur-xl z-[55] lg:hidden flex flex-col items-center justify-center transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+        className={`fixed inset-0 top-0 bg-white/98 backdrop-blur-lg z-[55] lg:hidden flex flex-col items-center justify-center transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
         onClick={() => setIsMobileMenuOpen(false)}
       >
         <div className="flex flex-col items-center justify-center w-full space-y-8 pb-12" onClick={(e) => e.stopPropagation()}>

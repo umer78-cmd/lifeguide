@@ -29,9 +29,9 @@ const JourneyHero = () => {
               className="absolute inset-0"
             >
               <img 
-                src="/images/scientific_texture_abstract_1776085805005.png"
+                src="/images/energy_logic.png"
                 alt=""
-                className="w-full h-full object-cover scale-110"
+                className="w-full h-full object-cover scale-110 opacity-30"
               />
             </motion.div>
           ) : (
@@ -43,9 +43,9 @@ const JourneyHero = () => {
               className="absolute inset-0"
             >
               <img 
-                src="/images/mentor_texture_warm_1776085828284.png"
+                src="/images/communion_hero.png"
                 alt=""
-                className="w-full h-full object-cover scale-110"
+                className="w-full h-full object-cover scale-110 opacity-40"
               />
             </motion.div>
           )}
