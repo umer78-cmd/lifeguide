@@ -77,13 +77,17 @@ const Preloader = ({ onComplete }) => {
         <div className="flex flex-col items-center mt-8 md:mt-10 relative z-10 w-full">
           {/* commIN logo text */}
           <div 
-            className={`font-serif text-3xl md:text-4xl transition-all duration-[3000ms] will-change-transform
-              ${stage >= 3 ? 'opacity-100 translate-y-0 tracking-[0.05em]' : 'opacity-0 translate-y-8 tracking-[0.2em] blur-sm'}
+            className={`transition-all duration-[3000ms] will-change-transform
+              ${stage >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95 blur-sm'}
               ${stage === 4 ? 'opacity-0' : ''}
             `}
             style={{ transitionTimingFunction: smoothEase }}
           >
-            <span className="text-stone-900">comm</span><span className="text-amber-700">IN</span><span className="text-stone-400 font-light">.</span>
+            <img 
+              src="/logo/header.png" 
+              alt="Logo" 
+              className="h-10 md:h-12 w-auto"
+            />
           </div>
           
           {/* Tagline */}
