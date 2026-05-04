@@ -93,12 +93,12 @@ const JourneyHero = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-stone-400 mb-8 block">The Foundation</span>
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-wide">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-700 mb-8 block">The Foundation</span>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-normal">
                     The Scientist: <br />
                     <BrushHighlight className="italic">Systems of Order.</BrushHighlight>
                   </h1>
-                  <p className="text-stone-500 font-light text-base md:text-lg leading-relaxed tracking-wide max-w-xl mx-auto">
+                  <p className="text-stone-700 font-medium text-xl md:text-xl leading-snug tracking-normal max-w-xl mx-auto">
                     An investigation into the biological and architectural links that define our living reality.
                   </p>
                 </motion.div>
@@ -109,12 +109,12 @@ const JourneyHero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-8 block">The Entry</span>
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-wide">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold mb-8 block">The Entry</span>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-normal">
                     The Guidance Path: <br />
                     <BrushHighlight className="italic text-brand-gold">Reorganizing from Within.</BrushHighlight>
                   </h1>
-                  <p className="text-stone-500 font-light text-base md:text-lg leading-relaxed tracking-wide max-w-xl mx-auto">
+                  <p className="text-stone-700 font-medium text-xl md:text-xl leading-snug tracking-normal max-w-xl mx-auto">
                     A space where life begins to reorganize from within. Not a sales pitch, but an entry into a profound shift of potential.
                   </p>
                 </motion.div>
@@ -129,7 +129,7 @@ const JourneyHero = () => {
           transition={{ delay: 5, duration: 1 }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         >
-          <span className="text-[10px] uppercase tracking-[0.3em] text-stone-300">The Evolution of Order</span>
+          <span className="text-[10px] uppercase tracking-[0.15em] text-stone-300">The Evolution of Order</span>
           <motion.div 
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}

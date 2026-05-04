@@ -124,7 +124,7 @@ const Navbar = () => {
                 key={link.id}
                 to={link.path + (link.path === '/' && link.id !== 'the-calling' ? `#${link.id}` : '')}
                 onClick={(e) => handleNavClick(e, link)}
-                className="relative group uppercase font-medium text-stone-500 hover:text-brand-gold py-1"
+                className="relative group uppercase font-medium text-stone-700 hover:text-brand-gold py-1"
                 style={{
                   fontSize: pill ? '10.5px' : '11.5px',
                   letterSpacing: '0.3em',
@@ -152,9 +152,9 @@ const Navbar = () => {
               }`}
               aria-label="Toggle language"
             >
-              <span className={`text-[10px] tracking-[0.1em] font-bold transition-colors duration-300 ${lang === 'DE' ? 'text-brand-gold' : 'text-stone-400'}`}>DE</span>
+              <span className={`text-[10px] tracking-[0.1em] font-bold transition-colors duration-300 ${lang === 'DE' ? 'text-brand-gold' : 'text-stone-700'}`}>DE</span>
               <span className="w-[1px] h-2.5 bg-stone-300/60"></span>
-              <span className={`text-[10px] tracking-[0.1em] font-bold transition-colors duration-300 ${lang === 'EN' ? 'text-brand-gold' : 'text-stone-400'}`}>EN</span>
+              <span className={`text-[10px] tracking-[0.1em] font-bold transition-colors duration-300 ${lang === 'EN' ? 'text-brand-gold' : 'text-stone-700'}`}>EN</span>
             </button>
 
             {/* CTA Button */}
@@ -213,14 +213,14 @@ const Navbar = () => {
           <div className={`flex items-center gap-3 mt-4 transition-all duration-500 delay-[240ms] ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <button 
               onClick={() => setLang('DE')} 
-              className={`px-4 py-2 rounded-full border transition-all ${lang === 'DE' ? 'bg-brand-gold/10 border-brand-gold text-brand-gold font-bold' : 'border-stone-200 text-stone-400 hover:text-stone-600'}`}
+              className={`px-4 py-2 rounded-full border transition-all ${lang === 'DE' ? 'bg-brand-gold/10 border-brand-gold text-brand-gold font-bold' : 'border-stone-200 text-stone-700 hover:text-stone-700'}`}
             >
               DE
             </button>
             <span className="text-stone-300">|</span>
             <button 
               onClick={() => setLang('EN')} 
-              className={`px-4 py-2 rounded-full border transition-all ${lang === 'EN' ? 'bg-brand-gold/10 border-brand-gold text-brand-gold font-bold' : 'border-stone-200 text-stone-400 hover:text-stone-600'}`}
+              className={`px-4 py-2 rounded-full border transition-all ${lang === 'EN' ? 'bg-brand-gold/10 border-brand-gold text-brand-gold font-bold' : 'border-stone-200 text-stone-700 hover:text-stone-700'}`}
             >
               EN
             </button>

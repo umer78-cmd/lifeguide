@@ -51,13 +51,13 @@ const Hero = ({ isAppLoaded }) => {
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
         <div className="overflow-hidden">
-          <p className={`text-brand-gold/70 text-xs md:text-sm uppercase tracking-brand-wide mt-12 mb-10 font-semibold ${isReady ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
+          <p className={`text-brand-gold/70 text-xs md:text-base uppercase tracking-brand-wide mt-12 mb-10 font-semibold ${isReady ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
             A Reorganizing Movement
           </p>
         </div>
 
         {/* H1 Headline — Split-Word Reveal */}
-        <h1 ref={headingRef} className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-brand-stone mb-12 md:mb-16 leading-[1.1] md:leading-tight tracking-tight px-4 w-full">
+        <h1 ref={headingRef} className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-medium text-brand-stone mb-12 md:mb-16 leading-[1.1] md:leading-tight tracking-tighter px-4 w-full">
           {/* "commIN." — each character lifts in */}
           <span className="block">
             {'commIN.'.split('').map((char, i) => (
@@ -67,13 +67,13 @@ const Hero = ({ isAppLoaded }) => {
                 style={{ animationDelay: `${i * 50}ms` }}
               >
                 {i >= 4 && i < 6 ? <span className="text-brand-gold">{char}</span> : 
-                 i === 6 ? <span className="text-stone-400 font-light">{char}</span> : char}
+                 i === 6 ? <span className="text-stone-700">{char}</span> : char}
               </span>
             ))}
           </span>
 
           {/* "Guidance Path" — brush underline */}
-          <span className={`italic text-brand-gold font-light mt-6 md:mt-4 block text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight brush-underline ${brushRevealed ? 'revealed' : ''}`}>
+          <span className={`italic text-brand-gold mt-6 md:mt-4 block text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight brush-underline ${brushRevealed ? 'revealed' : ''}`}>
             {'Guidance Path'.split(' ').map((word, i) => (
               <span
                 key={`h-${i}`}
@@ -91,7 +91,7 @@ const Hero = ({ isAppLoaded }) => {
 
         {/* Subheadline — Word-by-Word Reveal */}
         <div className="max-w-3xl mx-auto mb-16 md:mb-24 px-6">
-          <p className="text-stone-600 text-base md:text-2xl font-light leading-relaxed tracking-wide">
+          <p className="text-stone-700 text-base md:text-2xl font-medium leading-snug tracking-normal">
             {["Where", "life", "begins", "to", "reorganize", "from", "within."].map((word, i) => (
               <span
                 key={`s1-${i}`}
@@ -124,7 +124,7 @@ const Hero = ({ isAppLoaded }) => {
             <div key={copyIndex} className="flex shrink-0 items-center" aria-hidden={copyIndex === 1 ? 'true' : undefined}>
               {marqueeWords.map((word, i) => (
                 <React.Fragment key={`m${copyIndex}-${i}`}>
-                  <span className="shrink-0 px-8 md:px-14 text-stone-600/70 font-serif text-base md:text-lg tracking-brand-wide uppercase transition-colors duration-500 hover:text-brand-gold cursor-default">
+                  <span className="shrink-0 px-8 md:px-14 text-stone-700/70 font-serif text-xl md:text-xl tracking-brand-wide uppercase transition-colors duration-500 hover:text-brand-gold cursor-default">
                     {word}
                   </span>
                   <span className="shrink-0 w-2 h-2 rounded-full bg-amber-600/5 select-none"></span>

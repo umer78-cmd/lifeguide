@@ -38,13 +38,13 @@ const GuidanceWork = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-24">
-          <p className="text-brand-gold/80 text-sm uppercase tracking-brand-wide mb-8 font-semibold">
+          <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide mb-8 font-semibold">
             The Structure
           </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-stone-900 tracking-wide group leading-tight mb-10">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-stone-900 tracking-normal group leading-tight mb-10">
             Structure of the <BrushHighlight className="italic text-brand-gold">Work</BrushHighlight>
           </h2>
-          <p className="text-stone-500 font-serif italic text-lg md:text-2xl tracking-wide max-w-3xl mx-auto">
+          <p className="text-stone-700 font-serif italic text-xl md:text-2xl tracking-normal max-w-3xl mx-auto">
             "The depth of the process is not defined by time—but by how far you are ready to go."
           </p>
         </div>
@@ -56,21 +56,21 @@ const GuidanceWork = () => {
               key={i} 
               className="group relative flex flex-col items-center text-center p-8 md:p-12 rounded-[2rem] bg-white/40 backdrop-blur-sm ring-1 ring-stone-200/50 hover:ring-brand-gold/20 transition-all duration-700 hover:shadow-[0_30px_80px_-20px_rgba(180,83,9,0.1)]"
             >
-              <p className="text-brand-gold/60 text-xs uppercase tracking-[0.3em] font-bold mb-6">
+              <p className="text-brand-gold/60 text-xs uppercase tracking-[0.15em] font-bold mb-6">
                 {tier.sessions}
               </p>
               
-              <h3 className="text-2xl md:text-3xl font-serif text-amber-950 mb-3 tracking-wide group-hover:text-brand-gold transition-colors duration-500">
+              <h3 className="text-2xl md:text-3xl font-serif text-amber-950 mb-3 tracking-normal group-hover:text-brand-gold transition-colors duration-500">
                 {tier.title}
               </h3>
               
-              <p className="text-stone-400 text-[10px] uppercase tracking-[0.2em] font-medium mb-8">
+              <p className="text-stone-700 text-[10px] uppercase tracking-[0.2em] font-medium mb-8">
                 {tier.subtitle}
               </p>
 
               <div className="w-12 h-[1px] bg-stone-200 mb-10 group-hover:w-20 group-hover:bg-brand-gold/30 transition-all duration-700"></div>
 
-              <p className="text-stone-600 font-light leading-relaxed tracking-wide text-sm md:text-base">
+              <p className="text-stone-700 font-medium leading-snug tracking-normal text-base md:text-base">
                 {tier.desc}
               </p>
             </div>

@@ -22,7 +22,7 @@ export default {
         },
       },
       letterSpacing: {
-        'brand-wide': '0.3em',
+        'brand-wide': '0.1em',
       }
     },
   },

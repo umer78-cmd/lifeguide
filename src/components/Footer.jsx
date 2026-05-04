@@ -6,7 +6,7 @@ const Footer = () => {
   const [lang, setLang] = useState('EN');
 
   return (
-    <footer className="bg-brand-cream text-stone-600 relative overflow-hidden font-sans border-t border-stone-200/50">
+    <footer className="bg-brand-cream text-stone-700 relative overflow-hidden font-sans border-t border-stone-200/50">
       
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
@@ -32,7 +32,7 @@ const Footer = () => {
         
         {/* Powerful Closing Statement */}
         <div className="text-center mb-24 md:mb-32">
-          <p className="text-brand-stone font-serif text-2xl md:text-4xl italic tracking-wider leading-relaxed max-w-4xl mx-auto">
+          <p className="text-brand-stone font-serif text-2xl md:text-4xl italic tracking-normalr leading-snug max-w-4xl mx-auto">
             "Nothing is forced. Nothing is rushed. <br className="hidden md:block" />
             The process follows you—not a schedule."
           </p>
@@ -49,7 +49,7 @@ const Footer = () => {
                 <span className="text-brand-gold">von Bilderling</span>
               </h3>
               <div className="w-12 h-[1px] bg-brand-gold/40 mb-8"></div>
-              <p className="text-stone-500 font-light text-base leading-relaxed tracking-wide max-w-md">
+              <p className="text-stone-700 font-medium text-base leading-snug tracking-normal max-w-md">
                 Guiding systemic transformation from the core outward. Facilitating a Guidance Path for those ready to live their true purpose.
               </p>
             </div>
@@ -59,7 +59,7 @@ const Footer = () => {
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 text-stone-400 hover:text-brand-gold transition-colors duration-500"
+              className="group flex items-center gap-3 text-stone-700 hover:text-brand-gold transition-colors duration-500"
             >
               <span className="text-[10px] uppercase tracking-[0.2em] font-semibold">LinkedIn Profile</span>
               <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover:border-brand-gold transition-colors duration-500">
@@ -73,7 +73,7 @@ const Footer = () => {
             
             {/* Nav */}
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-8">Navigation</h4>
+              <h4 className="text-[10px] uppercase tracking-[0.15em] text-stone-700 font-bold mb-8">Navigation</h4>
               <ul className="space-y-4">
                 {[
                   { name: 'Home', path: '/' },
@@ -84,7 +84,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link 
                       to={link.path}
-                      className="text-stone-500 hover:text-brand-stone text-sm font-light tracking-wide transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-stone-700 hover:text-brand-stone text-base font-medium tracking-normal transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {link.name}
                     </Link>
@@ -95,7 +95,7 @@ const Footer = () => {
 
             {/* Access */}
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-8">The Access</h4>
+              <h4 className="text-[10px] uppercase tracking-[0.15em] text-stone-700 font-bold mb-8">The Access</h4>
               <ul className="space-y-4">
                 {[
                   { name: 'Inquiry', path: '/#choose-your-entry' },
@@ -105,7 +105,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link 
                       to={link.path}
-                      className="text-stone-500 hover:text-brand-stone text-sm font-light tracking-wide transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-stone-700 hover:text-brand-stone text-base font-medium tracking-normal transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {link.name}
                     </Link>
@@ -116,10 +116,10 @@ const Footer = () => {
 
             {/* Legal */}
             <div className="col-span-2 sm:col-span-1">
-              <h4 className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-8">Legal</h4>
+              <h4 className="text-[10px] uppercase tracking-[0.15em] text-stone-700 font-bold mb-8">Legal</h4>
               <ul className="space-y-4">
-                <li><a href="#" className="text-stone-500 hover:text-brand-stone text-sm font-light transition-all duration-300 inline-block hover:translate-x-1">Impressum</a></li>
-                <li><a href="#" className="text-stone-500 hover:text-brand-stone text-sm font-light transition-all duration-300 inline-block hover:translate-x-1">Datenschutz</a></li>
+                <li><a href="#" className="text-stone-700 hover:text-brand-stone text-base font-medium transition-all duration-300 inline-block hover:translate-x-1">Impressum</a></li>
+                <li><a href="#" className="text-stone-700 hover:text-brand-stone text-base font-medium transition-all duration-300 inline-block hover:translate-x-1">Datenschutz</a></li>
               </ul>
             </div>
 
@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
 
         {/* ─── Bottom Stripe ─── */}
-        <div className="pt-10 border-t border-stone-200/80 flex flex-col md:flex-row justify-between items-center gap-8 text-stone-400 text-[10px] uppercase tracking-[0.2em]">
+        <div className="pt-10 border-t border-stone-200/80 flex flex-col md:flex-row justify-between items-center gap-8 text-stone-700 text-[10px] uppercase tracking-[0.2em]">
           
           <div className="flex items-center gap-2 flex-wrap justify-center font-medium">
             <span>© {new Date().getFullYear()} Katharina von Bilderling</span>
@@ -139,11 +139,11 @@ const Footer = () => {
           <div className="flex items-center bg-stone-100 rounded-full p-1 border border-stone-200/50">
             <button 
               onClick={() => setLang('DE')}
-              className={`px-4 py-1.5 rounded-full transition-all duration-500 text-[10px] ${lang === 'DE' ? 'bg-white text-brand-gold font-bold shadow-md shadow-stone-200/50' : 'text-stone-400 hover:text-stone-600'}`}
+              className={`px-4 py-1.5 rounded-full transition-all duration-500 text-[10px] ${lang === 'DE' ? 'bg-white text-brand-gold font-bold shadow-md shadow-stone-200/50' : 'text-stone-700 hover:text-stone-700'}`}
             >DE</button>
             <button 
               onClick={() => setLang('EN')}
-              className={`px-4 py-1.5 rounded-full transition-all duration-500 text-[10px] ${lang === 'EN' ? 'bg-white text-brand-gold font-bold shadow-md shadow-stone-200/50' : 'text-stone-400 hover:text-stone-600'}`}
+              className={`px-4 py-1.5 rounded-full transition-all duration-500 text-[10px] ${lang === 'EN' ? 'bg-white text-brand-gold font-bold shadow-md shadow-stone-200/50' : 'text-stone-700 hover:text-stone-700'}`}
             >EN</button>
           </div>
 

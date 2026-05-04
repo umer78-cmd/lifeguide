@@ -26,7 +26,7 @@ const BridgeSection = () => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-brand-gold text-[10px] uppercase tracking-[0.5em] font-bold mb-12"
+          className="text-brand-gold text-[10px] uppercase tracking-[0.2em] font-bold mb-12"
         >
           Inner Foundation, Modern Access
         </motion.p>
@@ -36,7 +36,7 @@ const BridgeSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-12 leading-[1.1] tracking-wide"
+          className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-12 leading-[1.1] tracking-normal"
         >
           The Foundation is the Same. <br />
           <BrushHighlight className="italic">The Access is Yours.</BrushHighlight>
@@ -47,7 +47,7 @@ const BridgeSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-stone-600 font-light text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto mb-20 tracking-wide"
+          className="text-stone-700 font-medium text-xl md:text-2xl leading-snug max-w-2xl mx-auto mb-20 tracking-normal"
         >
           While the core of my research has remained unwavering, the doorway has evolved. The "commIN" space is the new container for 2026—designed to house the evolution of your life potential.
         </motion.p>
@@ -65,7 +65,7 @@ const BridgeSection = () => {
                     document.getElementById('voices-of-change')?.scrollIntoView({ behavior: 'smooth' });
                 }, 500);
             }}
-            className="group relative inline-flex items-center gap-8 px-16 py-8 bg-brand-stone text-white uppercase text-[10px] tracking-[0.4em] font-bold rounded-full overflow-hidden transition-all duration-700 hover:shadow-[0_30px_100px_rgba(180,83,9,0.3)]"
+            className="group relative inline-flex items-center gap-8 px-16 py-8 bg-brand-stone text-white uppercase text-[10px] tracking-[0.15em] font-bold rounded-full overflow-hidden transition-all duration-700 hover:shadow-[0_30px_100px_rgba(180,83,9,0.3)]"
           >
             <span className="relative z-10 transition-colors duration-500 group-hover:text-brand-stone">Begin the Process</span>
             <div className="w-10 h-[1px] bg-brand-gold group-hover:bg-brand-stone transition-all duration-500 relative z-10"></div>

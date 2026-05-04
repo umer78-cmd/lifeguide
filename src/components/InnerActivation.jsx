@@ -5,7 +5,7 @@ const InnerActivation = () => {
     <section id="inner-activation" className="py-40 bg-brand-cream px-6 relative z-10 flex flex-col items-center justify-center text-center overflow-hidden">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-12 md:space-y-16">
-          <p className="text-stone-700 text-2xl md:text-4xl lg:text-5xl font-serif font-light leading-[1.4] md:leading-[1.5] tracking-wide">
+          <p className="text-stone-700 text-2xl md:text-4xl lg:text-5xl font-serif font-medium leading-[1.4] md:leading-[1.5] tracking-normal">
             Here you are. An impulse is set. You respond.
           </p>
           
@@ -13,16 +13,21 @@ const InnerActivation = () => {
             <div className="w-[1px] h-20 bg-gradient-to-b from-brand-gold/40 to-transparent"></div>
           </div>
 
-          <p className="text-stone-800 text-2xl md:text-4xl lg:text-5xl font-serif italic font-light leading-[1.4] md:leading-[1.5] tracking-wider text-brand-gold/90">
+          <p className="text-stone-800 text-2xl md:text-4xl lg:text-5xl font-serif italic font-medium leading-[1.4] md:leading-[1.5] tracking-normalr text-brand-gold/90">
             Inside, something begins to open.
           </p>
 
-          <div className="flex justify-center gap-4 md:gap-8 flex-wrap pt-8">
-            {["Movement.", "Release.", "Reorganization.", "In your own rhythm."].map((word, i) => (
-              <span key={i} className="text-stone-500 text-lg md:text-2xl uppercase tracking-[0.2em] font-light">
-                {word}
-              </span>
-            ))}
+          <div className="flex justify-center items-baseline gap-4 md:gap-8 flex-wrap pt-8">
+            {["Movement.", "Release.", "Reorganization.", "In your own rhythm."].map((word, i) => {
+              const weights = ['font-medium', 'font-medium', 'font-medium', 'font-semibold'];
+              const sizes = ['text-xl md:text-xl', 'text-xl md:text-xl', 'text-xl md:text-2xl', 'text-2xl md:text-3xl'];
+              const colors = ['text-stone-700', 'text-stone-700', 'text-stone-700', 'text-stone-900'];
+              return (
+                <span key={i} className={`${colors[i]} ${sizes[i]} uppercase tracking-[0.1em] md:tracking-[0.2em] ${weights[i]}`}>
+                  {word}
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>

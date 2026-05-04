@@ -53,7 +53,7 @@ const ComparisonSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-wide"
+            className="text-4xl md:text-6xl font-serif text-brand-stone mb-10 leading-[1.1] tracking-normal"
           >
             Beyond the Familiar <br />
             <BrushHighlight className="italic">Models.</BrushHighlight>
@@ -63,7 +63,7 @@ const ComparisonSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-stone-500 font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto tracking-wide"
+            className="text-stone-700 font-medium text-xl md:text-xl leading-snug max-w-2xl mx-auto tracking-normal"
           >
             Following the "Unhurried Path" revealing how systemic order differs from conventional troubleshooting.
           </motion.p>
@@ -139,10 +139,10 @@ const ComparisonSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/[0.03] to-transparent pointer-events-none"></div>
                   
                   <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-brand-gold mb-8 block opacity-80">{item.tagline}</span>
-                  <h3 className="text-3xl md:text-5xl font-serif text-brand-stone mb-8 leading-tight tracking-wide">
+                  <h3 className="text-3xl md:text-5xl font-serif text-brand-stone mb-8 leading-tight tracking-normal">
                     {item.label}
                   </h3>
-                  <p className="text-stone-500 font-light text-lg md:text-xl leading-relaxed tracking-wide">
+                  <p className="text-stone-700 font-medium text-xl md:text-xl leading-snug tracking-normal">
                     {item.description}
                   </p>
                 </div>

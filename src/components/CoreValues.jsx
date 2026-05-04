@@ -20,13 +20,13 @@ const OrderingForce = () => {
       <div className="max-w-6xl mx-auto relative z-10">
 
         <div className="text-center mb-24 max-w-3xl mx-auto">
-          <p className="text-brand-gold/80 text-sm uppercase tracking-brand-wide font-semibold mb-8">
+          <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide font-semibold mb-8">
             The Experience
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 tracking-wide mb-8 group leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 tracking-normal mb-8 group leading-tight">
             The <BrushHighlight className="italic text-brand-gold">Guidance Path</BrushHighlight>
           </h2>
-          <p className="text-stone-600 font-light leading-relaxed text-base md:text-lg tracking-wide px-4">
+          <p className="text-stone-700 font-medium leading-snug text-xl md:text-xl tracking-normal px-4">
             This is not a problem-based intervention. It is a process of restoration—a journey that follows your unique inner rhythm rather than a predetermined schedule.
           </p>
         </div>
@@ -43,11 +43,11 @@ const OrderingForce = () => {
             <div className="relative z-10">
               <div className="w-16 h-[1px] bg-brand-gold/30 mb-10"></div>
               
-              <h3 className="text-2xl md:text-3xl font-serif text-stone-800 mb-8 tracking-wide">
+              <h3 className="text-2xl md:text-3xl font-serif text-stone-800 mb-8 tracking-normal">
                 Inner Reorganization
               </h3>
               
-              <div className="space-y-8 text-stone-600 font-light leading-relaxed text-base md:text-lg tracking-wide max-w-2xl">
+              <div className="space-y-8 text-stone-700 font-medium leading-snug text-xl md:text-xl tracking-normal max-w-2xl">
                 <p>
                   The Guidance Path recognizes that life potential works silently in the background to support order and stability. It is the organizing principle within you that constantly seeks wholeness.
                 </p>

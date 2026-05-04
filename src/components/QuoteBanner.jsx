@@ -14,7 +14,7 @@ const QuoteBanner = () => {
             <div key={copyIndex} className="flex shrink-0 items-center" aria-hidden={copyIndex === 1 ? 'true' : undefined}>
               {marqueeWords.map((word, i) => (
                 <React.Fragment key={`mr${copyIndex}-${i}`}>
-                  <span className="shrink-0 px-6 md:px-10 text-stone-600/60 font-serif text-base md:text-lg tracking-[0.25em] uppercase transition-colors duration-500 hover:text-amber-800 cursor-default">
+                  <span className="shrink-0 px-6 md:px-10 text-stone-700/60 font-serif text-xl md:text-xl tracking-[0.25em] uppercase transition-colors duration-500 hover:text-amber-800 cursor-default">
                     {word}
                   </span>
                   <span className="shrink-0 text-amber-700/30 text-xs select-none">◆</span>
@@ -32,15 +32,15 @@ const QuoteBanner = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Kicker */}
-        <p className="text-amber-700/80 text-sm uppercase tracking-[0.3em] font-semibold mb-8">
+        <p className="text-amber-700/80 text-base uppercase tracking-[0.15em] font-semibold mb-8">
           The Threshold
         </p>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-[1.3] md:leading-snug tracking-wide text-balance px-2 mb-10 md:mb-14">
-          Everything else has reached its <BrushHighlight className="italic text-amber-700 font-light">limit.</BrushHighlight>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-[1.3] md:leading-snug tracking-normal text-balance px-2 mb-10 md:mb-14">
+          Everything else has reached its <BrushHighlight className="italic text-amber-700 font-medium">limit.</BrushHighlight>
         </h2>
         
-        <p className="text-stone-600 font-light leading-relaxed max-w-2xl mx-auto text-sm md:text-lg tracking-wide px-4">
+        <p className="text-stone-700 font-medium leading-snug max-w-2xl mx-auto text-xl md:text-xl tracking-normal px-4">
           Real change cannot be found in outside solutions or constant adaptation. It begins at the core—the systemic center of who you are.
         </p>
 

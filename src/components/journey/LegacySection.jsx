@@ -6,18 +6,18 @@ const LegacySection = () => {
   const milestones = [
     {
       year: '2003',
-      title: 'Scientific Foundation',
-      desc: 'As a scientist at her core, Katharina began with a deep investigation into systemic structures. Life-changing experiences led to the precise realization that order is biological, architectural, and foundational.'
+      title: 'Foundational Work (LifeGuide-KaTao)',
+      desc: 'The stable foundation. Addressing systemic challenges and recurring patterns directly. This root architecture initiated deep structural reorganization, serving as the basis from which all deeper access eventually emerged.'
     },
     {
       year: '2015',
       title: 'Systemic Expansion',
-      desc: 'Integrating human behavioral patterns with systemic order. Identifying the silent organizing principles that facilitate deeper shifts.'
+      desc: 'Integrating human behavioral patterns with systemic order. Identifying the silent organizing principles that facilitate deeper shifts beyond the foundational level.'
     },
     {
       year: '2026',
       title: 'Evolution of commIN',
-      desc: 'The birth of a dedicated space for those called to their highest life potential. A portal for modern access to timeless inner foundations.'
+      desc: 'The birth of a dedicated group space for those called to their highest life potential. A portal for modern access to timeless inner foundations.'
     }
   ];
 
@@ -43,48 +43,37 @@ const LegacySection = () => {
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className="text-4xl md:text-6xl font-serif text-brand-stone mb-10 leading-tight tracking-wide"
+               className="text-4xl md:text-6xl font-serif text-brand-stone mb-10 leading-tight tracking-normal"
              >
                 Two Decades of <br />
                 <BrushHighlight className="italic text-brand-gold">Guidance.</BrushHighlight>
             </motion.h2>
         </div>
 
-        {/* Milestone Sequence */}
-        <div className="space-y-64 md:space-y-96">
+        {/* Milestone Sequence - Evolution Boxes */}
+        <div className="space-y-12 md:space-y-16 max-w-4xl mx-auto">
           {milestones.map((ms, i) => (
-            <div key={i} className="relative flex flex-col items-center">
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative bg-white border border-stone-200 rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-center gap-10 shadow-md"
+            >
+              <div className="md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left border-b md:border-b-0 md:border-r border-stone-200 pb-8 md:pb-0 md:pr-10 shrink-0">
+                <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-brand-gold mb-4 block">Evolution</span>
+                <span className="text-5xl md:text-6xl font-serif text-brand-stone leading-none">{ms.year}</span>
+              </div>
               
-              {/* Backdrop Year Anchor */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 0.05, scale: 1 }}
-                viewport={{ margin: "-20%" }}
-                transition={{ duration: 1.5 }}
-                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center pointer-events-none z-0"
-              >
-                <span className="text-[30vw] md:text-[25vw] font-serif text-brand-stone select-none leading-none">
-                  {ms.year}
-                </span>
-              </motion.div>
-
-              {/* Content Card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                className="relative z-10 text-center max-w-2xl px-6"
-              >
-                <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-6 block">The Milestone</span>
-                <h3 className="text-3xl md:text-5xl font-serif text-brand-stone mb-8 leading-tight tracking-wide">
+              <div className="md:w-2/3 text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-serif text-brand-stone mb-4 font-semibold tracking-normal">
                   {ms.title}
                 </h3>
-                <p className="text-stone-500 font-light text-lg md:text-xl leading-relaxed tracking-wide">
+                <p className="text-stone-700 text-xl md:text-xl leading-snug">
                   {ms.desc}
                 </p>
-                <div className="mt-12 w-12 h-[1px] bg-brand-gold/30 mx-auto"></div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
@@ -99,19 +88,19 @@ const LegacySection = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/10 to-transparent pointer-events-none"></div>
             
             <div className="relative z-10 text-center">
-              <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-brand-gold mb-12 block">The Scientist Edge</span>
+              <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-brand-gold mb-12 block">The Scientist Edge</span>
               <h3 className="text-3xl md:text-5xl font-serif text-brand-stone mb-10 leading-tight">
                 Human = <br />
                 <span className="italic">System.</span>
               </h3>
               
-              <p className="text-stone-600 font-light text-lg md:text-xl leading-relaxed tracking-wide mb-14 max-w-2xl mx-auto">
+              <p className="text-stone-700 font-medium text-xl md:text-xl leading-snug tracking-normal mb-14 max-w-2xl mx-auto">
                 "There is no separation. The human is the system. My methodology treats the person, the family, and the organization as a singular, interconnected network that seeking its own precise point of balance."
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center">
                  {['Information', 'Biology', 'Intention', 'Systemic Order'].map((tag, i) => (
-                   <span key={i} className="px-6 py-3 bg-white/50 backdrop-blur-sm rounded-full text-[10px] uppercase tracking-[0.3em] text-brand-stone/60 font-bold border border-white/80 shadow-sm">
+                   <span key={i} className="px-6 py-3 bg-white/50 backdrop-blur-sm rounded-full text-[10px] uppercase tracking-[0.15em] text-brand-stone/60 font-bold border border-white/80 shadow-sm">
                       {tag}
                    </span>
                  ))}

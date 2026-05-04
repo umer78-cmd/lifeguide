@@ -16,13 +16,13 @@ const VoicesOfChange = () => {
       <div className="max-w-5xl mx-auto relative z-10">
 
         <div className="text-center mb-16 md:mb-24">
-          <p className="text-brand-gold/80 text-sm uppercase tracking-brand-wide font-semibold mb-6">
+          <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide font-semibold mb-6">
             Case Studies
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 tracking-wide mb-4 group">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 tracking-normal mb-4 group">
             Voices of <BrushHighlight className="italic text-brand-gold">Change</BrushHighlight>
           </h2>
-          <p className="text-stone-500 font-light text-sm md:text-base uppercase tracking-brand-wide">
+          <p className="text-stone-700 font-medium text-base md:text-base uppercase tracking-brand-wide">
             Executive Transformation, Creative Recalibration
           </p>
         </div>
@@ -37,7 +37,7 @@ const VoicesOfChange = () => {
             </div>
 
             {/* Testimonial text */}
-            <div className="text-stone-700 font-light leading-relaxed text-sm md:text-base tracking-wide space-y-4">
+            <div className="text-stone-700 font-medium leading-snug text-base md:text-base tracking-normal space-y-4">
               <p>
                 I'd already worked with several therapists and practitioners in the field of life energy, but I'd never experienced anything like Katharina von Bilderling's LifeGuide guidance.
               </p>
@@ -76,11 +76,11 @@ const VoicesOfChange = () => {
             {/* Attribution */}
             <div className="mt-8 pt-6 border-t border-stone-200/60 flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-                <span className="text-brand-gold font-serif text-lg">M</span>
+                <span className="text-brand-gold font-serif text-xl">M</span>
               </div>
               <div>
-                <p className="text-brand-stone font-serif text-base tracking-wide">Michaela Bobinger</p>
-                <p className="text-stone-400 text-xs uppercase tracking-[0.2em] mt-1">Client & LifeGuide Practitioner</p>
+                <p className="text-brand-stone font-serif text-base tracking-normal">Michaela Bobinger</p>
+                <p className="text-stone-700 text-xs uppercase tracking-[0.2em] mt-1">Client & LifeGuide Practitioner</p>
               </div>
             </div>
 

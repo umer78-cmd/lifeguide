@@ -76,7 +76,7 @@ const About = () => {
 
         {/* Right - Text */}
         <div className="flex flex-col text-left">
-          <p className="text-brand-gold/80 text-sm uppercase tracking-brand-wide mb-10 font-semibold">
+          <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide mb-10 font-semibold">
             Understanding the Core
           </p>
           
@@ -84,14 +84,14 @@ const About = () => {
             The Logic of <br /><span className="italic text-brand-gold">Inner Reorganization</span>
           </h2>
           
-          <div className="space-y-10 text-stone-600 font-light leading-relaxed text-base md:text-lg tracking-wide">
+          <div className="space-y-10 text-stone-700 font-medium leading-snug text-xl md:text-xl tracking-normal">
             <p>
               Most people function remarkably well despite significant inner imbalances. They adapt, compensate, and continue—often for years—while sensing that something is no longer aligned.
             </p>
             <p>
               Common approaches focus on these external symptoms, attempting to fix what is visible on the surface. But true change requires a different starting point.
             </p>
-            <p className="text-brand-stone font-serif italic text-xl md:text-2xl leading-relaxed tracking-wider border-l-2 border-brand-gold/30 pl-8 my-12">
+            <p className="text-brand-stone font-serif italic text-xl md:text-2xl leading-snug tracking-normalr border-l-2 border-brand-gold/30 pl-8 my-12">
               "My work begins within, where energy is bound in systemic imbalances. We don't fix symptoms; we restore the flow."
             </p>
             <p>
@@ -102,13 +102,13 @@ const About = () => {
           {/* Subtle Authority Integration */}
           <div className="mt-20 pt-10 border-t border-stone-200/80 flex flex-col md:flex-row md:items-center gap-8 opacity-60">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-2 font-bold">Foundation</p>
-              <p className="text-stone-600 text-sm font-light">23 Years of Systemic Practice</p>
+              <p className="text-[10px] uppercase tracking-[0.15em] text-stone-700 mb-2 font-bold">Foundation</p>
+              <p className="text-stone-700 text-base font-medium">23 Years of Systemic Practice</p>
             </div>
             <div className="hidden md:block w-12 h-[1px] bg-stone-300"></div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-2 font-bold">The Expert</p>
-              <p className="text-brand-gold font-serif text-lg italic">Katharina von Bilderling</p>
+              <p className="text-[10px] uppercase tracking-[0.15em] text-stone-700 mb-2 font-bold">The Expert</p>
+              <p className="text-brand-gold font-serif text-xl italic">Katharina von Bilderling</p>
             </div>
           </div>
 
@@ -117,7 +117,7 @@ const About = () => {
             <Link
               to="/journey"
               id="journey-cta-about"
-              className="group inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[10px] tracking-[0.3em] font-bold transition-all duration-500"
+              className="group inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[10px] tracking-[0.15em] font-bold transition-all duration-500"
             >
               The Full Journey
               <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/50">

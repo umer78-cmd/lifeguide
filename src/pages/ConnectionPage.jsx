@@ -1,12 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import DustMotes from '../components/DustMotes';
 import BrushHighlight from '../components/BrushHighlight';
 
 const QUESTIONS = [
   {
-    id: 'q1',
+    id: 'path',
     step: 1,
+    type: 'choice',
+    eyebrow: 'The Entry Point',
+    question: 'Where would you like to begin your work?',
+    subtext: 'Every path leads to the same foundational order. Where do you feel the most resonance right now?',
+    options: [
+      { id: 'lifeguide', label: 'LifeGuide (Foundational Work)', desc: 'Address a specific challenge, symptom, or recurring pattern.' },
+      { id: 'commin', label: 'commIN Space (Group Experience)', desc: 'Build inner stability within a shared, unhurried space.' },
+      { id: 'guidance', label: 'Guidance Path (Individual Depth)', desc: 'Direct, intensive systemic reordering.' }
+    ]
+  },
+  {
+    id: 'q1',
+    step: 2,
+    type: 'text',
     eyebrow: 'Before We Meet',
     question: 'What have you already tried that has reached its limit?',
     subtext: 'Be honest. This space holds no judgment — only clarity.',
@@ -15,23 +28,11 @@ const QUESTIONS = [
   },
   {
     id: 'q2',
-    step: 2,
-    eyebrow: 'A Question of Readiness',
-    question:
-      'Are you ready for a deep, unhurried recalibration?',
-    subtext:
-      'Not a quick fix. Not a life-hack. A genuine reordering from the inside out.',
-    placeholder:
-      'What does readiness feel like for you right now? What makes you say yes — or hesitate?',
-  },
-  {
-    id: 'q3',
     step: 3,
-    eyebrow: 'The Impulse Behind the Inquiry',
-    question:
-      'What is the primary calling behind your inquiry right now?',
-    subtext:
-      'Something quiet is bringing you here. What is it?',
+    type: 'text',
+    eyebrow: 'The Impulse',
+    question: 'What is the primary calling behind your inquiry right now?',
+    subtext: 'Something quiet is bringing you here. What is it?',
     placeholder:
       'A feeling, a tension, a longing to be met differently by your own life...',
   },
@@ -46,7 +47,7 @@ const fadeUp = {
 export default function ConnectionPage() {
   const [isReady, setIsReady] = useState(false);
   const [step, setStep] = useState(0); // 0 = intro, 1-3 = questions, 4 = calendar
-  const [answers, setAnswers] = useState({ q1: '', q2: '', q3: '' });
+  const [answers, setAnswers] = useState({ path: '', q1: '', q2: '' });
   const [currentAnswer, setCurrentAnswer] = useState('');
   const textareaRef = useRef(null);
 
@@ -56,10 +57,13 @@ export default function ConnectionPage() {
     return () => clearTimeout(t);
   }, []);
 
-  // Focus textarea when a question becomes active
+  // Focus textarea when a text question becomes active
   useEffect(() => {
-    if (step >= 1 && step <= 3 && textareaRef.current) {
-      setTimeout(() => textareaRef.current?.focus(), 600);
+    if (step >= 1 && step <= 3) {
+      const q = QUESTIONS[step - 1];
+      if (q && q.type === 'text' && textareaRef.current) {
+        setTimeout(() => textareaRef.current?.focus(), 600);
+      }
     }
   }, [step]);
 
@@ -87,17 +91,11 @@ export default function ConnectionPage() {
 
       {/* ── Hero Section ─────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-amber-50/30 to-brand-cream" />
-          <DustMotes />
-          {/* Ambient glow */}
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
-            style={{
-              background:
-                'radial-gradient(circle, rgba(180,83,9,0.06) 0%, transparent 70%)',
-            }}
-          />
+        <div className="absolute inset-0 z-0 bg-stone-50">
+          {/* Scientific/Physics-rooted visual: grid lines instead of ethereal glows */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-brand-cream to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-brand-cream to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -105,7 +103,7 @@ export default function ConnectionPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={isReady ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 1 }}
-            className="text-brand-gold/70 text-xs md:text-sm uppercase tracking-brand-wide mb-8 font-semibold"
+            className="text-brand-gold/70 text-xs md:text-base uppercase tracking-brand-wide mb-8 font-semibold"
           >
             The Application
           </motion.p>
@@ -126,7 +124,7 @@ export default function ConnectionPage() {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ delay: 1.0, duration: 1.4 }}
-            className="max-w-2xl mx-auto text-stone-500 text-lg md:text-xl font-light leading-relaxed tracking-wide mb-6"
+            className="max-w-2xl mx-auto text-stone-700 text-xl md:text-xl font-medium leading-snug tracking-normal mb-6"
           >
             "This is not a method or a tool. It is direct access to an inner realm — a discernment process for both of us."
           </motion.p>
@@ -135,7 +133,7 @@ export default function ConnectionPage() {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ delay: 1.3, duration: 1.2 }}
-            className="max-w-xl mx-auto text-stone-400 text-base font-light leading-relaxed mb-16"
+            className="max-w-xl mx-auto text-stone-700 text-base font-medium leading-snug mb-16"
           >
             A space to perceive the work without distraction. Three honest questions. Then, if the resonance is clear, the calendar opens.
           </motion.p>
@@ -149,7 +147,7 @@ export default function ConnectionPage() {
             <button
               id="begin-application"
               onClick={handleBegin}
-              className="group relative inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[11px] tracking-[0.3em] font-bold transition-all duration-500 hover:shadow-[0_8px_30px_rgba(180,83,9,0.25)]"
+              className="group relative inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[11px] tracking-[0.15em] font-bold transition-all duration-500 hover:shadow-[0_8px_30px_rgba(180,83,9,0.25)]"
             >
               Begin the Application
               <span className="w-6 h-6 rounded-full border border-current flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-white/60 group-hover:bg-white/10">
@@ -158,7 +156,7 @@ export default function ConnectionPage() {
                 </svg>
               </span>
             </button>
-            <p className="text-stone-400 text-[10px] uppercase tracking-[0.25em] font-medium">
+            <p className="text-stone-700 text-[10px] uppercase tracking-[0.25em] font-medium">
               Takes 3 minutes
             </p>
           </motion.div>
@@ -189,7 +187,7 @@ export default function ConnectionPage() {
             {/* Progress bar */}
             <div className="max-w-3xl mx-auto mb-16">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-semibold">
+                <span className="text-[10px] uppercase tracking-[0.15em] text-stone-700 font-semibold">
                   Question {step} of 3
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-brand-gold/70 font-semibold">
@@ -224,31 +222,50 @@ export default function ConnectionPage() {
                   {currentQ?.question}
                 </h2>
 
-                <p className="text-stone-400 font-light text-base mb-12 leading-relaxed italic">
+                <p className="text-stone-700 font-medium text-base mb-12 leading-snug italic">
                   {currentQ?.subtext}
                 </p>
 
-                <textarea
-                  ref={textareaRef}
-                  id={`answer-${step}`}
-                  rows={6}
-                  value={currentAnswer}
-                  onChange={(e) => setCurrentAnswer(e.target.value)}
-                  placeholder={currentQ?.placeholder}
-                  className="w-full bg-stone-50 border border-stone-200 rounded-2xl p-8 text-stone-700 font-light text-base leading-relaxed placeholder:text-stone-300 focus:outline-none focus:border-brand-gold/50 focus:ring-2 focus:ring-brand-gold/10 transition-all duration-300 resize-none"
-                />
+                {currentQ?.type === 'choice' ? (
+                  <div className="flex flex-col gap-4 mt-8">
+                    {currentQ.options.map((opt) => (
+                      <button
+                        key={opt.id}
+                        onClick={() => setCurrentAnswer(opt.label)}
+                        className={`text-left p-6 rounded-2xl border transition-all duration-300 ${
+                          currentAnswer === opt.label
+                            ? 'border-brand-gold bg-brand-gold/5 shadow-[0_10px_30px_rgba(180,83,9,0.1)]'
+                            : 'border-stone-200 hover:border-stone-300 hover:bg-stone-50'
+                        }`}
+                      >
+                        <h3 className={`font-serif text-xl mb-2 ${currentAnswer === opt.label ? 'text-brand-stone' : 'text-stone-700'}`}>{opt.label}</h3>
+                        <p className="text-stone-700 font-medium text-base">{opt.desc}</p>
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <textarea
+                    ref={textareaRef}
+                    id={`answer-${step}`}
+                    rows={6}
+                    value={currentAnswer}
+                    onChange={(e) => setCurrentAnswer(e.target.value)}
+                    placeholder={currentQ?.placeholder}
+                    className="w-full bg-white border border-stone-200 rounded-2xl p-8 text-stone-700 font-medium text-base leading-snug placeholder:text-stone-300 focus:outline-none focus:border-brand-gold/50 focus:ring-2 focus:ring-brand-gold/10 transition-all duration-300 resize-none shadow-sm"
+                  />
+                )}
 
                 <div className="flex items-center justify-between mt-8">
-                  <span className="text-stone-300 text-sm font-light">
-                    {currentAnswer.length > 0
+                  <span className="text-stone-700 text-base font-medium">
+                    {currentQ?.type === 'text' && currentAnswer.length > 0
                       ? currentAnswer.trim().split(/\s+/).length + ' words'
-                      : 'Take your time.'}
+                      : ''}
                   </span>
 
                   <button
                     id={`next-question-${step}`}
                     onClick={handleNext}
-                    disabled={currentAnswer.trim().length < 10}
+                    disabled={currentQ?.type === 'choice' ? !currentAnswer : currentAnswer.trim().length < 10}
                     className="group relative px-10 py-4 bg-brand-stone text-white uppercase text-[10px] tracking-[0.35em] font-bold overflow-hidden rounded-full transition-all duration-500 disabled:opacity-30 disabled:cursor-not-allowed hover:enabled:shadow-[0_15px_40px_rgba(28,25,23,0.14)] inline-flex items-center gap-3"
                   >
                     <span className="absolute inset-0 bg-brand-gold translate-y-full group-hover:enabled:translate-y-0 transition-transform duration-500 ease-out z-0" />
@@ -318,7 +335,7 @@ export default function ConnectionPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="max-w-xl mx-auto text-stone-500 font-light text-lg leading-relaxed"
+                className="max-w-xl mx-auto text-stone-700 font-medium text-xl leading-snug"
               >
                 You have given this inquiry the weight it deserves. Now, choose a
                 moment for us to meet — unhurried, with full presence.
@@ -340,7 +357,7 @@ export default function ConnectionPage() {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-brand-gold/70 font-bold mb-2">
                     {q.eyebrow}
                   </p>
-                  <p className="text-stone-500 font-light text-sm leading-relaxed italic">
+                  <p className="text-stone-700 font-medium text-base leading-snug italic">
                     "{answers[q.id]}"
                   </p>
                 </div>
@@ -384,17 +401,17 @@ export default function ConnectionPage() {
               viewport={{ once: true }}
               transition={{ duration: 1 }}
             >
-              <p className="text-brand-gold text-sm uppercase tracking-brand-wide font-bold mb-8">
+              <p className="text-brand-gold text-base uppercase tracking-brand-wide font-bold mb-8">
                 The Reason for Selection
               </p>
               <h2 className="text-4xl md:text-6xl font-serif text-brand-stone mb-10 leading-tight">
                 Why an <span className="italic">Application?</span>
               </h2>
               <div className="space-y-8 max-w-xl">
-                <p className="text-stone-600 text-xl font-light leading-relaxed">
+                <p className="text-stone-700 text-xl font-medium leading-snug">
                   The purpose of this inquiry is <span className="text-brand-gold font-medium">collaboration.</span>
                 </p>
-                <p className="text-stone-500 text-lg font-light leading-relaxed">
+                <p className="text-stone-700 text-xl font-medium leading-snug">
                   The "Guidance Path" only exists through this partnership. The three questions are an invitation to begin arriving—ensuring that this work remains individual, non-standardized, and focused on your unique systemic potential.
                 </p>
               </div>
@@ -402,14 +419,14 @@ export default function ConnectionPage() {
               <div className="mt-12 flex gap-12">
                 <div>
                   <p className="text-3xl font-serif text-brand-stone">Deep</p>
-                  <p className="text-stone-400 text-xs uppercase mt-2 tracking-widest">
+                  <p className="text-stone-700 text-xs uppercase mt-2 tracking-normalst">
                     Recalibration
                   </p>
                 </div>
                 <div className="w-px h-12 bg-stone-200" />
                 <div>
                   <p className="text-3xl font-serif text-brand-stone">Unhurried</p>
-                  <p className="text-stone-400 text-xs uppercase mt-2 tracking-widest">
+                  <p className="text-stone-700 text-xs uppercase mt-2 tracking-normalst">
                     Process
                   </p>
                 </div>
@@ -474,10 +491,10 @@ export default function ConnectionPage() {
                     {item.num}
                   </span>
                   <div>
-                    <h3 className="text-lg font-serif text-brand-stone mb-3">
+                    <h3 className="text-xl font-serif text-brand-stone mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-stone-500 font-light text-sm leading-relaxed">
+                    <p className="text-stone-700 font-medium text-base leading-snug">
                       {item.body}
                     </p>
                   </div>

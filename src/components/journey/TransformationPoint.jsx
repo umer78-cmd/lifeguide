@@ -68,8 +68,8 @@ const TransformationPoint = () => {
               transition={{ delay: 0.3, duration: 1 }}
               style={{ willChange: 'transform, opacity' }}
             >
-              <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-brand-gold mb-10 block opacity-80">The Turning Point</span>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-12 leading-[1.1] tracking-wide">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gold mb-10 block opacity-80">The Turning Point</span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-stone mb-12 leading-[1.1] tracking-normal">
                 A Profound <br />
                 <BrushHighlight className="italic">Realization.</BrushHighlight>
               </h2>
@@ -89,7 +89,7 @@ const TransformationPoint = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="text-stone-600 font-light text-lg md:text-xl leading-relaxed max-w-2xl mx-auto tracking-wide"
+              className="text-stone-700 font-medium text-xl md:text-xl leading-snug max-w-2xl mx-auto tracking-normal"
               style={{ willChange: 'transform, opacity' }}
             >
               This work is not coaching, therapy, or consulting. It is a precise architectural shift that begins where energy is bound—helping you move beyond just "functioning" into the unhurried truth of your potential.

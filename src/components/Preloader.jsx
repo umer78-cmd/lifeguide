@@ -92,8 +92,8 @@ const Preloader = ({ onComplete }) => {
           
           {/* Tagline */}
           <div 
-            className={`text-stone-400 text-[10px] md:text-xs uppercase font-medium mt-4 transition-all duration-[2000ms] delay-300
-              ${stage >= 3 ? 'opacity-100 tracking-[0.3em] md:tracking-[0.4em]' : 'opacity-0 tracking-widest'}
+            className={`text-stone-700 text-[10px] md:text-xs uppercase font-medium mt-4 transition-all duration-[2000ms] delay-300
+              ${stage >= 3 ? 'opacity-100 tracking-[0.15em] md:tracking-[0.15em]' : 'opacity-0 tracking-normalst'}
               ${stage === 4 ? 'opacity-0' : ''}
             `}
             style={{ transitionTimingFunction: smoothEase }}

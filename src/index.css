@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-brand-cream text-brand-stone font-sans tracking-wide leading-relaxed antialiased overflow-x-hidden;
+    @apply bg-brand-cream text-brand-stone font-sans tracking-normal leading-snug antialiased overflow-x-hidden;
   }
 }
 
