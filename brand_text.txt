@@ -1,0 +1,49 @@
+🏛️ Brand Kit: Life Institute
+Official Design System & Brand Guidelines
+1. Design Essence
+The Life Institute brand is built on the concept of Institutional Sanctuary. It is a space designed to feel professional, grounded, and poetic.
+Core Theme: Systemic Wisdom & Institutional Sanctuary.
+Visual Vibe: Airy, premium, and rhythmic.
+Interaction Style: Smooth, unhurried, scroll-triggered animations that evoke a sense of calm arrival.
+2. Color Palette
+We utilize a sophisticated neutral base with warm, "enlightened" accents to create visual depth and a sense of "Visual Sanctuary".
+Role
+Color
+Usage
+Primary Background
+Stone 50
+Main sections and clean whitespace.
+Secondary Background
+Stone 100
+Subtle differentiation between UI sections.
+Primary Text
+Stone 800
+Standard body text and UI.
+Heading Text
+Stone 900
+Main titles and strong emphasis.
+Primary Accent
+Amber 700
+Highlights, italics, and brand keywords.
+Deep Accent
+Amber 900
+Section subtitles and rich text.
+Visual Depth
+Amber 500/10
+Subtle background glows (blur 80px+).
+3. Typography
+Consistency in typography is the backbone of the brand's premium, authoritative feel.
+Primary Serif: Playfair Display
+Aesthetic: Elegant, classic, and authoritative.
+Usage: Used for Headings (h1, h2, h3), Quotes, and Italic highlights.
+Character: Subtitles must use tracking-wide (0.3em) to maintain an "unhurried" look.
+Primary Sans: Inter
+Aesthetic: Modern, clean, and highly readable.
+Usage: Used for Body text, UI elements, and metadata.
+Character: Body blocks should utilize leading-relaxed and font-light settings.
+4. Signature Design Elements
+To maintain the "Unhurried Path" of the user experience, the following components are mandatory:
+Brush Highlights: Applied to "Awakening" words to draw intentional focus.
+Staggered Reveals: Content must "lift" into place to create a sense of arrival.
+The "Unhurried Path": Scroll-driven SVG paths that guide the user visually through the narrative.
+Marquee Strips: Used for "Life Potential" keywords to create subtle, continuous motion.

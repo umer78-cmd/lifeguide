@@ -2,23 +2,22 @@ import React, { lazy } from 'react';
 import Hero from '../components/Hero';
 
 const InnerActivation = lazy(() => import('../components/InnerActivation'));
-const QuoteBanner = lazy(() => import('../components/QuoteBanner'));
-const About = lazy(() => import('../components/About'));
-const VoicesOfChange = lazy(() => import('../components/LifeGuide'));
-const OrderingForce = lazy(() => import('../components/CoreValues'));
-const GuidanceWork = lazy(() => import('../components/ThreePillars'));
+const NarrativeScroll = lazy(() => import('../components/NarrativeScroll'));
 const FinalInvitation = lazy(() => import('../components/Journey'));
 
 const HomePage = ({ isAppLoaded }) => {
   return (
     <>
+      {/* Step 1: HERO */}
       <Hero isAppLoaded={isAppLoaded} />
+
+      {/* Step 2: ART VERSION — the slow reveal */}
       <InnerActivation />
-      <QuoteBanner />
-      <About />
-      <VoicesOfChange />
-      <OrderingForce />
-      <GuidanceWork />
+
+      {/* Steps 3–7: SYSTEM → FOUNDATIONAL WORK → EVOLUTION → GUIDANCE PATH → COMMIN */}
+      <NarrativeScroll />
+
+      {/* Step 8: STRUCTURE — session tiers */}
       <FinalInvitation />
     </>
   );
