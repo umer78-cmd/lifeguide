@@ -50,7 +50,7 @@ const Footer = () => {
               </h3>
               <div className="w-12 h-[1px] bg-brand-gold/40 mb-8"></div>
               <p className="text-stone-700 font-medium text-base leading-snug tracking-normal max-w-md">
-                Guiding systemic transformation from the core outward. Facilitating a Guidance Path for those ready to live their true purpose.
+                Guiding systemic transformation from the core outward — through LifeGuide-KaTao, commIN, and the Guidance Path.
               </p>
             </div>
             
@@ -98,9 +98,10 @@ const Footer = () => {
               <h4 className="text-[10px] uppercase tracking-[0.15em] text-stone-700 font-bold mb-8">The Access</h4>
               <ul className="space-y-4">
                 {[
-                  { name: 'Inquiry', path: '/#choose-your-entry' },
-                  { name: 'Entry Points', path: '/#choose-your-entry' },
-                  { name: 'Methodology', path: '/#philosophy' }
+                  { name: 'LifeGuide-KaTao', path: '/#choose-your-entry' },
+                  { name: 'commIN Space', path: '/communion' },
+                  { name: 'Guidance Path', path: '/connection' },
+                  { name: 'Methodology', path: '/journey' }
                 ].map((link, i) => (
                   <li key={i}>
                     <Link 

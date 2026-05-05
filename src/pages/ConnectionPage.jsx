@@ -11,7 +11,7 @@ const QUESTIONS = [
     question: 'Where would you like to begin your work?',
     subtext: 'Every path leads to the same foundational order. Where do you feel the most resonance right now?',
     options: [
-      { id: 'lifeguide', label: 'LifeGuide (Foundational Work)', desc: 'Address a specific challenge, symptom, or recurring pattern.' },
+      { id: 'lifeguide', label: 'LifeGuide-KaTao (Foundational Work)', desc: 'Address a specific challenge, symptom, or recurring pattern through the original systemic method refined over two decades.' },
       { id: 'commin', label: 'commIN Space (Group Experience)', desc: 'Build inner stability within a shared, unhurried space.' },
       { id: 'guidance', label: 'Guidance Path (Individual Depth)', desc: 'Direct, intensive systemic reordering.' }
     ]
@@ -412,7 +412,7 @@ export default function ConnectionPage() {
                   The purpose of this inquiry is <span className="text-brand-gold font-medium">collaboration.</span>
                 </p>
                 <p className="text-stone-700 text-xl font-medium leading-snug">
-                  The "Guidance Path" only exists through this partnership. The three questions are an invitation to begin arriving—ensuring that this work remains individual, non-standardized, and focused on your unique systemic potential.
+                  Whether you enter through the foundational LifeGuide-KaTao work, the commIN space, or the Guidance Path — each path exists only through this partnership. The three questions are an invitation to begin arriving — ensuring that this work remains individual, non-standardized, and focused on your unique systemic potential.
                 </p>
               </div>
 

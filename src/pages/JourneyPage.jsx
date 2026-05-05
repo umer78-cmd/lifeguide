@@ -86,7 +86,7 @@ const JourneyPage = () => {
             transition={{ delay: 1, duration: 1.5 }}
             className="max-w-xl mx-auto text-stone-600 text-lg md:text-xl font-serif font-normal leading-relaxed"
           >
-            Over two decades of work with the human system — refined into a precise, living methodology.
+            Over two decades of work with the human system — refined into a precise, living methodology known as LifeGuide-KaTao.
           </motion.p>
 
           <motion.div 
@@ -117,7 +117,7 @@ const JourneyPage = () => {
               We operate at the level where problems originate.
             </RevealParagraph>
             <RevealParagraph delay={0.1} className={pStyle}>
-              This is not a method, but a direct access to an inner realm.<br/>
+              LifeGuide-KaTao is not a method, but a direct access to an inner realm.<br/>
               By working at the systemic foundation, we release bound energy<br className="hidden md:inline"/>
               so your life power can reorganize itself naturally.
             </RevealParagraph>
@@ -222,7 +222,7 @@ const JourneyPage = () => {
             <div className="text-6xl font-serif text-brand-gold/15 leading-none mb-2 select-none">"</div>
             <div className="text-stone-700 font-serif text-lg md:text-xl leading-[1.9] space-y-6">
               <p>
-                I'd already worked with several therapists and practitioners in the field of life energy, but I'd never experienced anything like Katharina von Bilderling's LifeGuide guidance.
+                I'd already worked with several therapists and practitioners in the field of life energy, but I'd never experienced anything like Katharina von Bilderling's LifeGuide-KaTao guidance.
               </p>
               <p>
                 Such profound and mindful work, and somehow it all makes perfect sense when you understand the connections that explain why certain life issues are the way they are.
@@ -238,7 +238,7 @@ const JourneyPage = () => {
               </div>
               <div>
                 <p className="text-stone-800 font-serif text-base">Michaela Bobinger</p>
-                <p className="text-stone-500 text-xs uppercase tracking-[0.2em] mt-1">Client & LifeGuide Practitioner</p>
+                <p className="text-stone-500 text-xs uppercase tracking-[0.2em] mt-1">Client & LifeGuide-KaTao Practitioner</p>
               </div>
             </div>
           </div>

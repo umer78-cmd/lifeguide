@@ -105,35 +105,69 @@ const NarrativeScroll = () => {
         <SectionDivider />
 
         {/* ──────────────────── Step 4: FOUNDATIONAL WORK ──────────────────── */}
-        <NarrativeBlock title="Foundational Work">
-          <RevealParagraph className={pStyleEmphasis}>
-            This work has always begun with the human being as they are.
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
-            With what is present.<br/>
-            With what is felt.<br/>
-            With what shows itself in life.
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={`${pStyle} italic text-stone-600`}>
-            A situation.<br/>
-            A challenge.<br/>
-            A recurring pattern.
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
-            From there, the process begins to move inward.<br/>
-            Following what is connected. Step by step.<br/>
-            Toward the core of the system. Toward the life potential.
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
-            This work does not solve problems.<br/>
-            It operates at the level where their energy is held and bound.
-          </RevealParagraph>
-          <RevealParagraph delay={0.15} className={pStyleEmphasis}>
-            This way of working has formed the foundation of my work<br className="hidden md:inline"/>
-            over many years. It is precise. Focused.<br/>
-            And deeply effective within the field it addresses.
-          </RevealParagraph>
-        </NarrativeBlock>
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          {/* Overline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-8 md:mb-10"
+          >
+            THE FOUNDATIONAL WORK
+          </motion.p>
+
+          {/* Massive heading — same weight as Hero "Guidance Path." */}
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-normal text-stone-800 leading-[1.1] md:leading-tight tracking-tight mb-16 md:mb-20"
+          >
+            LifeGuide-KaTao
+          </motion.h2>
+
+          {/* Decorative divider beneath heading */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="w-32 h-[1px] bg-gradient-to-r from-transparent via-amber-600/20 to-transparent mx-auto mb-16 md:mb-20"
+          />
+
+          {/* Body text */}
+          <div className="max-w-2xl mx-auto space-y-10 md:space-y-12">
+            <RevealParagraph className={pStyleEmphasis}>
+              This work has always begun with the human being as they are.
+            </RevealParagraph>
+            <RevealParagraph delay={0.1} className={pStyle}>
+              With what is present.<br/>
+              With what is felt.<br/>
+              With what shows itself in life.
+            </RevealParagraph>
+            <RevealParagraph delay={0.1} className={`${pStyle} italic text-stone-600`}>
+              A situation.<br/>
+              A challenge.<br/>
+              A recurring pattern.
+            </RevealParagraph>
+            <RevealParagraph delay={0.1} className={pStyle}>
+              From there, the process begins to move inward.<br/>
+              Following what is connected. Step by step.<br/>
+              Toward the core of the system. Toward the life potential.
+            </RevealParagraph>
+            <RevealParagraph delay={0.1} className={pStyle}>
+              This work does not solve problems.<br/>
+              It operates at the level where their energy is held and bound.
+            </RevealParagraph>
+            <RevealParagraph delay={0.15} className={pStyleEmphasis}>
+              This way of working has formed the foundation of my work<br className="hidden md:inline"/>
+              over many years. It is precise. Focused.<br/>
+              And deeply effective within the field it addresses.
+            </RevealParagraph>
+          </div>
+        </div>
 
         <SectionDivider />
 
