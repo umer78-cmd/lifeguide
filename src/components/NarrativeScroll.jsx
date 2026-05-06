@@ -68,8 +68,8 @@ const NarrativeBlock = ({ title, children }) => (
  * They share identical visual weight — same heading size, same structure.
  * The only difference is their content.
  */
-const EntryPointBlock = ({ overline, heading, children, link, linkText, sessionTiers }) => (
-  <div className="max-w-2xl mx-auto px-6 text-center py-24 md:py-32">
+const EntryPointBlock = ({ overline, heading, children, link, linkText, sessionTiers, className = "" }) => (
+  <div className={`max-w-2xl mx-auto px-6 text-center py-24 md:py-32 ${className}`}>
     {/* Overline */}
     <motion.p
       initial={{ opacity: 0 }}
@@ -221,6 +221,7 @@ const NarrativeScroll = () => {
           heading="LifeGuide-KaTao"
           link="/journey"
           linkText="Explore the foundational work"
+          className="md:-translate-x-12"
         >
           <RevealParagraph className={pStyleEmphasis}>
             This work has always begun with the human being as they are.
@@ -259,6 +260,7 @@ const NarrativeScroll = () => {
           heading="commIN"
           link="/communion"
           linkText="Enter the shared space"
+          className="md:translate-x-12"
         >
           <RevealParagraph className={pStyleEmphasis}>
             A space where understanding begins.
@@ -289,6 +291,7 @@ const NarrativeScroll = () => {
         <EntryPointBlock
           overline="Entry Point"
           heading="Guidance Path"
+          className="md:-translate-x-6"
           sessionTiers={[
             { title: "Foundation", duration: "3 Sessions" },
             { title: "Stabilization", duration: "5 Sessions" },
