@@ -7,7 +7,6 @@ const InnerActivation = () => {
       <div className="max-w-4xl mx-auto w-full">
         <div className="flex flex-col items-center py-20">
           {[
-            "Here you are.",
             "An impulse is set.",
             "You respond.",
             "Inside, something begins to open.",

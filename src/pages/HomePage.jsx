@@ -3,22 +3,22 @@ import Hero from '../components/Hero';
 
 const InnerActivation = lazy(() => import('../components/InnerActivation'));
 const NarrativeScroll = lazy(() => import('../components/NarrativeScroll'));
-const FinalInvitation = lazy(() => import('../components/Journey'));
+const ClosingInvitation = lazy(() => import('../components/Journey'));
 
 const HomePage = ({ isAppLoaded }) => {
   return (
     <>
-      {/* Step 1: HERO */}
+      {/* The first landing — "Your life begins to reorganize from within." */}
       <Hero isAppLoaded={isAppLoaded} />
 
-      {/* Step 2: ART VERSION — the slow reveal */}
+      {/* The slow reveal — scroll-activated poetry */}
       <InnerActivation />
 
-      {/* Steps 3–7: SYSTEM → FOUNDATIONAL WORK → EVOLUTION → GUIDANCE PATH → COMMIN */}
+      {/* System → Three equal entry points (LifeGuide-KaTao, commIN, Guidance Path) */}
       <NarrativeScroll />
 
-      {/* Step 8: STRUCTURE — session tiers */}
-      <FinalInvitation />
+      {/* Gentle closing — open invitation to connect */}
+      <ClosingInvitation />
     </>
   );
 };

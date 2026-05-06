@@ -43,10 +43,10 @@ const Navbar = () => {
   }, []);
   
   const navLinks = [
-    { name: 'Guidance Path', id: 'the-calling', path: '/' },
+    { name: 'The Work', id: 'the-calling', path: '/' },
     { name: 'Methodology', id: 'journey-manifesto', path: '/journey' },
     { name: 'Group Space', id: 'voices-of-change', path: '/communion' },
-    { name: 'Application', id: 'the-connection', path: '/connection' }
+    { name: 'Connection', id: 'the-connection', path: '/connection' }
   ];
 
   const handleNavClick = (e, link) => {
