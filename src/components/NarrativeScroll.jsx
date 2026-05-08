@@ -299,21 +299,24 @@ const NarrativeScroll = () => {
           ]}
         >
           <RevealParagraph className={pStyleEmphasis}>
-            The most direct form of the work.
+            Here you are. You say yes. You respond. An impulse is placed. Inside you, something begins to open. Movement. Release. Reorganization. In your own rhythm.
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
+            The most direct form of the work.
+          </RevealParagraph>
+          <RevealParagraph delay={0.15} className={pStyle}>
             It begins directly at the central inner level<br className="hidden md:inline"/>
             where everything within the person connects.
           </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
+          <RevealParagraph delay={0.2} className={pStyle}>
             From there, movement unfolds<br/>
             across the whole being.
           </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
+          <RevealParagraph delay={0.25} className={pStyle}>
             What has been held begins to release.<br/>
             What was not accessible becomes available again.
           </RevealParagraph>
-          <RevealParagraph delay={0.15} className={pStyleEmphasis}>
+          <RevealParagraph delay={0.3} className={pStyleEmphasis}>
             This is not a step-by-step process.<br/>
             It unfolds as a whole. In your own rhythm.
           </RevealParagraph>
