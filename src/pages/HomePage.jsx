@@ -1,12 +1,16 @@
 import React, { lazy } from 'react';
+import Hero from '../components/Hero';
 
 const InnerActivation = lazy(() => import('../components/InnerActivation'));
 const NarrativeScroll = lazy(() => import('../components/NarrativeScroll'));
 const ClosingInvitation = lazy(() => import('../components/Journey'));
 
-const HomePage = () => {
+const HomePage = ({ isAppLoaded }) => {
   return (
     <>
+      {/* The Hero Section — All three pillars and their logos right at the top */}
+      <Hero isAppLoaded={isAppLoaded} />
+
       {/* The slow reveal — scroll-activated poetry */}
       <InnerActivation />
 

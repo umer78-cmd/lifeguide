@@ -17,27 +17,25 @@ const ClosingInvitation = () => {
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 1.4, ease: "easeOut" }}
         >
-          <p className="text-2xl md:text-3xl font-serif font-normal text-stone-800 leading-relaxed mb-8">
-            You don't need to decide now.
-          </p>
-          <p className="text-lg md:text-xl font-serif font-normal text-stone-600 leading-[1.9] mb-6">
-            But if something here has moved,<br/>
-            if something has begun to open —
-          </p>
-          <p className="text-lg md:text-xl font-serif italic text-stone-500 leading-[1.9]">
-            that is already the beginning.
+          <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-normal text-stone-800 leading-relaxed max-w-xl mx-auto">
+            If something has already moved inside you -<br className="hidden sm:inline"/>
+            <span className="italic text-brand-gold">the decision is made.</span>
           </p>
         </motion.div>
 
-        {/* Divider */}
+        {/* Prominent Divider */}
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="w-24 h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-16 md:my-20"
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="flex items-center justify-center gap-6 my-16 md:my-20"
           style={{ transform: 'rotate(0.3deg)' }}
-        />
+        >
+          <div className="w-16 md:w-24 h-[1.5px] bg-gradient-to-r from-transparent to-brand-gold/80"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-brand-gold/75 ring-4 ring-brand-gold/20 shadow-sm"></div>
+          <div className="w-16 md:w-24 h-[1.5px] bg-gradient-to-l from-transparent to-brand-gold/80"></div>
+        </motion.div>
 
         {/* CTA */}
         <motion.div

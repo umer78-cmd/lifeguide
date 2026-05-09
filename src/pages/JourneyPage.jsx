@@ -23,10 +23,12 @@ const SectionDivider = () => (
     transition={{ duration: 1.2, ease: "easeOut" }}
     className="flex items-center justify-center py-24 md:py-32"
   >
-    <div className="flex items-center gap-4">
-      <div className="w-12 md:w-20 h-[1px] bg-gradient-to-r from-transparent to-brand-gold/30"></div>
-      <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/30"></div>
-      <div className="w-12 md:w-20 h-[1px] bg-gradient-to-l from-transparent to-brand-gold/30"></div>
+    <div className="flex items-center gap-6">
+      {/* Thicker 1.5px line, wider desktop size, fades to solid brand-gold */}
+      <div className="w-20 md:w-32 h-[1.5px] bg-gradient-to-r from-transparent to-brand-gold/80"></div>
+      {/* Prominent central dot with outer ring */}
+      <div className="w-2.5 h-2.5 rounded-full bg-brand-gold/75 ring-4 ring-brand-gold/20 shadow-sm"></div>
+      <div className="w-20 md:w-32 h-[1.5px] bg-gradient-to-l from-transparent to-brand-gold/80"></div>
     </div>
   </motion.div>
 );
