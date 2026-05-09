@@ -1,22 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const InnerActivation = () => {
   const containerRef = useRef(null);
   const [progress, setProgress] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Bulletproof real-time layout and scroll listener
+  // Determine if current device should get the advanced cinematic scroll
   useEffect(() => {
+    const checkDevice = () => {
+      // Restore cinematic scroll for laptops with touchscreens by focusing on screen width (>= 1024px)
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    setIsLoaded(true);
+
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
+
+  // Bulletproof real-time layout and scroll listener - Only active for desktop
+  useEffect(() => {
+    if (!isDesktop) return;
+
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const totalHeight = rect.height;
       const top = rect.top;
 
-      // scrollableDistance is the height the container stays stuck in viewport
       const scrollableDistance = totalHeight - window.innerHeight;
       if (scrollableDistance <= 0) return;
 
-      // Map progress exactly from 0 (start of sticky phase) to 1 (end of sticky phase)
       const currentProgress = Math.max(0, Math.min(1, -top / scrollableDistance));
       setProgress(currentProgress);
     };
@@ -24,7 +41,6 @@ const InnerActivation = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll);
     
-    // Initial calculation with a slight delay for lazy rendering
     const timer = setTimeout(handleScroll, 100);
 
     return () => {
@@ -32,7 +48,7 @@ const InnerActivation = () => {
       window.removeEventListener('resize', handleScroll);
       clearTimeout(timer);
     };
-  }, []);
+  }, [isDesktop]);
 
   const phrases = [
     "The conditions we live in are changing.",
@@ -48,17 +64,57 @@ const InnerActivation = () => {
     "You respond."
   ];
 
+  // Prevent flash before device detection executes
+  if (!isLoaded) {
+    return <section id="inner-activation" className="h-screen bg-brand-cream" />;
+  }
+
+  // ── MOBILE/TOUCH VERSION: Full screen height per phrase, natural scrolling ──
+  if (!isDesktop) {
+    return (
+      <section 
+        id="inner-activation" 
+        className="relative bg-brand-cream w-full overflow-hidden"
+      >
+        {phrases.map((phrase, i) => (
+          <div 
+            key={i} 
+            className="h-[70vh] w-full flex items-center justify-center px-6 snap-center"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              // once: false ensures it re-fades elegantly as user scrolls back and forth
+              viewport={{ once: false, margin: "-20%" }} 
+              transition={{ 
+                duration: 1.4, 
+                ease: [0.22, 1, 0.36, 1] // Smooth ease-out
+              }}
+              className="max-w-lg mx-auto text-center"
+            >
+              <p className="text-stone-800 text-3xl sm:text-4xl md:text-5xl font-serif font-normal leading-relaxed tracking-wide">
+                {phrase}
+              </p>
+            </motion.div>
+          </div>
+        ))}
+        {/* Brief spacer at bottom for visual buffer */}
+        <div className="h-[10vh]" />
+      </section>
+    );
+  }
+
+  // ── DESKTOP VERSION: Advanced Cinematic Sticky Scroll ──
   const totalPhrases = phrases.length;
-  const seg = 1 / totalPhrases; // Segment width for each phrase
+  const seg = 1 / totalPhrases; 
 
   return (
     <section 
       ref={containerRef} 
       id="inner-activation" 
       className="relative bg-brand-cream overflow-visible z-10 w-full" 
-      style={{ height: '800vh' }} // Slowed down scroll speed further for a deeply peaceful, cinematic reveal
+      style={{ height: '800vh' }} 
     >
-      {/* Sticky container that keeps the viewport locked while scrolling through the sequence */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6">
         <div className="max-w-4xl mx-auto w-full text-center relative flex items-center justify-center h-48 md:h-64">
           {phrases.map((phrase, i) => {
@@ -69,7 +125,6 @@ const InnerActivation = () => {
             let y = 24;
 
             if (i === 0) {
-              // First phrase is visible at the start, and fades out in the last 20% of its segment
               if (progress < seg * 0.8) {
                 opacity = 1;
                 y = 0;
@@ -82,7 +137,6 @@ const InnerActivation = () => {
                 y = -24;
               }
             } else {
-              // Subsequent phrases fade in (first 20% of segment), hold, then fade out (last 20% of segment)
               if (progress < start) {
                 opacity = 0;
                 y = 24;
