@@ -168,7 +168,7 @@ const pStyleEmphasis = "text-stone-800 text-lg md:text-xl font-serif font-normal
 const NarrativeScroll = () => {
   return (
     <section className="bg-brand-cream relative z-10">
-      <div className="py-16 md:py-24">
+      <div className="pt-4 pb-16 md:py-24">
 
         {/* ──────────────────── THE BRIDGE ──────────────────── */}
         <motion.div

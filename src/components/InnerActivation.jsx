@@ -126,11 +126,11 @@ const InnerActivation = () => {
             })
           ) : (
             // ── MOBILE: Narrative Feed (Corrected Offset Logic) ──
-            <div className="w-full relative h-[180px] flex items-center justify-center">
+            <div className="w-full relative h-[140px] flex items-center justify-center">
               <div 
                 className="w-full transition-transform duration-500 ease-out will-change-transform"
                 style={{ 
-                  transform: `translate3d(0, ${(((totalPhrases - 1) * 180) / 2) - (progress * (totalPhrases - 1) * 180)}px, 0)` 
+                  transform: `translate3d(0, ${(((totalPhrases - 1) * 140) / 2) - (progress * (totalPhrases - 1) * 140)}px, 0)` 
                 }}
               >
                 {phrases.map((phrase, i) => {
@@ -146,7 +146,7 @@ const InnerActivation = () => {
                   return (
                     <div 
                       key={i} 
-                      className="h-[180px] flex items-center justify-center transition-all duration-500 px-6 text-center"
+                      className="h-[140px] flex items-center justify-center transition-all duration-500 px-6 text-center"
                       style={{ opacity, transform: `scale(${scale})` }}
                     >
                       <p 
