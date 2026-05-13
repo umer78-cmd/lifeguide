@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BrushHighlight from '../components/BrushHighlight';
+import OrganicDivider from '../components/OrganicDivider';
 
 const QUESTIONS = [
   {
@@ -103,7 +104,7 @@ export default function ConnectionPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={isReady ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 1 }}
-            className="text-brand-gold/70 text-xs md:text-base uppercase tracking-brand-wide mb-8 font-semibold"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-brand-wide mb-8 font-bold"
           >
             The Application
           </motion.p>
@@ -124,7 +125,7 @@ export default function ConnectionPage() {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ delay: 1.0, duration: 1.4 }}
-            className="max-w-2xl mx-auto text-stone-700 text-xl md:text-xl font-medium leading-snug tracking-normal mb-6"
+            className="max-w-2xl mx-auto text-stone-700 text-xl md:text-2xl font-serif font-normal leading-relaxed tracking-normal mb-6"
           >
             "This is not a method or a tool. It is direct access to an inner realm — a discernment process for both of us."
           </motion.p>
@@ -133,7 +134,7 @@ export default function ConnectionPage() {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ delay: 1.3, duration: 1.2 }}
-            className="max-w-xl mx-auto text-stone-700 text-base font-medium leading-snug mb-16"
+            className="max-w-xl mx-auto text-stone-700 text-lg md:text-xl font-serif font-normal leading-relaxed mb-16"
           >
             A space to perceive the work without distraction. Three honest questions. Then, if the resonance is clear, the calendar opens.
           </motion.p>
@@ -222,7 +223,7 @@ export default function ConnectionPage() {
                   {currentQ?.question}
                 </h2>
 
-                <p className="text-stone-700 font-medium text-base mb-12 leading-snug italic">
+                <p className="text-stone-700 font-serif text-lg md:text-xl mb-12 leading-relaxed italic">
                   {currentQ?.subtext}
                 </p>
 
@@ -239,7 +240,7 @@ export default function ConnectionPage() {
                         }`}
                       >
                         <h3 className={`font-serif text-xl mb-2 ${currentAnswer === opt.label ? 'text-brand-stone' : 'text-stone-700'}`}>{opt.label}</h3>
-                        <p className="text-stone-700 font-medium text-base">{opt.desc}</p>
+                        <p className="text-stone-700 font-serif text-base md:text-lg">{opt.desc}</p>
                       </button>
                     ))}
                   </div>
@@ -251,7 +252,7 @@ export default function ConnectionPage() {
                     value={currentAnswer}
                     onChange={(e) => setCurrentAnswer(e.target.value)}
                     placeholder={currentQ?.placeholder}
-                    className="w-full bg-white border border-stone-200 rounded-2xl p-8 text-stone-700 font-medium text-base leading-snug placeholder:text-stone-300 focus:outline-none focus:border-brand-gold/50 focus:ring-2 focus:ring-brand-gold/10 transition-all duration-300 resize-none shadow-sm"
+                    className="w-full bg-white border border-stone-200 rounded-2xl p-8 text-stone-700 font-serif text-lg md:text-xl leading-relaxed placeholder:text-stone-300 focus:outline-none focus:border-brand-gold/50 focus:ring-2 focus:ring-brand-gold/10 transition-all duration-300 resize-none shadow-sm"
                   />
                 )}
 
@@ -305,12 +306,7 @@ export default function ConnectionPage() {
             id="booking-calendar"
           >
             <div className="max-w-4xl mx-auto text-center mb-16">
-              {/* Ornamental divider */}
-              <div className="flex items-center gap-6 justify-center mb-12">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-brand-gold/30" />
-                <div className="w-2 h-2 rounded-full bg-brand-gold/60" />
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-brand-gold/30" />
-              </div>
+              <OrganicDivider variant={0} className="mb-12" />
 
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -335,7 +331,7 @@ export default function ConnectionPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="max-w-xl mx-auto text-stone-700 font-medium text-xl leading-snug"
+                className="max-w-xl mx-auto text-stone-700 font-serif text-xl md:text-2xl leading-relaxed"
               >
                 You have given this inquiry the weight it deserves. Now, choose a
                 moment for us to meet — unhurried, with full presence.
@@ -357,7 +353,7 @@ export default function ConnectionPage() {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-brand-gold/70 font-bold mb-2">
                     {q.eyebrow}
                   </p>
-                  <p className="text-stone-700 font-medium text-base leading-snug italic">
+                  <p className="text-stone-700 font-serif text-lg leading-relaxed italic">
                     "{answers[q.id]}"
                   </p>
                 </div>
@@ -408,10 +404,10 @@ export default function ConnectionPage() {
                 Why an <span className="italic">Application?</span>
               </h2>
               <div className="space-y-8 max-w-xl">
-                <p className="text-stone-700 text-xl font-medium leading-snug">
-                  The purpose of this inquiry is <span className="text-brand-gold font-medium">collaboration.</span>
+                <p className="text-stone-700 text-xl font-serif leading-relaxed">
+                  The purpose of this inquiry is <span className="text-brand-gold italic">collaboration.</span>
                 </p>
-                <p className="text-stone-700 text-xl font-medium leading-snug">
+                <p className="text-stone-700 text-xl font-serif leading-relaxed">
                   Whether you enter through the foundational LifeGuide-KaTao work, the commIN space, or the Guidance Path — each path exists only through this partnership. The three questions are an invitation to begin arriving — ensuring that this work remains individual, non-standardized, and focused on your unique systemic potential.
                 </p>
               </div>
@@ -494,7 +490,7 @@ export default function ConnectionPage() {
                     <h3 className="text-xl font-serif text-brand-stone mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-stone-700 font-medium text-base leading-snug">
+                    <p className="text-stone-700 font-serif text-base md:text-lg leading-relaxed">
                       {item.body}
                     </p>
                   </div>

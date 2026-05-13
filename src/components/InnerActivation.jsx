@@ -21,10 +21,8 @@ const InnerActivation = () => {
     return () => window.removeEventListener('resize', checkDevice);
   }, []);
 
-  // Bulletproof real-time layout and scroll listener - Only active for desktop
+  // Bulletproof real-time layout and scroll listener
   useEffect(() => {
-    if (!isDesktop) return;
-
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -48,7 +46,7 @@ const InnerActivation = () => {
       window.removeEventListener('resize', handleScroll);
       clearTimeout(timer);
     };
-  }, [isDesktop]);
+  }, []);
 
   const phrases = [
     "The conditions we live in are changing.",
@@ -58,10 +56,7 @@ const InnerActivation = () => {
     "Compensating.",
     "Adapting.",
     "It worked.",
-    "It no longer works the same way.",
-    "Here you are.",
-    "You say yes.",
-    "You respond."
+    "It no longer works the same way."
   ];
 
   // Prevent flash before device detection executes
@@ -69,111 +64,104 @@ const InnerActivation = () => {
     return <section id="inner-activation" className="h-screen bg-brand-cream" />;
   }
 
-  // ── MOBILE/TOUCH VERSION: Full screen height per phrase, natural scrolling ──
-  if (!isDesktop) {
-    return (
-      <section 
-        id="inner-activation" 
-        className="relative bg-brand-cream w-full overflow-hidden"
-      >
-        {phrases.map((phrase, i) => (
-          <div 
-            key={i} 
-            className="h-[70vh] w-full flex items-center justify-center px-6 snap-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              // once: false ensures it re-fades elegantly as user scrolls back and forth
-              viewport={{ once: false, margin: "-20%" }} 
-              transition={{ 
-                duration: 1.4, 
-                ease: [0.22, 1, 0.36, 1] // Smooth ease-out
-              }}
-              className="max-w-lg mx-auto text-center"
-            >
-              <p className="text-stone-800 text-3xl sm:text-4xl md:text-5xl font-serif font-normal leading-relaxed tracking-wide">
-                {phrase}
-              </p>
-            </motion.div>
-          </div>
-        ))}
-        {/* Brief spacer at bottom for visual buffer */}
-        <div className="h-[10vh]" />
-      </section>
-    );
-  }
-
-  // ── DESKTOP VERSION: Advanced Cinematic Sticky Scroll ──
+  // ── UNIFIED CINEMATIC STICKY SCROLL ──
   const totalPhrases = phrases.length;
-  const seg = 1 / totalPhrases; 
+  
+  // Height: Desktop stays cinematic (800vh), Mobile is now a snappy conveyor (300vh)
+  const containerHeight = isDesktop ? '800vh' : '300vh';
+  const seg = 1 / totalPhrases;
 
   return (
     <section 
       ref={containerRef} 
       id="inner-activation" 
       className="relative bg-brand-cream overflow-visible z-10 w-full" 
-      style={{ height: '800vh' }} 
+      style={{ height: containerHeight }} 
     >
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6">
-        <div className="max-w-4xl mx-auto w-full text-center relative flex items-center justify-center h-48 md:h-64">
-          {phrases.map((phrase, i) => {
-            const start = i * seg;
-            const end = (i + 1) * seg;
+      <div className="sticky top-0 h-[100svh] w-full flex items-center justify-center overflow-hidden px-6">
+        <div className="max-w-4xl mx-auto w-full text-center relative flex items-center justify-center h-64 md:h-80">
+          
+          {isDesktop ? (
+            // ── DESKTOP: Individual Cinematic Reveal ──
+            phrases.map((phrase, i) => {
+              const start = i * seg;
+              const end = (i + 1) * seg;
+              let opacity = 0;
+              let y = 30;
 
-            let opacity = 0;
-            let y = 24;
-
-            if (i === 0) {
-              if (progress < seg * 0.8) {
-                opacity = 1;
-                y = 0;
-              } else if (progress < end) {
-                const t = (progress - seg * 0.8) / (seg * 0.2);
-                opacity = 1 - t;
-                y = -24 * t;
+              if (i === 0) {
+                if (progress < seg * 0.8) { opacity = 1; y = 0; }
+                else if (progress < end) {
+                  const t = (progress - seg * 0.8) / (seg * 0.2);
+                  opacity = 1 - t; y = -30 * t;
+                }
               } else {
-                opacity = 0;
-                y = -24;
+                if (progress < start) { opacity = 0; y = 30; }
+                else if (progress < start + seg * 0.2) {
+                  const t = (progress - start) / (seg * 0.2);
+                  opacity = t; y = 30 * (1 - t);
+                } else if (progress < start + seg * 0.8) { opacity = 1; y = 0; }
+                else if (progress < end) {
+                  const t = (progress - (start + seg * 0.8)) / (seg * 0.2);
+                  opacity = 1 - t; y = -30 * t;
+                }
               }
-            } else {
-              if (progress < start) {
-                opacity = 0;
-                y = 24;
-              } else if (progress < start + seg * 0.2) {
-                const t = (progress - start) / (seg * 0.2);
-                opacity = t;
-                y = 24 * (1 - t);
-              } else if (progress < start + seg * 0.8) {
-                opacity = 1;
-                y = 0;
-              } else if (progress < end) {
-                const t = (progress - (start + seg * 0.8)) / (seg * 0.2);
-                opacity = 1 - t;
-                y = -24 * t;
-              } else {
-                opacity = 0;
-                y = -24;
-              }
-            }
 
-            return (
-              <div
-                key={i}
+              return (
+                <div
+                  key={i}
+                  style={{ 
+                    opacity, 
+                    transform: `translate3d(0, ${y}px, 0)`,
+                    transition: 'opacity 300ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1)',
+                    pointerEvents: opacity > 0.5 ? 'auto' : 'none'
+                  }}
+                  className="absolute w-full flex items-center justify-center"
+                >
+                  <p className="text-stone-800 text-3xl md:text-5xl font-serif font-normal leading-relaxed tracking-wide select-none max-w-3xl">
+                    {phrase}
+                  </p>
+                </div>
+              );
+            })
+          ) : (
+            // ── MOBILE: Narrative Feed (Corrected Offset Logic) ──
+            <div className="w-full relative h-[180px] flex items-center justify-center">
+              <div 
+                className="w-full transition-transform duration-500 ease-out will-change-transform"
                 style={{ 
-                  opacity, 
-                  transform: `translate3d(0, ${y}px, 0)`,
-                  transition: 'opacity 150ms cubic-bezier(0.25, 1, 0.5, 1), transform 150ms cubic-bezier(0.25, 1, 0.5, 1)',
-                  pointerEvents: opacity > 0 ? 'auto' : 'none'
+                  transform: `translate3d(0, ${(((totalPhrases - 1) * 180) / 2) - (progress * (totalPhrases - 1) * 180)}px, 0)` 
                 }}
-                className="absolute w-full flex items-center justify-center px-4"
               >
-                <p className="text-stone-800 text-2xl sm:text-3xl md:text-4xl font-serif font-normal leading-relaxed tracking-wide select-none max-w-3xl">
-                  {phrase}
-                </p>
+                {phrases.map((phrase, i) => {
+                  const phraseProgress = i / (totalPhrases - 1);
+                  const distance = Math.abs(progress - phraseProgress);
+                  
+                  // Tighter window for mobile active state
+                  const isActive = distance < (1 / (totalPhrases * 2)); 
+                  const opacity = isActive ? 1 : Math.max(0.1, 1 - (distance * 4));
+                  const scale = isActive ? 1 : 0.9;
+                  const color = isActive ? '#b45309' : '#57534e';
+                  
+                  return (
+                    <div 
+                      key={i} 
+                      className="h-[180px] flex items-center justify-center transition-all duration-500 px-6 text-center"
+                      style={{ opacity, transform: `scale(${scale})` }}
+                    >
+                      <p 
+                        className={`text-2xl sm:text-3xl font-serif leading-relaxed tracking-wide transition-colors duration-500 ${isActive ? 'font-bold' : 'font-normal'}`}
+                        style={{ color }}
+                      >
+                        {phrase}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
-            );
-          })}
+            </div>
+          )}
+          
         </div>
       </div>
     </section>

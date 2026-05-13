@@ -48,17 +48,11 @@ const WelcomeScreen = ({ isActive, onComplete }) => {
           }}
         >
           <div className="flex flex-col items-center">
-            {/* The word "commIN" — prominent, serif, massive */}
-            <h1
-              className="font-serif font-normal tracking-tight text-stone-800 select-none"
-              style={{
-                fontSize: 'clamp(4rem, 12vw, 10rem)',
-                lineHeight: 1,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              comm<span className="text-brand-gold">i</span><span className="text-stone-900">N</span>
-            </h1>
+            <img
+              src="/logo/CommIN Loader.png"
+              alt="commIN"
+              className="w-[350px] sm:w-[500px] md:w-[650px] lg:w-[800px] h-auto object-contain select-none"
+            />
 
             {/* Subtle gold dot beneath */}
             <div

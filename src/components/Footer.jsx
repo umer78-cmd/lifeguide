@@ -49,7 +49,7 @@ const Footer = () => {
                 <span className="text-brand-gold">von Bilderling</span>
               </h3>
               <div className="w-12 h-[1px] bg-brand-gold/40 mb-8"></div>
-              <p className="text-stone-700 font-medium text-base leading-snug tracking-normal max-w-md">
+              <p className="text-stone-700 font-serif text-lg md:text-xl leading-[1.6] tracking-normal max-w-md">
                 Guiding systemic transformation from the core outward — through LifeGuide-KaTao, commIN, and the Guidance Path.
               </p>
             </div>

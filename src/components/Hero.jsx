@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import DustMotes from './DustMotes';
+import { CommInIcon, GuidancePathIcon, LifeGuideIcon } from './BrandIcons';
 
 const Hero = ({ isAppLoaded }) => {
   const [isReady, setIsReady] = useState(false);
@@ -73,12 +74,7 @@ const Hero = ({ isAppLoaded }) => {
             className="group flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-500"
           >
             <div className="mb-4 text-brand-gold transform group-hover:scale-110 transition-transform duration-500 ease-out">
-              <svg className="w-14 h-14 md:w-20 md:h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="32" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
-                <circle cx="50" cy="50" r="22" stroke="currentColor" strokeWidth="1.5" className="opacity-60" />
-                <circle cx="50" cy="50" r="6" fill="currentColor" className="animate-pulse" />
-                <circle cx="50" cy="50" r="42" stroke="currentColor" strokeWidth="0.5" className="opacity-20" />
-              </svg>
+              <CommInIcon />
             </div>
             <span className="text-base md:text-lg font-serif text-stone-700 group-hover:text-brand-gold transition-colors duration-300 tracking-wide font-medium">
               comm<span className="text-brand-gold font-semibold">i</span><span className="text-stone-900 font-bold">N</span>
@@ -94,11 +90,7 @@ const Hero = ({ isAppLoaded }) => {
             className="group flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-500"
           >
             <div className="mb-4 text-brand-gold transform group-hover:scale-110 transition-transform duration-500 ease-out">
-              <svg className="w-14 h-14 md:w-20 md:h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 50 C 35 20, 45 80, 60 50 C 70 30, 75 40, 80 50" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="opacity-80" />
-                <circle cx="80" cy="50" r="5" fill="currentColor" />
-                <circle cx="20" cy="50" r="3" fill="currentColor" className="opacity-40" />
-              </svg>
+              <GuidancePathIcon />
             </div>
             <span className="text-base md:text-lg font-serif text-stone-700 group-hover:text-brand-gold transition-colors duration-300 tracking-wide font-medium">
               Guidance<span className="text-brand-gold font-serif italic">Path</span>
@@ -114,12 +106,7 @@ const Hero = ({ isAppLoaded }) => {
             className="group flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform duration-500"
           >
             <div className="mb-4 text-brand-gold transform group-hover:scale-110 transition-transform duration-500 ease-out">
-              <svg className="w-14 h-14 md:w-20 md:h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="180 40" className="opacity-70 rotate-45 transform origin-center" />
-                <path d="M50 25 L50 75 M25 50 L75 50 M32 32 L68 68 M32 68 L68 32" stroke="currentColor" strokeWidth="1" className="opacity-40" />
-                <circle cx="50" cy="50" r="12" fill="currentColor" className="opacity-20" />
-                <circle cx="50" cy="50" r="4" fill="currentColor" />
-              </svg>
+              <LifeGuideIcon />
             </div>
             <span className="text-base md:text-lg font-serif text-stone-700 group-hover:text-brand-gold transition-colors duration-300 tracking-wide font-medium">
               LifeGuide-<span className="text-brand-gold font-serif italic">KaTao</span>
@@ -128,10 +115,10 @@ const Hero = ({ isAppLoaded }) => {
         </div>
 
         {/* ─── 3. The Bottom Line (The Hero Header) ─── */}
-        <div className="max-w-4xl mx-auto px-6 mb-16 md:mb-20">
+        <div className="max-w-5xl mx-auto px-6 mb-16 md:mb-20">
           <h1 
             ref={headingRef} 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-stone-800 leading-[1.2] md:leading-[1.15] tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-normal text-stone-800 leading-[1.15] md:leading-[1.1] tracking-tight"
           >
             {'Where life begins to reorganize from within.'.split(' ').map((word, i) => (
               <span

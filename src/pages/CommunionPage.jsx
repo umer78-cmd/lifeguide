@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import DustMotes from '../components/DustMotes';
+import OrganicDivider from '../components/OrganicDivider';
 
 const RevealParagraph = ({ children, delay = 0, className = "" }) => (
   <motion.p
@@ -45,7 +46,7 @@ const CommunionPage = () => {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ delay: 0.3, duration: 1 }}
-            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-12"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
             The Group Space
           </motion.p>
@@ -102,14 +103,7 @@ const CommunionPage = () => {
         </div>
       </section>
 
-      {/* ── Gold divider ── */}
-      <div className="flex items-center justify-center py-8">
-        <div className="flex items-center gap-4">
-          <div className="w-12 md:w-20 h-[1px] bg-gradient-to-r from-transparent to-brand-gold/30"></div>
-          <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/30"></div>
-          <div className="w-12 md:w-20 h-[1px] bg-gradient-to-l from-transparent to-brand-gold/30"></div>
-        </div>
-      </div>
+      <OrganicDivider variant={0} />
 
       {/* ── The Three Movements ── */}
       <section className="py-20 md:py-32 px-6">
@@ -118,7 +112,7 @@ const CommunionPage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-12"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
             The Three Movements
           </motion.p>
@@ -158,14 +152,7 @@ const CommunionPage = () => {
         </div>
       </section>
 
-      {/* ── Gold divider ── */}
-      <div className="flex items-center justify-center py-8">
-        <div className="flex items-center gap-4">
-          <div className="w-12 md:w-20 h-[1px] bg-gradient-to-r from-transparent to-brand-gold/30"></div>
-          <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/30"></div>
-          <div className="w-12 md:w-20 h-[1px] bg-gradient-to-l from-transparent to-brand-gold/30"></div>
-        </div>
-      </div>
+      <OrganicDivider variant={1} />
 
       {/* ── CTA ── */}
       <section className="py-24 md:py-32 px-6 text-center">

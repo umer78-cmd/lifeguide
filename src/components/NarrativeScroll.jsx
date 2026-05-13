@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { CommInIcon, GuidancePathIcon, LifeGuideIcon } from './BrandIcons';
+import OrganicDivider from './OrganicDivider';
 
 /* ── Reusable: A single paragraph that fades in on scroll ── */
 const RevealParagraph = ({ children, delay = 0, className = "" }) => (
@@ -14,35 +16,6 @@ const RevealParagraph = ({ children, delay = 0, className = "" }) => (
     {children}
   </motion.p>
 );
-
-/* ── Organic Divider — slightly irregular, not pixel-perfect, prominent ── */
-const OrganicDivider = ({ variant = 0 }) => {
-  const rotations = ['-0.3deg', '0.2deg', '-0.15deg', '0.4deg'];
-  const widths = ['w-24 md:w-36', 'w-20 md:w-32', 'w-28 md:w-40', 'w-24 md:w-36'];
-  const margins = ['my-32 md:my-48', 'my-28 md:my-40', 'my-36 md:my-52', 'my-30 md:my-44'];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scaleX: 0 }}
-      whileInView={{ opacity: 1, scaleX: 1 }}
-      viewport={{ once: false, margin: "-10%" }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      className={`flex items-center justify-center ${margins[variant % margins.length]}`}
-    >
-      <div
-        className="flex items-center gap-6"
-        style={{ transform: `rotate(${rotations[variant % rotations.length]})` }}
-      >
-        {/* Left Line: Fades from transparent to rich solid brand-gold */}
-        <div className={`${widths[variant % widths.length]} h-[1.5px] bg-gradient-to-r from-transparent to-brand-gold/80`}></div>
-        {/* Central Dot with Ring */}
-        <div className="w-2.5 h-2.5 rounded-full bg-brand-gold/75 ring-4 ring-brand-gold/20 shadow-sm" style={{ transform: `translateY(${variant % 2 === 0 ? '-1px' : '1px'})` }}></div>
-        {/* Right Line: Fades from transparent to rich solid brand-gold */}
-        <div className={`${widths[variant % widths.length]} h-[1.5px] bg-gradient-to-l from-transparent to-brand-gold/80`}></div>
-      </div>
-    </motion.div>
-  );
-};
 
 /* ── Reusable: A narrative section with title + paragraphs ── */
 const NarrativeBlock = ({ title, children }) => (
@@ -86,7 +59,7 @@ const NarrativeBlock = ({ title, children }) => (
  * ── Entry Point Block ──
  * Each of the three forms of work gets an EQUAL section.
  */
-const EntryPointBlock = ({ overline, heading, children, link, linkText, sessionTiers, className = "" }) => (
+const EntryPointBlock = ({ overline, heading, icon: Icon, children, link, linkText, sessionTiers, className = "" }) => (
   <motion.div
     initial="hidden"
     whileInView="visible"
@@ -111,10 +84,23 @@ const EntryPointBlock = ({ overline, heading, children, link, linkText, sessionT
         hidden: { opacity: 0, y: 10 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
       }}
-      className="text-brand-gold text-xs sm:text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12 md:mb-16"
+      className="text-brand-gold text-xs sm:text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-8"
     >
       {overline}
     </motion.p>
+
+    {/* Icon — Shared from Hero */}
+    {Icon && (
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, scale: 0.8 },
+          visible: { opacity: 1, scale: 1, transition: { duration: 1 } }
+        }}
+        className="text-brand-gold flex justify-center mb-10 md:mb-14"
+      >
+        <Icon className="w-16 h-16 md:w-24 md:h-24" />
+      </motion.div>
+    )}
 
     {/* Heading — same size for ALL three, ensuring equality */}
     <motion.h2
@@ -190,7 +176,7 @@ const NarrativeScroll = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-15%" }}
           transition={{ duration: 1.4, ease: "easeOut" }}
-          className="max-w-3xl mx-auto text-center px-6 pb-24 md:pb-32"
+          className="max-w-3xl mx-auto text-center px-6 pb-12 md:pb-16"
         >
           <p className="text-stone-800 text-xl sm:text-2xl md:text-3xl font-serif font-normal leading-[1.8] md:leading-[1.9] tracking-normal max-w-2xl mx-auto">
             What you are experiencing is not random.<br/>
@@ -199,12 +185,9 @@ const NarrativeScroll = () => {
             But only becomes visible <br className="hidden md:inline" />
             when <span className="italic text-brand-gold">something begins to shift</span>.
           </p>
-          <div className="flex justify-center items-center gap-3 mt-12">
-            <div className="w-10 h-[1px] bg-gradient-to-r from-transparent to-brand-gold/30"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/30 animate-pulse"></div>
-            <div className="w-10 h-[1px] bg-gradient-to-l from-transparent to-brand-gold/30"></div>
-          </div>
         </motion.div>
+
+        <OrganicDivider variant={0} />
 
         {/* ──────────────────── THE SYSTEM ──────────────────── */}
         <NarrativeBlock title="System">
@@ -249,7 +232,7 @@ const NarrativeScroll = () => {
           </motion.div>
         </NarrativeBlock>
 
-        <OrganicDivider variant={0} />
+        <OrganicDivider variant={1} />
 
         {/* ──────────────────── BRIDGE — into the three entry points ──────────────────── */}
         <motion.div
@@ -267,7 +250,7 @@ const NarrativeScroll = () => {
           </p>
         </motion.div>
 
-        <OrganicDivider variant={1} />
+        <OrganicDivider variant={2} />
 
         {/* ═══════════════════════════════════════════════════════════════
             THE THREE ENTRY POINTS — equal, vertical, walked-through
@@ -277,6 +260,7 @@ const NarrativeScroll = () => {
         <EntryPointBlock
           overline="Entry Point"
           heading="LifeGuide-KaTao"
+          icon={LifeGuideIcon}
           link="/journey"
           linkText="Explore the foundational work"
           className="md:-translate-x-12"
@@ -310,12 +294,13 @@ const NarrativeScroll = () => {
           </RevealParagraph>
         </EntryPointBlock>
 
-        <OrganicDivider variant={2} />
+        <OrganicDivider variant={3} />
 
         {/* ──────────────────── 2. commIN ──────────────────── */}
         <EntryPointBlock
           overline="Entry Point"
           heading="commIN"
+          icon={CommInIcon}
           link="/communion"
           linkText="Enter the shared space"
           className="md:translate-x-12"
@@ -343,12 +328,13 @@ const NarrativeScroll = () => {
           </RevealParagraph>
         </EntryPointBlock>
 
-        <OrganicDivider variant={3} />
+        <OrganicDivider variant={0} />
 
         {/* ──────────────────── 3. Guidance Path ──────────────────── */}
         <EntryPointBlock
           overline="Entry Point"
           heading="Guidance Path"
+          icon={GuidancePathIcon}
           className="md:-translate-x-6"
           sessionTiers={[
             { title: "Foundation", duration: "3 Sessions" },

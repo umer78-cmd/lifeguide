@@ -67,7 +67,7 @@ const JourneyPage = () => {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ delay: 0.3, duration: 1 }}
-            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-12"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
             The Methodology
           </motion.p>
@@ -109,7 +109,7 @@ const JourneyPage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-16"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-16"
           >
             The Approach
           </motion.p>
@@ -145,7 +145,7 @@ const JourneyPage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-12"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
             The Evolution
           </motion.p>
@@ -181,7 +181,7 @@ const JourneyPage = () => {
               className="text-center max-w-xl mx-auto"
             >
               <span className="text-brand-gold/25 font-serif text-4xl md:text-5xl block mb-4">{item.number}</span>
-              <p className="text-brand-gold/50 text-[10px] uppercase tracking-[0.25em] font-semibold mb-6">{item.tagline}</p>
+              <p className="text-brand-gold text-[11px] md:text-xs uppercase tracking-[0.3em] font-bold mb-6">{item.tagline}</p>
               <h3 className="text-2xl md:text-4xl font-serif text-stone-800 mb-6 tracking-tight">{item.title}</h3>
               <p className="text-stone-600 text-lg md:text-xl font-serif font-normal leading-[1.9]">{item.description}</p>
             </motion.div>
@@ -198,7 +198,7 @@ const JourneyPage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-brand-gold/50 text-[11px] md:text-xs uppercase tracking-[0.25em] font-semibold mb-12"
+            className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
             Voices of Change
           </motion.p>

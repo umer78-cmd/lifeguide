@@ -101,11 +101,11 @@ const Navbar = () => {
             className="flex-shrink-0"
           >
             <img 
-              src="/logo/header.png" 
+              src="/logo/commIN Web.png" 
               alt="Logo" 
               className="w-auto"
               style={{
-                height: pill ? '32px' : '42px',
+                height: pill ? '40px' : '54px',
                 transition: 'height 0.8s cubic-bezier(0.22, 1, 0.36, 1)',
               }}
             />
