@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const InnerActivation = () => {
   const containerRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { t } = useLanguage();
 
   // Determine if current device should get the advanced cinematic scroll
   useEffect(() => {
@@ -49,14 +51,14 @@ const InnerActivation = () => {
   }, []);
 
   const phrases = [
-    "The conditions we live in are changing.",
-    "Not visibly at first -",
-    "but in how deeply we are affected.",
-    "You have been maintaining stability.",
-    "Compensating.",
-    "Adapting.",
-    "It worked.",
-    "It no longer works the same way."
+    t('inneractivation.phrase1'),
+    t('inneractivation.phrase2'),
+    t('inneractivation.phrase3'),
+    t('inneractivation.phrase4'),
+    t('inneractivation.phrase5'),
+    t('inneractivation.phrase6'),
+    t('inneractivation.phrase7'),
+    t('inneractivation.phrase8')
   ];
 
   // Prevent flash before device detection executes

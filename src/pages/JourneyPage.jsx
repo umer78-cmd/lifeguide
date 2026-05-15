@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DustMotes from '../components/DustMotes';
 import BrushHighlight from '../components/BrushHighlight';
+import { useLanguage } from '../context/LanguageContext';
 
 const RevealParagraph = ({ children, delay = 0, className = "" }) => (
   <motion.p
@@ -35,6 +36,7 @@ const SectionDivider = () => (
 
 const JourneyPage = () => {
   const [isReady, setIsReady] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -69,7 +71,7 @@ const JourneyPage = () => {
             transition={{ delay: 0.3, duration: 1 }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
-            The Methodology
+            {t('methodology.kicker')}
           </motion.p>
           
           <motion.h1 
@@ -78,8 +80,8 @@ const JourneyPage = () => {
             transition={{ delay: 0.5, duration: 1 }}
             className="text-5xl md:text-8xl font-serif text-stone-800 mb-10 leading-tight tracking-tight"
           >
-            The Systemic<br/>
-            <span className="italic text-brand-gold">Foundation.</span>
+            {t('methodology.title1')}<br/>
+            <span className="italic text-brand-gold">{t('methodology.titleHighlight')}</span>
           </motion.h1>
 
           <motion.p 
@@ -88,7 +90,7 @@ const JourneyPage = () => {
             transition={{ delay: 1, duration: 1.5 }}
             className="max-w-xl mx-auto text-stone-600 text-lg md:text-xl font-serif font-normal leading-relaxed"
           >
-            Over two decades of work with the human system — refined into a precise, living methodology known as LifeGuide-KaTao.
+            {t('methodology.heroDesc')}
           </motion.p>
 
           <motion.div 
@@ -111,26 +113,26 @@ const JourneyPage = () => {
             viewport={{ once: true }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-16"
           >
-            The Approach
+            {t('methodology.approachKicker')}
           </motion.p>
           <div className="space-y-10 md:space-y-12">
             <RevealParagraph className={pStyleEmphasis}>
-              Many approaches solve problems.<br/>
-              We operate at the level where problems originate.
+              {t('methodology.app1')}<br/>
+              {t('methodology.app2')}
             </RevealParagraph>
             <RevealParagraph delay={0.1} className={pStyle}>
-              LifeGuide-KaTao is not a method, but a direct access to an inner realm.<br/>
-              By working at the systemic foundation, we release bound energy<br className="hidden md:inline"/>
-              so your life power can reorganize itself naturally.
+              {t('methodology.app3')}<br/>
+              {t('methodology.app4')}<br className="hidden md:inline"/>
+              {t('methodology.app5')}
             </RevealParagraph>
             <RevealParagraph delay={0.1} className={pStyle}>
-              The human being is not a collection of symptoms.<br/>
-              It is a living system — with a center, a direction,<br className="hidden md:inline"/>
-              and an intelligence of its own.
+              {t('methodology.app6')}<br/>
+              {t('methodology.app7')}<br className="hidden md:inline"/>
+              {t('methodology.app8')}
             </RevealParagraph>
             <RevealParagraph delay={0.15} className={pStyleEmphasis}>
-              When we work at the source,<br/>
-              the effects ripple outward into every area of life.
+              {t('methodology.app9')}<br/>
+              {t('methodology.app10')}
             </RevealParagraph>
           </div>
         </div>
@@ -147,7 +149,7 @@ const JourneyPage = () => {
             viewport={{ once: true }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
-            The Evolution
+            {t('methodology.evoKicker')}
           </motion.p>
         </div>
 
@@ -155,21 +157,21 @@ const JourneyPage = () => {
           {[
             {
               number: "01",
-              title: "Inner Order",
-              tagline: "Internal Architecture",
-              description: "The process of internal reorganization where systems align with their true source. When inner order is restored, the outer world begins to shift."
+              title: t('methodology.evo1Title'),
+              tagline: t('methodology.evo1Tag'),
+              description: t('methodology.evo1Desc')
             },
             {
               number: "02",
-              title: "Systemic Creator",
-              tagline: "Active Architecture",
-              description: "Recognizing that the human is a system, and every action is a creation within that system. From this awareness, conscious shaping becomes possible."
+              title: t('methodology.evo2Title'),
+              tagline: t('methodology.evo2Tag'),
+              description: t('methodology.evo2Desc')
             },
             {
               number: "03",
-              title: "Lived Life Potential",
-              tagline: "Ultimate Emergence",
-              description: "Where the work transcends theory and becomes a lived, unhurried reality. The life potential is no longer a concept — it is the way you live."
+              title: t('methodology.evo3Title'),
+              tagline: t('methodology.evo3Tag'),
+              description: t('methodology.evo3Desc')
             }
           ].map((item, i) => (
             <motion.div
@@ -200,7 +202,7 @@ const JourneyPage = () => {
             viewport={{ once: true }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
-            Voices of Change
+            {t('methodology.vocKicker')}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -208,7 +210,7 @@ const JourneyPage = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-serif text-stone-800 tracking-tight"
           >
-            Those who have <span className="italic text-brand-gold">walked</span> this path.
+            {t('methodology.vocTitle1')}<span className="italic text-brand-gold">{t('methodology.vocHighlight')}</span>{t('methodology.vocTitle2')}
           </motion.h2>
         </div>
 
@@ -224,13 +226,13 @@ const JourneyPage = () => {
             <div className="text-6xl font-serif text-brand-gold/15 leading-none mb-2 select-none">"</div>
             <div className="text-stone-700 font-serif text-lg md:text-xl leading-[1.9] space-y-6">
               <p>
-                I'd already worked with several therapists and practitioners in the field of life energy, but I'd never experienced anything like Katharina von Bilderling's LifeGuide-KaTao guidance.
+                {t('methodology.test1')}
               </p>
               <p>
-                Such profound and mindful work, and somehow it all makes perfect sense when you understand the connections that explain why certain life issues are the way they are.
+                {t('methodology.test2')}
               </p>
               <p>
-                It's an exciting journey to my true self — sometimes fraught with challenges and obstacles — but ultimately enriching, empowering, and liberating at the end of each chapter.
+                {t('methodology.test3')}
               </p>
             </div>
 
@@ -240,7 +242,7 @@ const JourneyPage = () => {
               </div>
               <div>
                 <p className="text-stone-800 font-serif text-base">Michaela Bobinger</p>
-                <p className="text-stone-500 text-xs uppercase tracking-[0.2em] mt-1">Client & LifeGuide-KaTao Practitioner</p>
+                <p className="text-stone-500 text-xs uppercase tracking-[0.2em] mt-1">{t('methodology.testRole')}</p>
               </div>
             </div>
           </div>

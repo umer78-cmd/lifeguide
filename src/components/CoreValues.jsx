@@ -1,13 +1,16 @@
 import React from 'react';
 import BrushHighlight from './BrushHighlight';
-
-const signals = [
-  { text: 'Confusion', icon: '◈' },
-  { text: 'Recurring Situations', icon: '◈' },
-  { text: 'The feeling that something is no longer right', icon: '◈' }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const OrderingForce = () => {
+  const { t } = useLanguage();
+  
+  const signals = [
+    { text: t('corevalues.signal1'), icon: '◈' },
+    { text: t('corevalues.signal2'), icon: '◈' },
+    { text: t('corevalues.signal3'), icon: '◈' }
+  ];
+
   return (
     <section id="life-potential" className="py-40 bg-brand-cream px-6 relative z-10 border-t border-stone-200/50 overflow-hidden">
       
@@ -21,13 +24,13 @@ const OrderingForce = () => {
 
         <div className="text-center mb-24 max-w-3xl mx-auto">
           <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide font-semibold mb-8">
-            The Experience
+            {t('corevalues.subtitle')}
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 tracking-normal mb-8 group leading-tight">
-            The <BrushHighlight className="italic text-brand-gold">Guidance Path</BrushHighlight>
+            {t('corevalues.titleLine1')}<BrushHighlight className="italic text-brand-gold">{t('corevalues.titleHighlight')}</BrushHighlight>
           </h2>
           <p className="text-stone-700 font-medium leading-snug text-xl md:text-xl tracking-normal px-4">
-            This is not a problem-based intervention. It is a process of restoration—a journey that follows your unique inner rhythm rather than a predetermined schedule.
+            {t('corevalues.intro')}
           </p>
         </div>
 
@@ -44,15 +47,15 @@ const OrderingForce = () => {
               <div className="w-16 h-[1px] bg-brand-gold/30 mb-10"></div>
               
               <h3 className="text-2xl md:text-3xl font-serif text-stone-800 mb-8 tracking-normal">
-                Inner Reorganization
+                {t('corevalues.sectionTitle')}
               </h3>
               
               <div className="space-y-8 text-stone-700 font-medium leading-snug text-xl md:text-xl tracking-normal max-w-2xl">
                 <p>
-                  The Guidance Path recognizes that life potential works silently in the background to support order and stability. It is the organizing principle within you that constantly seeks wholeness.
+                  {t('corevalues.p1')}
                 </p>
                 <p>
-                  By engaging with this potential, the work allows for a natural reorganization. What was once bound energy becomes movement; what was once confusion becomes clarity.
+                  {t('corevalues.p2')}
                 </p>
               </div>
 

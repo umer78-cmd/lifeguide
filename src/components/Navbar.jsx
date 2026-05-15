@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
   const location = useLocation();
@@ -7,7 +8,7 @@ const Navbar = () => {
   const isHome = location.pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [lang, setLang] = useState('EN');
+  const { lang, setLang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -43,10 +44,10 @@ const Navbar = () => {
   }, []);
   
   const navLinks = [
-    { name: 'The Work', id: 'the-calling', path: '/' },
-    { name: 'Methodology', id: 'journey-manifesto', path: '/journey' },
-    { name: 'Group Space', id: 'voices-of-change', path: '/communion' },
-    { name: 'Connection', id: 'the-connection', path: '/connection' }
+    { name: t('nav.theWork'), id: 'the-calling', path: '/' },
+    { name: t('nav.methodology'), id: 'journey-manifesto', path: '/journey' },
+    { name: t('nav.groupSpace'), id: 'voices-of-change', path: '/communion' },
+    { name: t('nav.connection'), id: 'the-connection', path: '/connection' }
   ];
 
   const handleNavClick = (e, link) => {
@@ -63,7 +64,6 @@ const Navbar = () => {
     }
   };
 
-  const toggleLang = () => setLang(prev => prev === 'EN' ? 'DE' : 'EN');
   const pill = isScrolled && !isMobileMenuOpen;
 
   return (
@@ -174,7 +174,7 @@ const Navbar = () => {
               }}
             >
               {!pill && <span className="absolute inset-0 w-full h-full bg-brand-gold/8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>}
-              <span className="relative z-10">Apply</span>
+              <span className="relative z-10">{t('nav.apply')}</span>
             </Link>
 
             {/* Mobile Hamburger */}
@@ -232,7 +232,7 @@ const Navbar = () => {
                onClick={() => setIsMobileMenuOpen(false)}
                className="px-10 py-5 bg-brand-gold text-white uppercase tracking-brand-wide text-xs font-bold rounded-full shadow-lg shadow-brand-gold/20 hover:scale-105 transition-transform inline-block"
              >
-               Apply for Guidance
+               {t('nav.applyGuidance')}
              </Link>
           </div>
         </div>

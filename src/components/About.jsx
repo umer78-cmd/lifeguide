@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BrushHighlight from './BrushHighlight';
+import { useLanguage } from '../context/LanguageContext';
 
 // Subtle counter — starts near the target for a quick, alive sweep
 const useCounter = (target, startFrom, duration = 1000) => {
@@ -49,6 +50,7 @@ const useCounter = (target, startFrom, duration = 1000) => {
 const About = () => {
   const years = useCounter(23, 14, 900);
   const founded = useCounter(2000, 1988, 1200);
+  const { t } = useLanguage();
 
   return (
     <section id="the-expert" className="py-32 bg-brand-cream px-6 relative z-10 border-t border-stone-200/50 overflow-hidden">
@@ -77,37 +79,37 @@ const About = () => {
         {/* Right - Text */}
         <div className="flex flex-col text-left">
           <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide mb-10 font-semibold">
-            Understanding the Core
+            {t('about.subtitle')}
           </p>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight mb-12">
-            The Logic of <br /><span className="italic text-brand-gold">Inner Reorganization</span>
+            {t('about.titleLine1')} <br /><span className="italic text-brand-gold">{t('about.titleLine2')}</span>
           </h2>
           
           <div className="space-y-10 text-stone-700 font-medium leading-snug text-xl md:text-xl tracking-normal">
             <p>
-              Most people function remarkably well despite significant inner imbalances. They adapt, compensate, and continue—often for years—while sensing that something is no longer aligned.
+              {t('about.p1')}
             </p>
             <p>
-              Common approaches focus on these external symptoms, attempting to fix what is visible on the surface. But true change requires a different starting point.
+              {t('about.p2')}
             </p>
             <p className="text-brand-stone font-serif italic text-xl md:text-2xl leading-snug tracking-normalr border-l-2 border-brand-gold/30 pl-8 my-12">
-              "My work begins within, where energy is bound in systemic imbalances. We don't fix symptoms; we restore the flow."
+              {t('about.quote')}
             </p>
             <p>
-              Life potential is a bidirectional flow. When the inner architecture is clear, energy moves freely, allowing life to reorganize itself from the core outward.
+              {t('about.p3')}
             </p>
           </div>
           
           {/* Subtle Authority Integration */}
           <div className="mt-20 pt-10 border-t border-stone-200/80 flex flex-col md:flex-row md:items-center gap-8 opacity-60">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.15em] text-stone-700 mb-2 font-bold">Foundation</p>
-              <p className="text-stone-700 text-base font-medium">23 Years of Systemic Practice</p>
+              <p className="text-[10px] uppercase tracking-[0.15em] text-stone-700 mb-2 font-bold">{t('about.foundationLabel')}</p>
+              <p className="text-stone-700 text-base font-medium">{t('about.foundationText')}</p>
             </div>
             <div className="hidden md:block w-12 h-[1px] bg-stone-300"></div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.15em] text-stone-700 mb-2 font-bold">The Expert</p>
+              <p className="text-[10px] uppercase tracking-[0.15em] text-stone-700 mb-2 font-bold">{t('about.expertLabel')}</p>
               <p className="text-brand-gold font-serif text-xl italic">Katharina von Bilderling</p>
             </div>
           </div>
@@ -119,7 +121,7 @@ const About = () => {
               id="journey-cta-about"
               className="group inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[10px] tracking-[0.15em] font-bold transition-all duration-500"
             >
-              The Full Journey
+              {t('about.cta')}
               <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/50">
                 <svg className="w-2 h-2 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />

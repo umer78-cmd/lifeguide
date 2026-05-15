@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 /**
  * ClosingInvitation — the gentle end of the walk.
  * Not a hard CTA. A soft moment of recognition and an open door.
  */
 const ClosingInvitation = () => {
+  const { t } = useLanguage();
   return (
     <section id="closing" className="py-32 md:py-40 bg-brand-cream px-6 relative z-10 overflow-hidden">
       <div className="max-w-2xl mx-auto relative z-10 text-center">
@@ -18,8 +20,8 @@ const ClosingInvitation = () => {
           transition={{ duration: 1.4, ease: "easeOut" }}
         >
           <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-normal text-stone-800 leading-relaxed max-w-xl mx-auto">
-            If something has already moved inside you -<br className="hidden sm:inline"/>
-            <span className="italic text-brand-gold">the decision is made.</span>
+            {t('journey.closing1')}<br className="hidden sm:inline"/>
+            <span className="italic text-brand-gold">{t('journey.closing2')}</span>
           </p>
         </motion.div>
 
@@ -51,7 +53,7 @@ const ClosingInvitation = () => {
           >
             <span className="absolute inset-0 w-full h-full bg-brand-gold/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>
             <span className="relative z-10 flex items-center justify-center gap-3">
-              Begin a Conversation
+              {t('journey.cta')}
               <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </span>
           </Link>

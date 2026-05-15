@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import DustMotes from '../components/DustMotes';
 import OrganicDivider from '../components/OrganicDivider';
+import { useLanguage } from '../context/LanguageContext';
 
 const RevealParagraph = ({ children, delay = 0, className = "" }) => (
   <motion.p
@@ -18,6 +19,7 @@ const RevealParagraph = ({ children, delay = 0, className = "" }) => (
 
 const CommunionPage = () => {
   const [isReady, setIsReady] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,7 +50,7 @@ const CommunionPage = () => {
             transition={{ delay: 0.3, duration: 1 }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
-            The Group Space
+            {t('commin.kicker')}
           </motion.p>
           
           <motion.h1 
@@ -66,7 +68,7 @@ const CommunionPage = () => {
             transition={{ delay: 1, duration: 1.5 }}
             className="max-w-xl mx-auto text-stone-600 text-lg md:text-xl font-serif font-normal leading-relaxed"
           >
-            A space where understanding begins. Where you start to see how your system moves — and how your life potential expresses itself.
+            {t('commin.heroDesc')}
           </motion.p>
 
           <motion.div 
@@ -84,21 +86,21 @@ const CommunionPage = () => {
       <section className="py-20 md:py-32 px-6">
         <div className="max-w-2xl mx-auto text-center space-y-10 md:space-y-12">
           <RevealParagraph className={pStyleEmphasis}>
-            commIN is not a course. It is not a workshop.<br/>
-            It is a living space.
+            {t('commin.p1')}<br/>
+            {t('commin.p2')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            A space where you begin to observe your own system —<br/>
-            how it reacts, how it moves, how it holds.
+            {t('commin.p3')}<br/>
+            {t('commin.p4')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            It is not the work itself — but an entry into it.<br/>
-            A field of orientation.
+            {t('commin.p5')}<br/>
+            {t('commin.p6')}
           </RevealParagraph>
           <RevealParagraph delay={0.15} className={pStyle}>
-            From here, some remain in this space<br/>
-            and continue to unfold their understanding.<br/>
-            Others feel the impulse to go further — into direct work.
+            {t('commin.p7')}<br/>
+            {t('commin.p8')}<br/>
+            {t('commin.p9')}
           </RevealParagraph>
         </div>
       </section>
@@ -114,7 +116,7 @@ const CommunionPage = () => {
             viewport={{ once: true }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-12"
           >
-            The Three Movements
+            {t('commin.movementsKicker')}
           </motion.p>
         </div>
 
@@ -122,18 +124,18 @@ const CommunionPage = () => {
           {[
             {
               number: "01",
-              title: "The Silent Pause",
-              description: "Before anything can move, there must be a moment of stillness. In the Silent Pause, you learn to listen — not to words, but to the deeper signals of your own system. This is where awareness begins."
+              title: t('commin.mov1Title'),
+              description: t('commin.mov1Desc')
             },
             {
               number: "02",
-              title: "The Unravelling",
-              description: "What has been compressed begins to open. Patterns that have been held tightly — sometimes for years — start to become visible. Not through analysis, but through a felt sense of what is ready to move."
+              title: t('commin.mov2Title'),
+              description: t('commin.mov2Desc')
             },
             {
               number: "03",
-              title: "The Integration",
-              description: "What has been released finds a new place. The system begins to reorganize — not according to a plan, but according to its own intelligence. A new quality of life emerges from within."
+              title: t('commin.mov3Title'),
+              description: t('commin.mov3Desc')
             }
           ].map((item, i) => (
             <motion.div
@@ -163,7 +165,7 @@ const CommunionPage = () => {
             viewport={{ once: true }}
             className="text-stone-600 font-serif text-xl md:text-2xl italic leading-relaxed mb-16"
           >
-            "commIN is not a destination. It is a beginning."
+            {t('commin.quote')}
           </motion.p>
 
           <motion.div
@@ -177,7 +179,7 @@ const CommunionPage = () => {
             >
               <span className="absolute inset-0 w-full h-full bg-brand-gold/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>
               <span className="relative z-10 flex items-center justify-center gap-3">
-                Enter the Space
+                {t('commin.cta')}
                 <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </span>
             </Link>

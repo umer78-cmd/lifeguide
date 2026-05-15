@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import DustMotes from './DustMotes';
 import { CommInIcon, GuidancePathIcon, LifeGuideIcon } from './BrandIcons';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero = ({ isAppLoaded }) => {
+  const { t } = useLanguage();
   const [isReady, setIsReady] = useState(false);
   const [wordsRevealed, setWordsRevealed] = useState(false);
   const headingRef = useRef(null);
@@ -59,7 +61,7 @@ const Hero = ({ isAppLoaded }) => {
           style={{ animationDelay: '200ms' }}
         >
           <p className="text-stone-500 text-xs md:text-sm uppercase tracking-[0.3em] font-semibold">
-            A REORGANIZING MOVEMENT
+            {t('hero.subtitle')}
           </p>
         </div>
 
@@ -118,16 +120,16 @@ const Hero = ({ isAppLoaded }) => {
         <div className="max-w-5xl mx-auto px-6 mb-16 md:mb-20">
           <h1 
             ref={headingRef} 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-normal text-stone-800 leading-[1.15] md:leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-stone-800 leading-[1.25] md:leading-[1.2] tracking-tight"
           >
-            {'Where life begins to reorganize from within.'.split(' ').map((word, i) => (
+            {t('hero.title').split(' ').map((word, i) => (
               <span
                 key={`w-${i}`}
                 className={`word-reveal inline-block mr-[0.3em] ${wordsRevealed ? 'visible' : ''}`}
                 style={{ animationDelay: `${800 + i * 90}ms` }}
               >
-                {word === 'reorganize' ? (
-                  <span className="italic text-brand-gold">{word}</span>
+                {['reorganize', 'neu', 'zu', 'ordnen', 'neu', 'ordnen.'].some(w => word.includes(w)) ? (
+                  <span className="italic text-brand-gold text-[1.35em] relative top-[0.05em] inline-block">{word}</span>
                 ) : (
                   word
                 )}
@@ -151,7 +153,7 @@ const Hero = ({ isAppLoaded }) => {
           >
             <span className="absolute inset-0 w-full h-full bg-amber-600/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>
             <span className="relative z-10 w-full flex items-center gap-3">
-              Walk Further
+              {t('hero.cta')}
               <svg className="w-4 h-4 translate-y-0 group-hover:translate-y-1 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 5v14m0 0l-4-4m4 4l4-4"></path>
               </svg>

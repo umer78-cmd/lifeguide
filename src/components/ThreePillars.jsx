@@ -1,29 +1,31 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import BrushHighlight from './BrushHighlight';
-
-const tiers = [
-  {
-    title: "Foundation",
-    sessions: "3 Sessions",
-    subtitle: "Entry / First Movement",
-    desc: "A focused entry to sense the systemic architecture and initiate the first reorganization. Ideal for establishing a base of inner stability."
-  },
-  {
-    title: "Stabilization",
-    sessions: "5 Sessions",
-    subtitle: "Clarification / Integration",
-    desc: "Moving deeper into the bound energy. This tier allows for sustained integration and the clarification of recurring life patterns."
-  },
-  {
-    title: "Deep Work",
-    sessions: "8 Sessions",
-    subtitle: "Depth / Reorganization",
-    desc: "The full arc of the Guidance Path. A comprehensive reorganization from within, addressing the deepest systemic layers for lasting transformation."
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const GuidanceWork = () => {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
+
+  const tiers = [
+    {
+      title: t('threepillars.t1Title'),
+      sessions: t('threepillars.t1Sessions'),
+      subtitle: t('threepillars.t1Subtitle'),
+      desc: t('threepillars.t1Desc')
+    },
+    {
+      title: t('threepillars.t2Title'),
+      sessions: t('threepillars.t2Sessions'),
+      subtitle: t('threepillars.t2Subtitle'),
+      desc: t('threepillars.t2Desc')
+    },
+    {
+      title: t('threepillars.t3Title'),
+      sessions: t('threepillars.t3Sessions'),
+      subtitle: t('threepillars.t3Subtitle'),
+      desc: t('threepillars.t3Desc')
+    }
+  ];
 
   return (
     <section id="guidance-work" ref={sectionRef} className="py-40 bg-stone-100 px-6 relative z-10 overflow-hidden">
@@ -39,13 +41,13 @@ const GuidanceWork = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-24">
           <p className="text-brand-gold/80 text-base uppercase tracking-brand-wide mb-8 font-semibold">
-            The Structure
+            {t('threepillars.subtitle')}
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-stone-900 tracking-normal group leading-tight mb-10">
-            Structure of the <BrushHighlight className="italic text-brand-gold">Work</BrushHighlight>
+            {t('threepillars.titleLine1')}<BrushHighlight className="italic text-brand-gold">{t('threepillars.titleHighlight')}</BrushHighlight>
           </h2>
           <p className="text-stone-700 font-serif italic text-xl md:text-2xl tracking-normal max-w-3xl mx-auto">
-            "The depth of the process is not defined by time—but by how far you are ready to go."
+            {t('threepillars.quote')}
           </p>
         </div>
 

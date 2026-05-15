@@ -2,42 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BrushHighlight from '../components/BrushHighlight';
 import OrganicDivider from '../components/OrganicDivider';
-
-const QUESTIONS = [
-  {
-    id: 'path',
-    step: 1,
-    type: 'choice',
-    eyebrow: 'The Entry Point',
-    question: 'Where would you like to begin your work?',
-    subtext: 'Every path leads to the same foundational order. Where do you feel the most resonance right now?',
-    options: [
-      { id: 'lifeguide', label: 'LifeGuide-KaTao (Foundational Work)', desc: 'Address a specific challenge, symptom, or recurring pattern through the original systemic method refined over two decades.' },
-      { id: 'commin', label: 'commIN Space (Group Experience)', desc: 'Build inner stability within a shared, unhurried space.' },
-      { id: 'guidance', label: 'Guidance Path (Individual Depth)', desc: 'Direct, intensive systemic reordering.' }
-    ]
-  },
-  {
-    id: 'q1',
-    step: 2,
-    type: 'text',
-    eyebrow: 'Before We Meet',
-    question: 'What have you already tried that has reached its limit?',
-    subtext: 'Be honest. This space holds no judgment — only clarity.',
-    placeholder:
-      'Perhaps a method, a person, a way of operating that once served you but no longer does...',
-  },
-  {
-    id: 'q2',
-    step: 3,
-    type: 'text',
-    eyebrow: 'The Impulse',
-    question: 'What is the primary calling behind your inquiry right now?',
-    subtext: 'Something quiet is bringing you here. What is it?',
-    placeholder:
-      'A feeling, a tension, a longing to be met differently by your own life...',
-  },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -46,11 +11,46 @@ const fadeUp = {
 };
 
 export default function ConnectionPage() {
+  const { t } = useLanguage();
   const [isReady, setIsReady] = useState(false);
   const [step, setStep] = useState(0); // 0 = intro, 1-3 = questions, 4 = calendar
   const [answers, setAnswers] = useState({ path: '', q1: '', q2: '' });
   const [currentAnswer, setCurrentAnswer] = useState('');
   const textareaRef = useRef(null);
+
+  const QUESTIONS = [
+    {
+      id: 'path',
+      step: 1,
+      type: 'choice',
+      eyebrow: t('conn.q1Eyebrow'),
+      question: t('conn.q1Question'),
+      subtext: t('conn.q1Sub'),
+      options: [
+        { id: 'lifeguide', label: t('conn.q1Opt1Label'), desc: t('conn.q1Opt1Desc') },
+        { id: 'commin', label: t('conn.q1Opt2Label'), desc: t('conn.q1Opt2Desc') },
+        { id: 'guidance', label: t('conn.q1Opt3Label'), desc: t('conn.q1Opt3Desc') }
+      ]
+    },
+    {
+      id: 'q1',
+      step: 2,
+      type: 'text',
+      eyebrow: t('conn.q2Eyebrow'),
+      question: t('conn.q2Question'),
+      subtext: t('conn.q2Sub'),
+      placeholder: t('conn.q2Place'),
+    },
+    {
+      id: 'q2',
+      step: 3,
+      type: 'text',
+      eyebrow: t('conn.q3Eyebrow'),
+      question: t('conn.q3Question'),
+      subtext: t('conn.q3Sub'),
+      placeholder: t('conn.q3Place'),
+    },
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -106,7 +106,7 @@ export default function ConnectionPage() {
             transition={{ delay: 0.3, duration: 1 }}
             className="text-brand-gold text-sm md:text-base uppercase tracking-brand-wide mb-8 font-bold"
           >
-            The Application
+            {t('conn.heroKicker')}
           </motion.p>
 
           <motion.h1
@@ -115,9 +115,9 @@ export default function ConnectionPage() {
             transition={{ delay: 0.55, duration: 1.1 }}
             className="text-6xl md:text-9xl font-serif text-brand-stone mb-10 leading-tight"
           >
-            The{' '}
+            {t('conn.heroTitle1')}
             <BrushHighlight className="italic text-brand-gold">
-              Connection.
+              {t('conn.heroTitleHighlight')}
             </BrushHighlight>
           </motion.h1>
 
@@ -127,7 +127,7 @@ export default function ConnectionPage() {
             transition={{ delay: 1.0, duration: 1.4 }}
             className="max-w-2xl mx-auto text-stone-700 text-xl md:text-2xl font-serif font-normal leading-relaxed tracking-normal mb-6"
           >
-            "This is not a method or a tool. It is direct access to an inner realm — a discernment process for both of us."
+            {t('conn.heroP1')}
           </motion.p>
 
           <motion.p
@@ -136,7 +136,7 @@ export default function ConnectionPage() {
             transition={{ delay: 1.3, duration: 1.2 }}
             className="max-w-xl mx-auto text-stone-700 text-lg md:text-xl font-serif font-normal leading-relaxed mb-16"
           >
-            A space to perceive the work without distraction. Three honest questions. Then, if the resonance is clear, the calendar opens.
+            {t('conn.heroP2')}
           </motion.p>
 
           <motion.div
@@ -150,7 +150,7 @@ export default function ConnectionPage() {
               onClick={handleBegin}
               className="group relative inline-flex items-center gap-4 px-10 py-4 rounded-full border border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold hover:text-white uppercase text-[11px] tracking-[0.15em] font-bold transition-all duration-500 hover:shadow-[0_8px_30px_rgba(180,83,9,0.25)]"
             >
-              Begin the Application
+              {t('conn.heroBtn')}
               <span className="w-6 h-6 rounded-full border border-current flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-white/60 group-hover:bg-white/10">
                 <svg className="w-2.5 h-2.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -158,7 +158,7 @@ export default function ConnectionPage() {
               </span>
             </button>
             <p className="text-stone-700 text-[10px] uppercase tracking-[0.25em] font-medium">
-              Takes 3 minutes
+              {t('conn.heroTime')}
             </p>
           </motion.div>
 
@@ -189,10 +189,10 @@ export default function ConnectionPage() {
             <div className="max-w-3xl mx-auto mb-16">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] uppercase tracking-[0.15em] text-stone-700 font-semibold">
-                  Question {step} of 3
+                  {t('conn.stepCount')} {step} {t('conn.stepOf')} 3
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-brand-gold/70 font-semibold">
-                  {step === 1 ? 'The Foundation' : step === 2 ? 'The Readiness' : 'The Calling'}
+                  {step === 1 ? t('conn.stepName1') : step === 2 ? t('conn.stepName2') : t('conn.stepName3')}
                 </span>
               </div>
               <div className="h-[1px] bg-stone-100 w-full rounded-full overflow-hidden">
@@ -259,7 +259,7 @@ export default function ConnectionPage() {
                 <div className="flex items-center justify-between mt-8">
                   <span className="text-stone-700 text-base font-medium">
                     {currentQ?.type === 'text' && currentAnswer.length > 0
-                      ? currentAnswer.trim().split(/\s+/).length + ' words'
+                      ? currentAnswer.trim().split(/\s+/).length + ` ${t('conn.words')}`
                       : ''}
                   </span>
 
@@ -271,7 +271,7 @@ export default function ConnectionPage() {
                   >
                     <span className="absolute inset-0 bg-brand-gold translate-y-full group-hover:enabled:translate-y-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10">
-                      {step < 3 ? 'Continue' : 'Submit & Proceed'}
+                      {step < 3 ? t('conn.btnContinue') : t('conn.btnSubmit')}
                     </span>
                     <svg
                       className="relative z-10 w-3 h-3 transition-transform duration-300 group-hover:enabled:translate-x-1"
@@ -314,7 +314,7 @@ export default function ConnectionPage() {
                 transition={{ delay: 0.3, duration: 1 }}
                 className="text-brand-gold text-xs uppercase tracking-brand-wide font-semibold mb-6"
               >
-                The Resonance Is Clear
+                {t('conn.calKicker')}
               </motion.p>
 
               <motion.h2
@@ -323,8 +323,8 @@ export default function ConnectionPage() {
                 transition={{ delay: 0.5, duration: 1 }}
                 className="text-4xl md:text-6xl font-serif text-brand-stone mb-8 leading-tight"
               >
-                Thank you for your{' '}
-                <span className="italic text-brand-gold">honesty.</span>
+                {t('conn.calTitle1')}
+                <span className="italic text-brand-gold">{t('conn.calTitleHighlight')}</span>
               </motion.h2>
 
               <motion.p
@@ -333,8 +333,7 @@ export default function ConnectionPage() {
                 transition={{ delay: 0.8, duration: 1 }}
                 className="max-w-xl mx-auto text-stone-700 font-serif text-xl md:text-2xl leading-relaxed"
               >
-                You have given this inquiry the weight it deserves. Now, choose a
-                moment for us to meet — unhurried, with full presence.
+                {t('conn.calDesc')}
               </motion.p>
             </div>
 
@@ -380,7 +379,7 @@ export default function ConnectionPage() {
                 />
               </div>
               <p className="text-center text-stone-300 text-[10px] uppercase tracking-[0.2em] mt-6">
-                All sessions are held with complete confidentiality.
+                {t('conn.calConfidential')}
               </p>
             </motion.div>
           </motion.section>
@@ -398,32 +397,32 @@ export default function ConnectionPage() {
               transition={{ duration: 1 }}
             >
               <p className="text-brand-gold text-base uppercase tracking-brand-wide font-bold mb-8">
-                The Reason for Selection
+                {t('conn.whyKicker')}
               </p>
               <h2 className="text-4xl md:text-6xl font-serif text-brand-stone mb-10 leading-tight">
-                Why an <span className="italic">Application?</span>
+                {t('conn.whyTitle1')}<span className="italic">{t('conn.whyTitleHighlight')}</span>
               </h2>
               <div className="space-y-8 max-w-xl">
                 <p className="text-stone-700 text-xl font-serif leading-relaxed">
-                  The purpose of this inquiry is <span className="text-brand-gold italic">collaboration.</span>
+                  {t('conn.whyP1_1')}<span className="text-brand-gold italic">{t('conn.whyP1_2')}</span>
                 </p>
                 <p className="text-stone-700 text-xl font-serif leading-relaxed">
-                  Whether you enter through the foundational LifeGuide-KaTao work, the commIN space, or the Guidance Path — each path exists only through this partnership. The three questions are an invitation to begin arriving — ensuring that this work remains individual, non-standardized, and focused on your unique systemic potential.
+                  {t('conn.whyP2')}
                 </p>
               </div>
 
               <div className="mt-12 flex gap-12">
                 <div>
-                  <p className="text-3xl font-serif text-brand-stone">Deep</p>
+                  <p className="text-3xl font-serif text-brand-stone">{t('conn.feat1Title')}</p>
                   <p className="text-stone-700 text-xs uppercase mt-2 tracking-normalst">
-                    Recalibration
+                    {t('conn.feat1Desc')}
                   </p>
                 </div>
                 <div className="w-px h-12 bg-stone-200" />
                 <div>
-                  <p className="text-3xl font-serif text-brand-stone">Unhurried</p>
+                  <p className="text-3xl font-serif text-brand-stone">{t('conn.feat2Title')}</p>
                   <p className="text-stone-700 text-xs uppercase mt-2 tracking-normalst">
-                    Process
+                    {t('conn.feat2Desc')}
                   </p>
                 </div>
               </div>
@@ -450,10 +449,10 @@ export default function ConnectionPage() {
               className="text-center mb-20"
             >
               <p className="text-brand-gold text-xs uppercase tracking-brand-wide font-bold mb-6">
-                The Shape of a First Meeting
+                {t('conn.expKicker')}
               </p>
               <h2 className="text-4xl md:text-5xl font-serif text-brand-stone leading-tight">
-                What happens after you apply.
+                {t('conn.expTitle')}
               </h2>
             </motion.div>
 
@@ -461,18 +460,18 @@ export default function ConnectionPage() {
               {[
                 {
                   num: '01',
-                  title: 'Presence Initialized',
-                  body: 'Your three reflections are read with full attention. This is the moment where the collaboration begins.',
+                  title: t('conn.exp1Title'),
+                  body: t('conn.exp1Desc'),
                 },
                 {
                   num: '02',
-                  title: 'A Time Selected',
-                  body: 'You select a moment in the calendar. Not a slot — a moment of genuine, unhurried meeting.',
+                  title: t('conn.exp2Title'),
+                  body: t('conn.exp2Desc'),
                 },
                 {
                   num: '03',
-                  title: 'An Impulse Set',
-                  body: 'The first meeting is a systemic calibration. No discovery call agenda—only an impulse being set for your potential.',
+                  title: t('conn.exp3Title'),
+                  body: t('conn.exp3Desc'),
                 },
               ].map((item, i) => (
                 <motion.div

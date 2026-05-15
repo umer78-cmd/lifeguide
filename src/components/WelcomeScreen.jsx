@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 /**
- * WelcomeScreen — the two-phase arrival:
- *   Phase 1  "commIN"        — already visible behind the Preloader, lingers ~3.5s once active
- *   Phase 2  "Here you are." — fades in as commIN fades out, then the whole screen fades away
+ * WelcomeScreen — simplified arrival:
+ *   Phase 1  "commIN" — already visible behind the Preloader, lingers ~3.5s once active
+ *   Phase 3  Exit      — the whole screen fades away
  *
  *   Renders behind the Preloader (z-99 vs z-100). "commIN" is shown immediately
  *   so there's no gap when the Preloader curtain lifts.
  */
 const WelcomeScreen = ({ isActive, onComplete }) => {
-  // 1 = commIN showing, 2 = "Here you are.", 3 = exit
+  // 1 = commIN showing, 3 = exit
   const [phase, setPhase] = useState(1);
   const timersRef = useRef([]);
 
@@ -18,11 +18,11 @@ const WelcomeScreen = ({ isActive, onComplete }) => {
 
     // isActive just became true → the Preloader finished.
     // commIN is already on screen (phase 1). Now start the timed sequence.
-    const p2 = setTimeout(() => setPhase(2), 3500);
-    const p3 = setTimeout(() => setPhase(3), 7000);
-    const p4 = setTimeout(() => onComplete(), 8500);
+    // Skip phase 2 ("Here you are.") and go straight to exit (phase 3)
+    const p3 = setTimeout(() => setPhase(3), 3500);
+    const p4 = setTimeout(() => onComplete(), 5000);
 
-    timersRef.current = [p2, p3, p4];
+    timersRef.current = [p3, p4];
 
     return () => timersRef.current.forEach(clearTimeout);
   }, [isActive, onComplete]);
@@ -44,7 +44,7 @@ const WelcomeScreen = ({ isActive, onComplete }) => {
           style={{
             transitionTimingFunction: smoothEase,
             opacity: phase === 1 ? 1 : 0,
-            transform: phase === 1 ? 'scale(1) translateY(0)' : phase >= 2 ? 'scale(1.05) translateY(-20px)' : 'scale(0.95) translateY(10px)',
+            transform: phase === 1 ? 'scale(1) translateY(0)' : 'scale(1.05) translateY(-20px)',
           }}
         >
           <div className="flex flex-col items-center">
@@ -65,38 +65,6 @@ const WelcomeScreen = ({ isActive, onComplete }) => {
             >
               <div className="w-2 h-2 rounded-full bg-brand-gold/50"></div>
             </div>
-          </div>
-        </div>
-
-        {/* ─── Phase 2: "Here you are." ─── */}
-        <div
-          className="absolute inset-0 flex items-center justify-center transition-all duration-[2000ms]"
-          style={{
-            transitionTimingFunction: smoothEase,
-            opacity: phase >= 2 && phase < 3 ? 1 : 0,
-            transform: phase >= 2 ? 'translateY(0)' : 'translateY(24px)',
-          }}
-        >
-          <div className="flex flex-col items-center text-center px-6">
-            <p
-              className="font-serif font-normal text-stone-700 select-none"
-              style={{
-                fontSize: 'clamp(1.6rem, 4vw, 3rem)',
-                lineHeight: 1.4,
-                letterSpacing: '0.01em',
-              }}
-            >
-              Here you are.
-            </p>
-
-            {/* Thin gold line expanding */}
-            <div
-              className="mt-8 h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent transition-all duration-[2500ms]"
-              style={{
-                transitionTimingFunction: smoothEase,
-                width: phase >= 2 ? '120px' : '0px',
-              }}
-            ></div>
           </div>
         </div>
 

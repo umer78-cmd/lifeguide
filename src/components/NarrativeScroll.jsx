@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CommInIcon, GuidancePathIcon, LifeGuideIcon } from './BrandIcons';
 import OrganicDivider from './OrganicDivider';
+import { useLanguage } from '../context/LanguageContext';
 
 /* ── Reusable: A single paragraph that fades in on scroll ── */
 const RevealParagraph = ({ children, delay = 0, className = "" }) => (
@@ -166,6 +167,8 @@ const pStyle = "text-stone-700 text-lg md:text-xl font-serif font-normal leading
 const pStyleEmphasis = "text-stone-800 text-lg md:text-xl font-serif font-normal leading-[1.9] md:leading-[2.1]";
 
 const NarrativeScroll = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="bg-brand-cream relative z-10">
       <div className="pt-4 pb-16 md:py-24">
@@ -179,43 +182,43 @@ const NarrativeScroll = () => {
           className="max-w-3xl mx-auto text-center px-6 pb-12 md:pb-16"
         >
           <p className="text-stone-800 text-xl sm:text-2xl md:text-3xl font-serif font-normal leading-[1.8] md:leading-[1.9] tracking-normal max-w-2xl mx-auto">
-            What you are experiencing is not random.<br/>
-            It follows a deeper structure —<br className="hidden md:inline" />
-            one that has always been there.<br/>
-            But only becomes visible <br className="hidden md:inline" />
-            when <span className="italic text-brand-gold">something begins to shift</span>.
+            {t('ns.bridge1')}<br/>
+            {t('ns.bridge2')}<br className="hidden md:inline" />
+            {t('ns.bridge3')}<br/>
+            {t('ns.bridge4')} <br className="hidden md:inline" />
+            {t('ns.bridge5')} <span className="italic text-brand-gold">{t('ns.bridge6')}</span>.
           </p>
         </motion.div>
 
         <OrganicDivider variant={0} />
 
         {/* ──────────────────── THE SYSTEM ──────────────────── */}
-        <NarrativeBlock title="System">
+        <NarrativeBlock title={t('ns.systemTitle')}>
           <RevealParagraph className={pStyleEmphasis}>
-            The human being is matter — and far beyond that.
+            {t('ns.sys1')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            Within every human being, there is a system —<br/>
-            a living structure in which body, mind, emotions,<br className="hidden md:inline"/>
-            and awareness constantly interact.
+            {t('ns.sys2')}<br/>
+            {t('ns.sys3')}<br className="hidden md:inline"/>
+            {t('ns.sys4')}
           </RevealParagraph>
           <RevealParagraph delay={0.15} className={pStyle}>
-            The center of this system is the life potential.<br/>
-            It expresses outward into life<br/>
-            and at the same time responds to what comes from the outside.
+            {t('ns.sys5')}<br/>
+            {t('ns.sys6')}<br/>
+            {t('ns.sys7')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            A continuous exchange —<br/>
-            a living flow in both directions.
+            {t('ns.sys8')}<br/>
+            {t('ns.sys9')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            When this interaction is balanced, life unfolds naturally.<br/>
-            When it is disturbed,<br/>
-            the effects become visible across different areas of life.
+            {t('ns.sys10')}<br/>
+            {t('ns.sys11')}<br/>
+            {t('ns.sys12')}
           </RevealParagraph>
           <RevealParagraph delay={0.15} className={pStyleEmphasis}>
-            To understand life,<br/>
-            we need to understand the human being as a whole.
+            {t('ns.sys13')}<br/>
+            {t('ns.sys14')}
           </RevealParagraph>
           <motion.div
             variants={{
@@ -226,7 +229,7 @@ const NarrativeScroll = () => {
           >
             {/* Increased font size, weight, and ocher-colored visibility of link */}
             <Link to="/journey" className="text-brand-gold text-lg font-sans tracking-wide hover:text-amber-800 transition-colors duration-500 inline-flex items-center gap-2 font-semibold">
-              Read deeper into the systemic foundation
+              {t('ns.sysLink')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </Link>
           </motion.div>
@@ -243,10 +246,10 @@ const NarrativeScroll = () => {
           className="max-w-2xl mx-auto text-center py-16 md:py-24 px-6"
         >
           <p className={`${pStyleEmphasis} mb-10`}>
-            This understanding becomes available through three forms of work.
+            {t('ns.forms1')}
           </p>
           <p className={`${pStyle} italic text-stone-500`}>
-            They differ only in where the entry begins.
+            {t('ns.forms2')}
           </p>
         </motion.div>
 
@@ -258,39 +261,39 @@ const NarrativeScroll = () => {
 
         {/* ──────────────────── 1. LifeGuide-KaTao ──────────────────── */}
         <EntryPointBlock
-          overline="Entry Point"
-          heading="LifeGuide-KaTao"
+          overline={t('ns.entryLabel')}
+          heading={t('ns.lgTitle')}
           icon={LifeGuideIcon}
           link="/journey"
-          linkText="Explore the foundational work"
+          linkText={t('ns.lgLink')}
           className="md:-translate-x-12"
         >
           <RevealParagraph className={pStyleEmphasis}>
-            This work has always begun with the human being as they are.
+            {t('ns.lg1')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            With what is present.<br/>
-            With what is felt.<br/>
-            With what shows itself in life.
+            {t('ns.lg2')}<br/>
+            {t('ns.lg3')}<br/>
+            {t('ns.lg4')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={`${pStyle} italic text-stone-600`}>
-            A situation.<br/>
-            A challenge.<br/>
-            A recurring pattern.
+            {t('ns.lg5')}<br/>
+            {t('ns.lg6')}<br/>
+            {t('ns.lg7')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            From there, the process begins to move inward.<br/>
-            Following what is connected. Step by step.<br/>
-            Toward the core of the system. Toward the life potential.
+            {t('ns.lg8')}<br/>
+            {t('ns.lg9')}<br/>
+            {t('ns.lg10')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            The movement and reorganization unfold specifically<br className="hidden md:inline"/>
-            within what is connected to this initial situation.
+            {t('ns.lg11')}<br className="hidden md:inline"/>
+            {t('ns.lg12')}
           </RevealParagraph>
           <RevealParagraph delay={0.15} className={pStyleEmphasis}>
-            This way of working has formed the foundation<br className="hidden md:inline"/>
-            over many years. It is precise. Focused.<br/>
-            And deeply effective within the field it addresses.
+            {t('ns.lg13')}<br className="hidden md:inline"/>
+            {t('ns.lg14')}<br/>
+            {t('ns.lg15')}
           </RevealParagraph>
         </EntryPointBlock>
 
@@ -298,33 +301,33 @@ const NarrativeScroll = () => {
 
         {/* ──────────────────── 2. commIN ──────────────────── */}
         <EntryPointBlock
-          overline="Entry Point"
-          heading="commIN"
+          overline={t('ns.entryLabel')}
+          heading={t('ns.comTitle')}
           icon={CommInIcon}
           link="/communion"
-          linkText="Enter the shared space"
+          linkText={t('ns.comLink')}
           className="md:translate-x-12"
         >
           <RevealParagraph className={pStyleEmphasis}>
-            A space where understanding begins.
+            {t('ns.com1')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            Here, people begin defining their own access<br className="hidden md:inline"/>
-            to their inner life power.
+            {t('ns.com2')}<br className="hidden md:inline"/>
+            {t('ns.com3')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={`${pStyle} italic text-stone-600`}>
-            Through courses.<br/>
-            Through workshops.<br/>
-            Through webinars.
+            {t('ns.com4')}<br/>
+            {t('ns.com5')}<br/>
+            {t('ns.com6')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            This space creates activation, opening,<br/>
-            and first awareness through collective experience.
+            {t('ns.com7')}<br/>
+            {t('ns.com8')}
           </RevealParagraph>
           <RevealParagraph delay={0.15} className={pStyle}>
-            Here you define your steps —<br/>
-            at your own pace, in your own way,<br className="hidden md:inline"/>
-            without direct personal contact.
+            {t('ns.com9')}<br/>
+            {t('ns.com10')}<br className="hidden md:inline"/>
+            {t('ns.com11')}
           </RevealParagraph>
         </EntryPointBlock>
 
@@ -332,37 +335,37 @@ const NarrativeScroll = () => {
 
         {/* ──────────────────── 3. Guidance Path ──────────────────── */}
         <EntryPointBlock
-          overline="Entry Point"
-          heading="Guidance Path"
+          overline={t('ns.entryLabel')}
+          heading={t('ns.gpTitle')}
           icon={GuidancePathIcon}
           className="md:-translate-x-6"
           sessionTiers={[
-            { title: "Foundation", duration: "3 Sessions" },
-            { title: "Stabilization", duration: "5 Sessions" },
-            { title: "Deep Work", duration: "8 Sessions" }
+            { title: t('ns.gpt1'), duration: t('ns.gpd1') },
+            { title: t('ns.gpt2'), duration: t('ns.gpd2') },
+            { title: t('ns.gpt3'), duration: t('ns.gpd3') }
           ]}
         >
           <RevealParagraph className={pStyleEmphasis}>
-            Here you are. You say yes. You respond. An impulse is placed. Inside you, something begins to open. Movement. Release. Reorganization. In your own rhythm.
+            {t('ns.gp1')}
           </RevealParagraph>
           <RevealParagraph delay={0.1} className={pStyle}>
-            The most direct form of the work.
+            {t('ns.gp2')}
           </RevealParagraph>
           <RevealParagraph delay={0.15} className={pStyle}>
-            It begins directly at the central inner level<br className="hidden md:inline"/>
-            where everything within the person connects.
+            {t('ns.gp3')}<br className="hidden md:inline"/>
+            {t('ns.gp4')}
           </RevealParagraph>
           <RevealParagraph delay={0.2} className={pStyle}>
-            From there, movement unfolds<br/>
-            across the whole being.
+            {t('ns.gp5')}<br/>
+            {t('ns.gp6')}
           </RevealParagraph>
           <RevealParagraph delay={0.25} className={pStyle}>
-            What has been held begins to release.<br/>
-            What was not accessible becomes available again.
+            {t('ns.gp7')}<br/>
+            {t('ns.gp8')}
           </RevealParagraph>
           <RevealParagraph delay={0.3} className={pStyleEmphasis}>
-            This is not a step-by-step process.<br/>
-            It unfolds as a whole. In your own rhythm.
+            {t('ns.gp9')}<br/>
+            {t('ns.gp10')}
           </RevealParagraph>
         </EntryPointBlock>
 

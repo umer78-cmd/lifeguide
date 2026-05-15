@@ -1,9 +1,11 @@
 import React from 'react';
 import BrushHighlight from './BrushHighlight';
-
-const marqueeWords = ['The Core', 'Systemic Change', 'Life Potential', 'Inner Architecture', 'Deep Order', 'Clarity'];
+import { useLanguage } from '../context/LanguageContext';
 
 const QuoteBanner = () => {
+  const { t } = useLanguage();
+  const marqueeWords = t('quote.marquee') || ['The Core', 'Systemic Change', 'Life Potential', 'Inner Architecture', 'Deep Order', 'Clarity'];
+
   return (
     <section id="philosophy" className="py-28 md:py-36 bg-stone-100 px-6 relative z-10 flex flex-col items-center justify-center text-center overflow-hidden shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.05)]">
       
@@ -33,15 +35,15 @@ const QuoteBanner = () => {
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Kicker */}
         <p className="text-amber-700/80 text-base uppercase tracking-[0.15em] font-semibold mb-8">
-          The Threshold
+          {t('quote.kicker')}
         </p>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-[1.3] md:leading-snug tracking-normal text-balance px-2 mb-10 md:mb-14">
-          Everything else has reached its <BrushHighlight className="italic text-amber-700 font-medium">limit.</BrushHighlight>
+          {t('quote.title1')}<BrushHighlight className="italic text-amber-700 font-medium">{t('quote.titleHighlight')}</BrushHighlight>
         </h2>
         
         <p className="text-stone-700 font-medium leading-snug max-w-2xl mx-auto text-xl md:text-xl tracking-normal px-4">
-          Real change cannot be found in outside solutions or constant adaptation. It begins at the core—the systemic center of who you are.
+          {t('quote.p1')}
         </p>
 
         <div className="mt-14 w-24 h-[1px] bg-amber-600/20 mx-auto"></div>
