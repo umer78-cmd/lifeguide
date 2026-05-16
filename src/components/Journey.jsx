@@ -10,20 +10,10 @@ import { useLanguage } from '../context/LanguageContext';
 const ClosingInvitation = () => {
   const { t } = useLanguage();
   return (
-    <section id="closing" className="py-32 md:py-40 bg-brand-cream px-6 relative z-10 overflow-hidden">
+    <section id="closing" className="pt-16 md:pt-20 pb-32 md:pb-40 bg-brand-cream px-6 relative z-10 overflow-hidden">
       <div className="max-w-2xl mx-auto relative z-10 text-center">
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-        >
-          <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-normal text-stone-800 leading-relaxed max-w-xl mx-auto">
-            {t('journey.closing1')}<br className="hidden sm:inline"/>
-            <span className="italic text-brand-gold">{t('journey.closing2')}</span>
-          </p>
-        </motion.div>
+        {/* The sentence was removed as per request */}
 
         {/* Prominent Divider */}
         <motion.div
@@ -31,7 +21,7 @@ const ClosingInvitation = () => {
           whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="flex items-center justify-center gap-6 my-16 md:my-20"
+          className="flex items-center justify-center gap-6 mt-8 mb-16 md:mt-12 md:mb-20"
           style={{ transform: 'rotate(0.3deg)' }}
         >
           <div className="w-16 md:w-24 h-[1.5px] bg-gradient-to-r from-transparent to-brand-gold/80"></div>

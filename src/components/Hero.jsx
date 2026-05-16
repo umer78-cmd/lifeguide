@@ -60,7 +60,7 @@ const Hero = ({ isAppLoaded }) => {
           className={`mb-10 transition-all duration-1000 ${isReady ? 'animate-fade-in-up' : 'opacity-0'}`} 
           style={{ animationDelay: '200ms' }}
         >
-          <p className="text-stone-500 text-xs md:text-sm uppercase tracking-[0.3em] font-semibold">
+          <p className="text-stone-800 text-sm md:text-base uppercase tracking-[0.4em] font-bold">
             {t('hero.subtitle')}
           </p>
         </div>
@@ -120,7 +120,7 @@ const Hero = ({ isAppLoaded }) => {
         <div className="max-w-5xl mx-auto px-6 mb-16 md:mb-20">
           <h1 
             ref={headingRef} 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-stone-800 leading-[1.25] md:leading-[1.2] tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-serif font-normal text-stone-800 leading-[1.25] md:leading-[1.2] tracking-tight"
           >
             {t('hero.title').split(' ').map((word, i) => (
               <span
@@ -129,7 +129,7 @@ const Hero = ({ isAppLoaded }) => {
                 style={{ animationDelay: `${800 + i * 90}ms` }}
               >
                 {['reorganize', 'neu', 'zu', 'ordnen', 'neu', 'ordnen.'].some(w => word.includes(w)) ? (
-                  <span className="italic text-brand-gold text-[1.35em] relative top-[0.05em] inline-block">{word}</span>
+                  <span className="italic text-brand-gold text-[1.2em] relative top-[0.02em] inline-block">{word}</span>
                 ) : (
                   word
                 )}

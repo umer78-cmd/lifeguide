@@ -17,7 +17,7 @@ const DustMotes = () => {
     const ctx = canvas.getContext('2d', { alpha: true });
     let animationFrameId;
     let particles = [];
-    const particleCount = 60; // Optimized for performance
+    const particleCount = 35; // Reduced for a more subtle effect
     const repelRadius = 200;
     const returnForce = 0.015;
 
@@ -38,8 +38,8 @@ const DustMotes = () => {
       }
 
       reset() {
-        this.size = Math.random() * 2 + 1; // 1px to 3px
-        this.opacity = Math.random() * 0.3 + 0.2; // 0.2 to 0.5
+        this.size = Math.random() * 4 + 2; // 2px to 6px
+        this.opacity = Math.random() * 0.4 + 0.3; // 0.3 to 0.7
         
         // Brownian motion velocities
         this.vx = (Math.random() - 0.5) * 0.15;
@@ -85,8 +85,9 @@ const DustMotes = () => {
       }
 
       draw() {
-        // Optimized draw: No gradients, no shadows, no save/restore
-        ctx.fillStyle = `rgba(180, 83, 9, ${this.opacity})`;
+        // Optimized draw: Use a mix of amber and slight variations for 'more color'
+        const hue = Math.random() > 0.8 ? 38 : 32; // Slightly warmer gold/amber
+        ctx.fillStyle = `hsla(${hue}, 100%, 45%, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();

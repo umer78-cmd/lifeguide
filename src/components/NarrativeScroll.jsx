@@ -77,7 +77,7 @@ const EntryPointBlock = ({ overline, heading, icon: Icon, children, link, linkTe
         }
       }
     }}
-    className={`max-w-2xl mx-auto px-6 text-center py-24 md:py-32 ${className}`}
+    className={`max-w-2xl mx-auto px-6 text-center pt-24 md:pt-32 pb-16 md:pb-20 ${className}`}
   >
     {/* Overline — Increased font size and ocher-colored presence for "Entry point" */}
     <motion.p
@@ -356,17 +356,31 @@ const NarrativeScroll = () => {
             {t('ns.gp4')}
           </RevealParagraph>
           <RevealParagraph delay={0.2} className={pStyle}>
-            {t('ns.gp5')}<br/>
+            {t('ns.gp5')}
+          </RevealParagraph>
+          <RevealParagraph delay={0.25} className={pStyleEmphasis}>
             {t('ns.gp6')}
           </RevealParagraph>
-          <RevealParagraph delay={0.25} className={pStyle}>
+          <RevealParagraph delay={0.3} className={pStyle}>
             {t('ns.gp7')}<br/>
             {t('ns.gp8')}
           </RevealParagraph>
-          <RevealParagraph delay={0.3} className={pStyleEmphasis}>
-            {t('ns.gp9')}<br/>
-            {t('ns.gp10')}
-          </RevealParagraph>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { duration: 1, delay: 0.4 } }
+            }}
+            className="mt-12"
+          >
+            <Link 
+              to="/connection" 
+              className="text-brand-gold text-lg font-sans tracking-wide hover:text-amber-800 transition-colors duration-500 inline-flex items-center gap-2 font-semibold"
+            >
+              {t('ns.gp9')}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </Link>
+          </motion.div>
         </EntryPointBlock>
 
       </div>
