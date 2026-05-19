@@ -121,6 +121,8 @@ const translations = {
     'ns.forms1': 'This understanding becomes available through three forms of work.',
     'ns.forms2': 'They differ only in where the entry begins.',
     'ns.entryLabel': 'Entry Point',
+    'ns.threadBridge1': 'From this inner foundation, a shared space opens.',
+    'ns.threadBridge2': 'And from this shared space, a clear path forward reveals itself.',
     
     'ns.lgTitle': 'LifeGuide-KaTao',
     'ns.lgLink': 'Explore the foundational work',
@@ -427,6 +429,8 @@ const translations = {
     'ns.forms1': 'Dieses Verständnis wird durch drei Arbeitsformen zugänglich.',
     'ns.forms2': 'Sie unterscheiden sich nur darin, wo der Einstieg beginnt.',
     'ns.entryLabel': 'Einstiegspunkt',
+    'ns.threadBridge1': 'Aus diesem inneren Fundament öffnet sich ein gemeinsamer Raum.',
+    'ns.threadBridge2': 'Und aus diesem gemeinsamen Raum zeigt sich ein klarer Weg.',
     
     'ns.lgTitle': 'LifeGuide-KaTao',
     'ns.lgLink': 'Entdecken Sie die Grundlagenarbeit',

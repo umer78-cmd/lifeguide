@@ -120,9 +120,21 @@ const InnerActivation = () => {
                   }}
                   className="absolute w-full flex items-center justify-center"
                 >
-                  <p className="text-stone-800 text-3xl md:text-5xl font-serif font-normal leading-relaxed tracking-wide select-none max-w-3xl">
-                    {phrase}
-                  </p>
+                  <div className="flex flex-col items-center">
+                    <p className="text-stone-800 text-3xl md:text-5xl font-serif font-normal leading-relaxed tracking-wide select-none max-w-3xl">
+                      {phrase}
+                    </p>
+                    {i === 7 && (
+                      <div 
+                        style={{
+                          height: opacity > 0.8 ? '160px' : '0px',
+                          opacity: opacity,
+                          transition: 'height 1000ms ease-out, opacity 500ms ease-out',
+                        }}
+                        className="w-px bg-gradient-to-b from-brand-gold/40 to-brand-gold/15 mt-12"
+                      />
+                    )}
+                  </div>
                 </div>
               );
             })
@@ -148,7 +160,7 @@ const InnerActivation = () => {
                   return (
                     <div 
                       key={i} 
-                      className="h-[140px] flex items-center justify-center transition-all duration-500 px-6 text-center"
+                      className="h-[140px] flex flex-col items-center justify-center transition-all duration-500 px-6 text-center"
                       style={{ opacity, transform: `scale(${scale})` }}
                     >
                       <p 
@@ -157,6 +169,9 @@ const InnerActivation = () => {
                       >
                         {phrase}
                       </p>
+                      {i === 7 && isActive && (
+                        <div className="w-px h-12 bg-gradient-to-b from-brand-gold/40 to-transparent mt-4" />
+                      )}
                     </div>
                   );
                 })}

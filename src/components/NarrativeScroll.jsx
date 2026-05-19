@@ -60,7 +60,7 @@ const NarrativeBlock = ({ title, children }) => (
  * ── Entry Point Block ──
  * Each of the three forms of work gets an EQUAL section.
  */
-const EntryPointBlock = ({ overline, heading, icon: Icon, children, link, linkText, sessionTiers, className = "" }) => (
+const EntryPointBlock = ({ overline, heading, styledHeading, icon: Icon, children, link, linkText, sessionTiers, className = "" }) => (
   <motion.div
     initial="hidden"
     whileInView="visible"
@@ -111,7 +111,7 @@ const EntryPointBlock = ({ overline, heading, icon: Icon, children, link, linkTe
       }}
       className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-stone-800 leading-[1.2] tracking-tight mb-16 md:mb-20"
     >
-      {heading}
+      {styledHeading || heading}
     </motion.h2>
 
     {/* Body paragraphs */}
@@ -171,69 +171,91 @@ const NarrativeScroll = () => {
   
   return (
     <section className="bg-brand-cream relative z-10">
+      {/* ── Continuous Golden Thread starting from the very top of NarrativeScroll section to connect with InnerActivation ── */}
+      <div
+        className="absolute left-1/2 top-[-80px] md:top-[-160px] h-[76rem] md:h-[90rem] w-px -translate-x-1/2 pointer-events-none z-0"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(180,83,9,0.25) 0%, rgba(180,83,9,0.16) 45%, rgba(180,83,9,0.12) 90%, transparent 100%)',
+        }}
+      />
       <div className="pt-4 pb-16 md:py-24">
 
-        {/* ──────────────────── THE BRIDGE ──────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-15%" }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-          className="max-w-3xl mx-auto text-center px-6 pb-12 md:pb-16"
-        >
-          <p className="text-stone-800 text-xl sm:text-2xl md:text-3xl font-serif font-normal leading-[1.8] md:leading-[1.9] tracking-normal max-w-2xl mx-auto">
-            {t('ns.bridge1')}<br/>
-            {t('ns.bridge2')}<br className="hidden md:inline" />
-            {t('ns.bridge3')}<br/>
-            {t('ns.bridge4')} <br className="hidden md:inline" />
-            {t('ns.bridge5')} <span className="italic text-brand-gold">{t('ns.bridge6')}</span>.
-          </p>
-        </motion.div>
+        {/* ──────────────────── GOLDEN THREAD: Bridge → System ──────────────────── */}
+        <div className="relative">
 
-        <OrganicDivider variant={0} />
-
-        {/* ──────────────────── THE SYSTEM ──────────────────── */}
-        <NarrativeBlock title={t('ns.systemTitle')}>
-          <RevealParagraph className={pStyleEmphasis}>
-            {t('ns.sys1')}
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
-            {t('ns.sys2')}<br/>
-            {t('ns.sys3')}<br className="hidden md:inline"/>
-            {t('ns.sys4')}
-          </RevealParagraph>
-          <RevealParagraph delay={0.15} className={pStyle}>
-            {t('ns.sys5')}<br/>
-            {t('ns.sys6')}<br/>
-            {t('ns.sys7')}
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
-            {t('ns.sys8')}<br/>
-            {t('ns.sys9')}
-          </RevealParagraph>
-          <RevealParagraph delay={0.1} className={pStyle}>
-            {t('ns.sys10')}<br/>
-            {t('ns.sys11')}<br/>
-            {t('ns.sys12')}
-          </RevealParagraph>
-          <RevealParagraph delay={0.15} className={pStyleEmphasis}>
-            {t('ns.sys13')}<br/>
-            {t('ns.sys14')}
-          </RevealParagraph>
+          {/* ── THE BRIDGE ── */}
           <motion.div
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 1 } }
-            }}
-            className="mt-12"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-15%" }}
+            transition={{ duration: 1.4, ease: "easeOut" }}
+            className="relative z-10 max-w-3xl mx-auto text-center px-6 pb-12 md:pb-16"
           >
-            {/* Increased font size, weight, and ocher-colored visibility of link */}
-            <Link to="/journey" className="text-brand-gold text-lg font-sans tracking-wide hover:text-amber-800 transition-colors duration-500 inline-flex items-center gap-2 font-semibold">
-              {t('ns.sysLink')}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </Link>
+            <p className="text-stone-800 text-xl sm:text-2xl md:text-3xl font-serif font-normal leading-[1.8] md:leading-[1.9] tracking-normal max-w-2xl mx-auto">
+              {t('ns.bridge1')}<br/>
+              {t('ns.bridge2')}<br className="hidden md:inline" />
+              {t('ns.bridge3')}<br/>
+              {t('ns.bridge4')} <br className="hidden md:inline" />
+              {t('ns.bridge5')} <span className="italic text-brand-gold">{t('ns.bridge6')}</span>.
+            </p>
           </motion.div>
-        </NarrativeBlock>
+
+          {/* ── Thread waypoint ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, margin: "-10%" }}
+            transition={{ duration: 0.8 }}
+            className="relative z-10 flex justify-center py-8 md:py-12"
+          >
+            <div className="w-2.5 h-2.5 rounded-full bg-brand-gold/50 shadow-[0_0_8px_rgba(180,83,9,0.4)] animate-pulse" />
+          </motion.div>
+
+          {/* ── THE SYSTEM ── */}
+          <div className="relative z-10">
+            <NarrativeBlock title={t('ns.systemTitle')}>
+              <RevealParagraph className={pStyleEmphasis}>
+                {t('ns.sys1')}
+              </RevealParagraph>
+              <RevealParagraph delay={0.1} className={pStyle}>
+                {t('ns.sys2')}<br/>
+                {t('ns.sys3')}<br className="hidden md:inline"/>
+                {t('ns.sys4')}
+              </RevealParagraph>
+              <RevealParagraph delay={0.15} className={pStyle}>
+                {t('ns.sys5')}<br/>
+                {t('ns.sys6')}<br/>
+                {t('ns.sys7')}
+              </RevealParagraph>
+              <RevealParagraph delay={0.1} className={pStyle}>
+                {t('ns.sys8')}<br/>
+                {t('ns.sys9')}
+              </RevealParagraph>
+              <RevealParagraph delay={0.1} className={pStyle}>
+                {t('ns.sys10')}<br/>
+                {t('ns.sys11')}<br/>
+                {t('ns.sys12')}
+              </RevealParagraph>
+              <RevealParagraph delay={0.15} className={pStyleEmphasis}>
+                {t('ns.sys13')}<br/>
+                {t('ns.sys14')}
+              </RevealParagraph>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { duration: 1 } }
+                }}
+                className="mt-12"
+              >
+                {/* Increased font size, weight, and ocher-colored visibility of link */}
+                <Link to="/journey" className="text-brand-gold text-lg font-sans tracking-wide hover:text-amber-800 transition-colors duration-500 inline-flex items-center gap-2 font-semibold">
+                  {t('ns.sysLink')}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </Link>
+              </motion.div>
+            </NarrativeBlock>
+          </div>
+        </div>
 
         <OrganicDivider variant={1} />
 
@@ -263,6 +285,7 @@ const NarrativeScroll = () => {
         <EntryPointBlock
           overline={t('ns.entryLabel')}
           heading={t('ns.lgTitle')}
+          styledHeading={<>LifeGuide-<span className="text-brand-gold font-serif italic">KaTao</span></>}
           icon={LifeGuideIcon}
           link="/journey"
           linkText={t('ns.lgLink')}
@@ -303,6 +326,7 @@ const NarrativeScroll = () => {
         <EntryPointBlock
           overline={t('ns.entryLabel')}
           heading={t('ns.comTitle')}
+          styledHeading={<>comm<span className="text-brand-gold font-semibold">i</span><span className="text-stone-900 font-bold">N</span></>}
           icon={CommInIcon}
           link="/communion"
           linkText={t('ns.comLink')}
@@ -337,6 +361,7 @@ const NarrativeScroll = () => {
         <EntryPointBlock
           overline={t('ns.entryLabel')}
           heading={t('ns.gpTitle')}
+          styledHeading={<>Guidance<span className="text-brand-gold font-serif italic">Path</span></>}
           icon={GuidancePathIcon}
           className="md:-translate-x-6"
           sessionTiers={[

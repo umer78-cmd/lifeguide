@@ -53,18 +53,6 @@ const WelcomeScreen = ({ isActive, onComplete }) => {
               alt="commIN"
               className="w-[350px] sm:w-[500px] md:w-[650px] lg:w-[800px] h-auto object-contain select-none"
             />
-            
-            {/* Added Author attribution */}
-            <p 
-              className="mt-8 text-stone-500 font-serif italic text-xl md:text-3xl tracking-[0.15em] transition-all duration-[2500ms] delay-700"
-              style={{
-                transitionTimingFunction: smoothEase,
-                opacity: phase === 1 ? 1 : 0,
-                transform: phase === 1 ? 'translateY(0)' : 'translateY(10px)',
-              }}
-            >
-              by Katharina von Bilderling
-            </p>
 
             {/* Subtle gold dot beneath */}
             <div
