@@ -189,7 +189,7 @@ const NarrativeScroll = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-15%" }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            className="relative z-10 max-w-3xl mx-auto text-center px-6 pb-12 md:pb-16"
+            className="relative z-10 max-w-3xl mx-auto text-center px-6 pb-0"
           >
             <p className="text-stone-800 text-xl sm:text-2xl md:text-3xl font-serif font-normal leading-[1.8] md:leading-[1.9] tracking-normal max-w-2xl mx-auto">
               {t('ns.bridge1')}<br/>
@@ -197,6 +197,9 @@ const NarrativeScroll = () => {
               {t('ns.bridge3')}<br/>
               {t('ns.bridge4')} <br className="hidden md:inline" />
               {t('ns.bridge5')} <span className="italic text-brand-gold">{t('ns.bridge6')}</span>.
+            </p>
+            <p className="text-stone-800 text-xl sm:text-2xl md:text-3xl font-serif font-normal leading-[1.8] md:leading-[1.9] tracking-normal max-w-2xl mx-auto mt-12 md:mt-16 py-4 md:py-6">
+              {t('ns.bridge7')}
             </p>
           </motion.div>
 
